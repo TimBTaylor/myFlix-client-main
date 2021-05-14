@@ -1,0 +1,39 @@
+.username {
+  display: block;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.password {
+  display: block;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.email {
+  display: block;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.birthday {
+  display: block;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.register-button {
+  margin-right: 5px;
+}
+
+.existing-button {
+  margin-left: 5px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+input {
+  margin-left: 10px;
+}

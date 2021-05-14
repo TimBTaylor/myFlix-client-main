@@ -1,0 +1,3 @@
+.movie-card-image:hover, .movie-card:hover {
+  cursor: pointer;
+}

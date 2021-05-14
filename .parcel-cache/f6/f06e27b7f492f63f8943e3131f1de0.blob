@@ -1,0 +1,24 @@
+.username {
+  display: block;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.password {
+  display: block;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.button-container {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+input {
+  margin-left: 10px;
+}

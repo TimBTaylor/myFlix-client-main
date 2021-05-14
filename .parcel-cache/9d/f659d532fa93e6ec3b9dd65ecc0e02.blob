@@ -1,0 +1,64 @@
+.username {
+  display: block;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.password {
+  display: block;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.button-container {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+input {
+  margin-left: 10px;
+}
+.username {
+  display: block;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.password {
+  display: block;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.email {
+  display: block;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.birthday {
+  display: block;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.register-button, existing-button {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+input {
+  margin-left: 10px;
+}
+.myflix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.HASH_REF_483382a0c90396020ca7c1c4778c89a2.css.map */

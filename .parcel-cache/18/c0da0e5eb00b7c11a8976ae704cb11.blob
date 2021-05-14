@@ -1,0 +1,4 @@
+.movie-poster {
+  display: block;
+  margin: auto;
+}

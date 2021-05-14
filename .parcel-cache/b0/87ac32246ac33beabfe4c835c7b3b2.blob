@@ -1,0 +1,8 @@
+label {
+  display: block;
+  text-align: center;
+}
+.myflix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.HASH_REF_483382a0c90396020ca7c1c4778c89a2.css.map */

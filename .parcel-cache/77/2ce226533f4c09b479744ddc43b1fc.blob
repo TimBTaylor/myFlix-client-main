@@ -1,0 +1,10 @@
+.movie-poster {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+}
+
+.movie-title {
+  font-size: 35px;
+}

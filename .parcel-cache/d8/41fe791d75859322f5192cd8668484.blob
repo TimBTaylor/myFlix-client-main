@@ -1,0 +1,15 @@
+.movie-card-image:hover, .movie-card:hover {
+  cursor: pointer;
+}
+
+.movie-card-image, .movie-card {
+  display: inline-block;
+}
+
+.movie-card-image {
+  padding-left: 25px;
+}
+
+.movie-card {
+  padding-left: 25px;
+}

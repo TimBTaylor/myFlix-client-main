@@ -1,69 +1,43 @@
+
+.movie-card {
+  background-color: #CECECE !important;
+  margin-top: 25px;
+}
+.movie-poster {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+}
+
+.movie-title {
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.movie-description, .movie-genre, .movie-director {
+  padding-top: 20px;
+}
+
+.back-button {
+  margin-top: 20px;
+}
 .username {
-  display: block;
-  text-align: center;
   padding-top: 100px;
-}
-
-.password {
-  display: block;
-  text-align: center;
-  padding-top: 25px;
-}
-
-.button-container {
-  text-align: center;
-  padding-top: 25px;
-}
-
-.button:hover {
-  cursor: pointer;
-}
-
-input {
-  margin-left: 10px;
-}
-.username {
-  display: block;
-  text-align: center;
-  padding-top: 100px;
-}
-
-.password {
-  display: block;
-  text-align: center;
-  padding-top: 25px;
-}
-
-.email {
-  display: block;
-  text-align: center;
-  padding-top: 25px;
-}
-
-.birthday {
-  display: block;
-  text-align: center;
-  padding-top: 25px;
 }
 
 .register-button {
-  margin-right: 5px;
+  margin-top: 15px;
 }
 
 .existing-button {
   margin-left: 5px;
-}
-
-.register-button:hover, .existing-button:hover {
-  cursor: pointer;
-}
-
-.button-container {
-  text-align: center;
-}
-
-input {
-  margin-left: 10px;
+  margin-top: 15px;
 }
 .myflix {
   color: steelblue;

@@ -1,0 +1,45 @@
+
+.movie-card {
+  background-color: #CECECE !important;
+  margin-top: 25px;
+}
+.movie-poster {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+}
+
+.movie-title {
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.movie-description, .movie-genre, .movie-director {
+  padding-top: 20px;
+}
+
+.back-button {
+  margin-top: 20px;
+}
+.username {
+  padding-top: 100px;
+}
+
+.register-button {
+  margin-top: 15px;
+}
+
+.existing-button {
+  margin-left: 5px;
+  margin-top: 15px;
+}
+.myflix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.HASH_REF_483382a0c90396020ca7c1c4778c89a2.css.map */

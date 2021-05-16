@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 export function RegistrationView(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -106,6 +106,9 @@ export function RegistrationView(props) {
             </Form.Group>
 
             <Button variant="primary" type="submit" onClick={handleRegister}>Register</Button>
+            <Link to={"/"}>
+                <Button varaint="primary" type="submit">Existing User</Button>
+            </Link>
         </Form>
     );
 }

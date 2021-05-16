@@ -10,10 +10,44 @@ export class MovieView extends React.Component {
 	constructor() {
 		super();
 
-		this.state = {};
+		this.state = {
+			favoriteMovies: [],
+			inFavorites: true
+		};
+	}
+
+	componentDidMount() {
+		this.getMovies();
+	}
+
+	getMovies() {
+		this.setState({
+			favoriteMovies: localStorage.getItem("favoriteMovies")
+		})
+	}
+
+
+	removeFavorite(movie) {
+		this.setState({ inFavorites: !this.state.inFavorites });
+		let token = localStorage.getItem("token");
+		let url =
+			"https://timsmyflix.herokuapp.com/users/" +
+			localStorage.getItem("user") + "/movies/" +
+			movie._id;
+		axios
+			.delete(url, {
+				headers: { Authorization: `Bearer ${token}` },
+			})
+			.then((response) => {
+				console.log(response);
+				let favMovies = response.data.FavoriteMovies;
+				localStorage.setItem('favoriteMovies', favMovies);
+				this.componentDidMount();
+			});
 	}
 
 	addFavorite(movie) {
+		this.setState({ inFavorites: !this.state.inFavorites });
 		let token = localStorage.getItem("token");
 		let url =
 			"https://timsmyflix.herokuapp.com/users/" +
@@ -29,14 +63,13 @@ export class MovieView extends React.Component {
 			})
 			.then((response) => {
 				console.log(response);
-				// window.open("/", "_self");
-				window.open("/users/" + localStorage.getItem("user"), "_self");
 				alert("Added to favorites!");
 			});
 	}
 
 	render() {
 		const { movie, onBackClick } = this.props;
+		const buttonVisible = this.state.inFavorites ? (<Button variant="primary" size="sm" onClick={() => { this.addFavorite(movie) }}>Add to Favorites</Button>) : (<Button variant="primary" size="sm" onClick={() => { this.removeFavorite(movie) }}>Remove from Favorites</Button>)
 		return (
 			<div className="movie-view">
 				<div className="movie-image">
@@ -62,7 +95,7 @@ export class MovieView extends React.Component {
 						<Button variant="link">{movie.Genre.Name}</Button>
 					</Link>
 				</div>
-				<Button variant="primary" size="sm" onClick={() => this.addFavorite(movie)}>Add to Favorites</Button>
+				{buttonVisible}
 				<Button variant="secondary" onClick={() => { onBackClick() }}>Back</Button>
 			</div>
 		);

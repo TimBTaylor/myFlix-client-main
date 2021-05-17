@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import "./movie-view.scss";
+import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 
 export class MovieView extends React.Component {
 	constructor() {
@@ -12,17 +13,28 @@ export class MovieView extends React.Component {
 
 		this.state = {
 			favoriteMovies: [],
-			inFavorites: true
+			inFavorites: null
 		};
+	}
+
+	isFavorite() {
+		const favMovies = JSON.parse(localStorage.getItem('favoriteMovies'));
+		const movieID = this.props.movie._id;
+		const inFavMovies = favMovies.includes(movieID);
+		if (inFavMovies) {
+			this.setState({ inFavorites: true })
+		}
+
 	}
 
 	componentDidMount() {
 		this.getMovies();
+		this.isFavorite();
 	}
 
 	getMovies() {
 		this.setState({
-			favoriteMovies: localStorage.getItem("favoriteMovies")
+			favoriteMovies: JSON.parse(localStorage.getItem("favoriteMovies"))
 		})
 	}
 
@@ -40,8 +52,7 @@ export class MovieView extends React.Component {
 			})
 			.then((response) => {
 				console.log(response);
-				let favMovies = response.data.FavoriteMovies;
-				localStorage.setItem('favoriteMovies', favMovies);
+				localStorage.setItem('favoriteMovies', JSON.stringify(response.data.FavoriteMovies));
 				this.componentDidMount();
 			});
 	}
@@ -64,12 +75,15 @@ export class MovieView extends React.Component {
 			.then((response) => {
 				console.log(response);
 				alert("Added to favorites!");
+				const favMovies = response.data.FavoriteMovies;
+				localStorage.setItem('favoriteMovies', JSON.stringify(favMovies));
+				console.log(favMovies);
 			});
 	}
 
 	render() {
 		const { movie, onBackClick } = this.props;
-		const buttonVisible = this.state.inFavorites ? (<Button variant="primary" size="sm" onClick={() => { this.addFavorite(movie) }}>Add to Favorites</Button>) : (<Button variant="primary" size="sm" onClick={() => { this.removeFavorite(movie) }}>Remove from Favorites</Button>)
+		const buttonVisible = this.state.inFavorites ? (<Button variant="primary" size="sm" onClick={() => { this.removeFavorite(movie) }}>Remove from Favorites</Button>) : (<Button variant="primary" size="sm" onClick={() => { this.addFavorite(movie) }}>Add to Favorites</Button>);
 		return (
 			<div className="movie-view">
 				<div className="movie-image">

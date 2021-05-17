@@ -50,8 +50,10 @@ class MainView extends React.Component {
 		localStorage.setItem('user', authData.user.Username);
 		localStorage.setItem('email', authData.user.Email);
 		localStorage.setItem('birthday', authData.user.Birthday);
-		localStorage.setItem('favoriteMovies', authData.user.FavoriteMovies)
+		localStorage.setItem('favoriteMovies', JSON.stringify(authData.user.FavoriteMovies))
 		this.getMovies(authData.token);
+		const favMoves = localStorage.getItem('FavoriteMovies');
+		console.log(favMovis)
 	}
 
 	getMovies(token) {

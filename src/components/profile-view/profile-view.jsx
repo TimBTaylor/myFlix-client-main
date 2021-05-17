@@ -28,7 +28,7 @@ export class ProfileView extends React.Component {
             username: localStorage.getItem("user"),
             email: localStorage.getItem("email"),
             birthday: localStorage.getItem('birthday'),
-            favoriteMovies: localStorage.getItem("favoriteMovies"),
+            favoriteMovies: JSON.parse(localStorage.getItem('favoriteMovies')),
         });
     }
 
@@ -45,7 +45,7 @@ export class ProfileView extends React.Component {
             .then((response) => {
                 console.log(response);
                 let favMovies = response.data.FavoriteMovies;
-                localStorage.setItem('favoriteMovies', favMovies);
+                localStorage.setItem('favoriteMovies', JSON.stringify(favMovies));
                 this.componentDidMount();
             });
     }

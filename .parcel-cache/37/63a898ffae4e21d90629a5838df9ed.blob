@@ -1,0 +1,290 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  _parcelHelpers.export(exports, "ProfileUpdate", function () {
+    return ProfileUpdate;
+  });
+  var _react = require("react");
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _reactBootstrapForm = require("react-bootstrap/Form");
+  var _reactBootstrapFormDefault = _parcelHelpers.interopDefault(_reactBootstrapForm);
+  var _reactBootstrapButton = require("react-bootstrap/Button");
+  var _reactBootstrapButtonDefault = _parcelHelpers.interopDefault(_reactBootstrapButton);
+  var _reactRouterDom = require("react-router-dom");
+  var _axios = require("axios");
+  var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+  var _jsxFileName = "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx", _s = $RefreshSig$();
+  function ProfileUpdate(props) {
+    _s();
+    const [username, setUsername] = _react.useState("");
+    const [password, setPassword] = _react.useState("");
+    const [email, setEmail] = _react.useState("");
+    const [birthday, setBirthday] = _react.useState("");
+    const [usernameError, setUsernameError] = _react.useState({});
+    const [passwordError, setPasswordError] = _react.useState({});
+    const [emailError, setEmailError] = _react.useState({});
+    const onBackClick = props.onBackClick;
+    const handleUpdate = e => {
+      e.preventDefault();
+      const isValid = formValidation();
+      const url = "https://flixinfo.herokuapp.com/users/" + localStorage.getItem("user");
+      if (isValid) {
+        _axiosDefault.default.put(url, {
+          Username: username,
+          Password: password,
+          Email: email,
+          Birthday: birthday
+        }, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token")
+          }
+        }).then(response => {
+          const data = response.data;
+          localStorage.setItem("user", data.Username);
+          localStorage.setItem('email', data.Email);
+          localStorage.setItem('birthday', data.Birthday);
+          alert("Your profile was updated successfully");
+          window.open("/", "_self");
+        }).catch(e => {
+          console.log(e);
+        });
+      }
+    };
+    const formValidation = () => {
+      const usernameError = {};
+      const passwordError = {};
+      const emailError = {};
+      let isValid = true;
+      if (username.trim().length < 5) {
+        usernameError.usernameShort = "Username must be at least 5 characters";
+        isValid = false;
+      }
+      if (password.trim().length < 1) {
+        passwordError.passwordMissing = "You must enter a password";
+        isValid = false;
+      }
+      if (!email.includes(".") && !email.includes("@")) {
+        emailError.emailNotEmail = "A valid email address is required";
+        isValid = false;
+      }
+      setUsernameError(usernameError);
+      setPasswordError(passwordError);
+      setEmailError(emailError);
+      return isValid;
+    };
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("div", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 86,
+          columnNumber: 9
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 87,
+          columnNumber: 13
+        }
+      }, "Update your profile"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default, {
+        className: "registration-form",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 88,
+          columnNumber: 13
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
+        controlId: "formBasicUsername",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 89,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 90,
+          columnNumber: 21
+        }
+      }, "Username:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
+        type: "text",
+        value: username,
+        placeholder: "Enter username",
+        required: true,
+        onChange: e => setUsername(e.target.value),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 91,
+          columnNumber: 21
+        }
+      }), Object.keys(usernameError).map(key => {
+        return (
+          /*#__PURE__*/_reactDefault.default.createElement("div", {
+            key: key,
+            style: {
+              color: "red"
+            },
+            __self: this,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 100,
+              columnNumber: 29
+            }
+          }, usernameError[key])
+        );
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
+        controlId: "formBasicPassword",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 106,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 107,
+          columnNumber: 21
+        }
+      }, "Password:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
+        type: "password",
+        value: password,
+        placeholder: "Enter password",
+        required: true,
+        onChange: e => setPassword(e.target.value),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 108,
+          columnNumber: 21
+        }
+      }), Object.keys(passwordError).map(key => {
+        return (
+          /*#__PURE__*/_reactDefault.default.createElement("div", {
+            key: key,
+            style: {
+              color: "red"
+            },
+            __self: this,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 117,
+              columnNumber: 29
+            }
+          }, passwordError[key])
+        );
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 123,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 124,
+          columnNumber: 21
+        }
+      }, "Date of Birth:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
+        type: "text",
+        value: birthday,
+        onChange: e => setBirthday(e.target.value),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 125,
+          columnNumber: 21
+        }
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
+        controlId: "formBasicEmail",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 131,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 132,
+          columnNumber: 21
+        }
+      }, "Email:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
+        type: "email",
+        value: email,
+        placeholder: "name@example.com",
+        required: true,
+        onChange: e => setEmail(e.target.value),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 133,
+          columnNumber: 21
+        }
+      }), Object.keys(emailError).map(key => {
+        return (
+          /*#__PURE__*/_reactDefault.default.createElement("div", {
+            key: key,
+            style: {
+              color: "red"
+            },
+            __self: this,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 142,
+              columnNumber: 29
+            }
+          }, emailError[key])
+        );
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Link, {
+        to: `/users/`,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 148,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
+        variant: "primary",
+        type: "submit",
+        onClick: handleUpdate,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 149,
+          columnNumber: 21
+        }
+      }, "Update")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
+        variant: "secondary",
+        onClick: onBackClick,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 157,
+          columnNumber: 17
+        }
+      }, "Back")))
+    );
+  }
+  _s(ProfileUpdate, "jCPcO1VOFS64zxuNNZZTxAl1HvI=");
+  _c = ProfileUpdate;
+  var _c;
+  $RefreshReg$(_c, "ProfileUpdate");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -1,6 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 
+import { connect } from 'react-redux';
+import { setMovies } from '../../actions/actions';
+// has not been written yet
+import MoviesList from '../movies-list/movies-list';
+
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -10,7 +15,6 @@ import Button from 'react-bootstrap/Button';
 
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view'
-import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
@@ -25,7 +29,6 @@ class MainView extends React.Component {
 		super();
 
 		this.state = {
-			movies: [],
 			user: null
 		};
 	}
@@ -60,9 +63,7 @@ class MainView extends React.Component {
 		axios.get('https://timsmyflix.herokuapp.com/movies', {
 			headers: { Authorization: `Bearer ${token}` }
 		}).then(response => {
-			this.setState({
-				movies: response.data
-			});
+			this.props.setMovies(response.data);
 		}).catch(function (error) {
 			console.log(error);
 		});
@@ -78,7 +79,8 @@ class MainView extends React.Component {
 	}
 
 	render() {
-		const { movies, user } = this.state;
+		const { user } = this.state;
+		const { movies } = this.props;
 
 		return (
 			<div>
@@ -109,11 +111,7 @@ class MainView extends React.Component {
 
 							if (movies.length === 0) return <div className="main-view" />
 
-							return movies.map(m => (
-								<Col md={4} key={m._id} >
-									<MovieCard movie={m} />
-								</Col>
-							))
+							return <MoviesList movies={movies} />;
 						}} />
 
 						<Route path="/register" render={() => {
@@ -192,4 +190,8 @@ class MainView extends React.Component {
 	}
 }
 
-export default MainView;
+let mapStateToProps = state => {
+	return { movies: state.movies }
+}
+
+export default connect(mapStateToProps, { setMovies })(MainView);

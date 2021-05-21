@@ -1,0 +1,43 @@
+import   "8bce8b072139a4c26bb7942fd592ceba:@babel/runtime/helpers/esm/extends";
+import   "8bce8b072139a4c26bb7942fd592ceba:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "8bce8b072139a4c26bb7942fd592ceba:classnames";
+import   "8bce8b072139a4c26bb7942fd592ceba:react";
+import   "8bce8b072139a4c26bb7942fd592ceba:./FormCheck";
+import   "8bce8b072139a4c26bb7942fd592ceba:./FormFile";
+import   "8bce8b072139a4c26bb7942fd592ceba:./FormControl";
+import   "8bce8b072139a4c26bb7942fd592ceba:./FormGroup";
+import   "8bce8b072139a4c26bb7942fd592ceba:./FormLabel";
+import   "8bce8b072139a4c26bb7942fd592ceba:./FormText";
+import   "8bce8b072139a4c26bb7942fd592ceba:./Switch";
+import   "8bce8b072139a4c26bb7942fd592ceba:./ThemeProvider";
+import   "8bce8b072139a4c26bb7942fd592ceba:./createWithBsPrefix";
+var $8bce8b072139a4c26bb7942fd592ceba$var$FormRow = $8bce8b072139a4c26bb7942fd592ceba$import$8526d0cf5189adb2$9099ad97b570f7c('form-row');
+var $8bce8b072139a4c26bb7942fd592ceba$var$defaultProps = {
+    inline: false
+};
+var $8bce8b072139a4c26bb7942fd592ceba$var$FormImpl = /*#__PURE__*/ $8bce8b072139a4c26bb7942fd592ceba$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var bsPrefix = _ref.bsPrefix, inline = _ref.inline, className = _ref.className, validated = _ref.validated, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'form' : _ref$as, props = $8bce8b072139a4c26bb7942fd592ceba$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "bsPrefix",
+        "inline",
+        "className",
+        "validated",
+        "as"
+    ]);
+    bsPrefix = $8bce8b072139a4c26bb7942fd592ceba$import$1581226de02c9527$6efad33e744e1774(bsPrefix, 'form');
+    return(/*#__PURE__*/ $8bce8b072139a4c26bb7942fd592ceba$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, $8bce8b072139a4c26bb7942fd592ceba$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, props, {
+        ref: ref,
+        className: $8bce8b072139a4c26bb7942fd592ceba$import$c7a3314ec092e1bf$9099ad97b570f7c(className, validated && 'was-validated', inline && bsPrefix + "-inline")
+    })));
+});
+$8bce8b072139a4c26bb7942fd592ceba$var$FormImpl.displayName = 'Form';
+$8bce8b072139a4c26bb7942fd592ceba$var$FormImpl.defaultProps = $8bce8b072139a4c26bb7942fd592ceba$var$defaultProps;
+$8bce8b072139a4c26bb7942fd592ceba$var$FormImpl.Row = $8bce8b072139a4c26bb7942fd592ceba$var$FormRow;
+$8bce8b072139a4c26bb7942fd592ceba$var$FormImpl.Group = $8bce8b072139a4c26bb7942fd592ceba$import$fe9e3d26033ba83b$9099ad97b570f7c;
+$8bce8b072139a4c26bb7942fd592ceba$var$FormImpl.Control = $8bce8b072139a4c26bb7942fd592ceba$import$5f1be89ad64401b5$9099ad97b570f7c;
+$8bce8b072139a4c26bb7942fd592ceba$var$FormImpl.Check = $8bce8b072139a4c26bb7942fd592ceba$import$97dc9e9c45460986$9099ad97b570f7c;
+$8bce8b072139a4c26bb7942fd592ceba$var$FormImpl.File = $8bce8b072139a4c26bb7942fd592ceba$import$7f2d7136783010a8$9099ad97b570f7c;
+$8bce8b072139a4c26bb7942fd592ceba$var$FormImpl.Switch = $8bce8b072139a4c26bb7942fd592ceba$import$c12a9b1df967d5d3$9099ad97b570f7c;
+$8bce8b072139a4c26bb7942fd592ceba$var$FormImpl.Label = $8bce8b072139a4c26bb7942fd592ceba$import$fc077d453726bc6$9099ad97b570f7c;
+$8bce8b072139a4c26bb7942fd592ceba$var$FormImpl.Text = $8bce8b072139a4c26bb7942fd592ceba$import$13469d0ac8091e4a$9099ad97b570f7c;
+var $8bce8b072139a4c26bb7942fd592ceba$export$9099ad97b570f7c = $8bce8b072139a4c26bb7942fd592ceba$var$FormImpl;

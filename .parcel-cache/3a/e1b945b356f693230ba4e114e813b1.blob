@@ -1,0 +1,14 @@
+const $d20c896fb99d81daf80c96cf33d9c778$export$a85a62df51c1db11 = 'SET_MOVIES';
+const $d20c896fb99d81daf80c96cf33d9c778$export$685f663c2784bd13 = 'SET_FILTER';
+function $d20c896fb99d81daf80c96cf33d9c778$export$7dd36e4bea655c1f(value) {
+    return {
+        type: $d20c896fb99d81daf80c96cf33d9c778$export$a85a62df51c1db11,
+        value: value
+    };
+}
+function $d20c896fb99d81daf80c96cf33d9c778$export$4bfe476be65d76a7(value) {
+    return {
+        type: $d20c896fb99d81daf80c96cf33d9c778$export$685f663c2784bd13,
+        value: value
+    };
+}

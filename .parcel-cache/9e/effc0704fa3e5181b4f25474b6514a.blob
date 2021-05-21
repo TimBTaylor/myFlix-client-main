@@ -1,0 +1,23 @@
+function $23c7be5b6b918ff2c99438d2fef41112$var$valueOf(obj) {
+    return obj.valueOf ? obj.valueOf() : Object.prototype.valueOf.call(obj);
+}
+function $23c7be5b6b918ff2c99438d2fef41112$var$valueEqual(a, b) {
+    // Test for strict equality first.
+    if (a === b) return true;
+    // Otherwise, if either of them == null they are not equal.
+    if (a == null || b == null) return false;
+    if (Array.isArray(a)) return Array.isArray(b) && a.length === b.length && a.every(function(item, index) {
+        return $23c7be5b6b918ff2c99438d2fef41112$var$valueEqual(item, b[index]);
+    });
+    if (typeof a === 'object' || typeof b === 'object') {
+        var aValue = $23c7be5b6b918ff2c99438d2fef41112$var$valueOf(a);
+        var bValue = $23c7be5b6b918ff2c99438d2fef41112$var$valueOf(b);
+        if (aValue !== a || bValue !== b) return $23c7be5b6b918ff2c99438d2fef41112$var$valueEqual(aValue, bValue);
+        return Object.keys(Object.assign({
+        }, a, b)).every(function(key) {
+            return $23c7be5b6b918ff2c99438d2fef41112$var$valueEqual(a[key], b[key]);
+        });
+    }
+    return false;
+}
+var $23c7be5b6b918ff2c99438d2fef41112$export$9099ad97b570f7c = $23c7be5b6b918ff2c99438d2fef41112$var$valueEqual;

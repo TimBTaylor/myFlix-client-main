@@ -1,0 +1,10 @@
+'use strict';
+import   "d2e6af9a6345b7260ce62be22aa0c0fc:../utils";
+$d2e6af9a6345b7260ce62be22aa0c0fc$exports = function normalizeHeaderName(headers, normalizedName) {
+    $d2e6af9a6345b7260ce62be22aa0c0fc$import$ec64c07a6e244526$40f3d9558cf6e846(headers, function processHeader(value, name) {
+        if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+            headers[normalizedName] = value;
+            delete headers[name];
+        }
+    });
+};

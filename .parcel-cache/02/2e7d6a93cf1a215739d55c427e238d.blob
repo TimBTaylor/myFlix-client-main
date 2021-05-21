@@ -1,0 +1,14 @@
+'use strict';
+/**
+ * A `Cancel` is an object that is thrown when an operation is canceled.
+ *
+ * @class
+ * @param {string=} message The message.
+ */ function $dac60d7e0eb8706d689967d692c2fff6$var$Cancel(message) {
+    this.message = message;
+}
+$dac60d7e0eb8706d689967d692c2fff6$var$Cancel.prototype.toString = function toString() {
+    return 'Cancel' + (this.message ? ': ' + this.message : '');
+};
+$dac60d7e0eb8706d689967d692c2fff6$var$Cancel.prototype.__CANCEL__ = true;
+$dac60d7e0eb8706d689967d692c2fff6$exports = $dac60d7e0eb8706d689967d692c2fff6$var$Cancel;

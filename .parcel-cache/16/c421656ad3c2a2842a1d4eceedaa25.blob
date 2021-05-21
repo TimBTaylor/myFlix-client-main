@@ -1,0 +1,31 @@
+import   "411ad9310bab4bc5ea2a14f6390d364d:@babel/runtime/helpers/esm/extends";
+import   "411ad9310bab4bc5ea2a14f6390d364d:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "411ad9310bab4bc5ea2a14f6390d364d:classnames";
+import   "411ad9310bab4bc5ea2a14f6390d364d:react";
+import   "411ad9310bab4bc5ea2a14f6390d364d:./FormContext";
+import   "411ad9310bab4bc5ea2a14f6390d364d:./ThemeProvider";
+var $411ad9310bab4bc5ea2a14f6390d364d$var$FormCheckLabel = /*#__PURE__*/ $411ad9310bab4bc5ea2a14f6390d364d$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var bsPrefix = _ref.bsPrefix, bsCustomPrefix = _ref.bsCustomPrefix, className = _ref.className, htmlFor = _ref.htmlFor, props = $411ad9310bab4bc5ea2a14f6390d364d$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "bsPrefix",
+        "bsCustomPrefix",
+        "className",
+        "htmlFor"
+    ]);
+    var _useContext = $411ad9310bab4bc5ea2a14f6390d364d$import$f02ba03fc070e88c$d532f802c57568ca($411ad9310bab4bc5ea2a14f6390d364d$import$3c9bcaee959fbd2b$9099ad97b570f7c), controlId = _useContext.controlId, custom = _useContext.custom;
+    var _ref2 = custom ? [
+        bsCustomPrefix,
+        'custom-control-label'
+    ] : [
+        bsPrefix,
+        'form-check-label'
+    ], prefix = _ref2[0], defaultPrefix = _ref2[1];
+    bsPrefix = $411ad9310bab4bc5ea2a14f6390d364d$import$1581226de02c9527$6efad33e744e1774(prefix, defaultPrefix);
+    return(/*#__PURE__*/ $411ad9310bab4bc5ea2a14f6390d364d$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("label", $411ad9310bab4bc5ea2a14f6390d364d$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, props, {
+        ref: ref,
+        htmlFor: htmlFor || controlId,
+        className: $411ad9310bab4bc5ea2a14f6390d364d$import$c7a3314ec092e1bf$9099ad97b570f7c(className, bsPrefix)
+    })));
+});
+$411ad9310bab4bc5ea2a14f6390d364d$var$FormCheckLabel.displayName = 'FormCheckLabel';
+var $411ad9310bab4bc5ea2a14f6390d364d$export$9099ad97b570f7c = $411ad9310bab4bc5ea2a14f6390d364d$var$FormCheckLabel;

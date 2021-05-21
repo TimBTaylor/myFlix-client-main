@@ -1,0 +1,471 @@
+import   "adec0a2405d8065db4060dfa9cbcef86:@babel/runtime/helpers/esm/inheritsLoose";
+import   "adec0a2405d8065db4060dfa9cbcef86:react";
+import   "adec0a2405d8065db4060dfa9cbcef86:prop-types";
+import   "adec0a2405d8065db4060dfa9cbcef86:history";
+import   "adec0a2405d8065db4060dfa9cbcef86:tiny-warning";
+import   "adec0a2405d8065db4060dfa9cbcef86:mini-create-react-context";
+import   "adec0a2405d8065db4060dfa9cbcef86:tiny-invariant";
+import   "adec0a2405d8065db4060dfa9cbcef86:@babel/runtime/helpers/esm/extends";
+import   "adec0a2405d8065db4060dfa9cbcef86:path-to-regexp";
+import   "adec0a2405d8065db4060dfa9cbcef86:react-is";
+import   "adec0a2405d8065db4060dfa9cbcef86:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "adec0a2405d8065db4060dfa9cbcef86:hoist-non-react-statics";
+// TODO: Replace with React.createContext once we can assume React 16+
+var $adec0a2405d8065db4060dfa9cbcef86$var$createNamedContext = function createNamedContext(name) {
+    var context = $adec0a2405d8065db4060dfa9cbcef86$import$51e650d3b4f53a4b$9099ad97b570f7c();
+    context.displayName = name;
+    return context;
+};
+var $adec0a2405d8065db4060dfa9cbcef86$export$71d3c7554e2ab109 = /*#__PURE__*/ $adec0a2405d8065db4060dfa9cbcef86$var$createNamedContext("Router-History");
+// TODO: Replace with React.createContext once we can assume React 16+
+var $adec0a2405d8065db4060dfa9cbcef86$var$createNamedContext$1 = function createNamedContext1(name) {
+    var context = $adec0a2405d8065db4060dfa9cbcef86$import$51e650d3b4f53a4b$9099ad97b570f7c();
+    context.displayName = name;
+    return context;
+};
+var $adec0a2405d8065db4060dfa9cbcef86$export$4ecaa231abd67ccf = /*#__PURE__*/ $adec0a2405d8065db4060dfa9cbcef86$var$createNamedContext$1("Router");
+/**
+ * The public API for putting history on context.
+ */ var $adec0a2405d8065db4060dfa9cbcef86$export$1ea3463d2e476fc2 = /*#__PURE__*/ function(_React$Component) {
+    $adec0a2405d8065db4060dfa9cbcef86$import$8db3e3d0e0460463$9099ad97b570f7c(Router, _React$Component);
+    Router.computeRootMatch = function computeRootMatch(pathname) {
+        return {
+            path: "/",
+            url: "/",
+            params: {
+            },
+            isExact: pathname === "/"
+        };
+    };
+    function Router(props) {
+        var _this;
+        _this = _React$Component.call(this, props) || this;
+        _this.state = {
+            location: props.history.location
+        }; // This is a bit of a hack. We have to start listening for location
+        // changes here in the constructor in case there are any <Redirect>s
+        // on the initial render. If there are, they will replace/push when
+        // they mount and since cDM fires in children before parents, we may
+        // get a new location before the <Router> is mounted.
+        _this._isMounted = false;
+        _this._pendingLocation = null;
+        if (!props.staticContext) _this.unlisten = props.history.listen(function(location) {
+            if (_this._isMounted) _this.setState({
+                location: location
+            });
+            else _this._pendingLocation = location;
+        });
+        return _this;
+    }
+    var _proto = Router.prototype;
+    _proto.componentDidMount = function componentDidMount() {
+        this._isMounted = true;
+        if (this._pendingLocation) this.setState({
+            location: this._pendingLocation
+        });
+    };
+    _proto.componentWillUnmount = function componentWillUnmount() {
+        if (this.unlisten) this.unlisten();
+    };
+    _proto.render = function render() {
+        return $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($adec0a2405d8065db4060dfa9cbcef86$export$4ecaa231abd67ccf.Provider, {
+            value: {
+                history: this.props.history,
+                location: this.state.location,
+                match: Router.computeRootMatch(this.state.location.pathname),
+                staticContext: this.props.staticContext
+            }
+        }, $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($adec0a2405d8065db4060dfa9cbcef86$export$71d3c7554e2ab109.Provider, {
+            children: this.props.children || null,
+            value: this.props.history
+        }));
+    };
+    return Router;
+}($adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.Component);
+var prevProps;
+/**
+ * The public API for a <Router> that stores location in memory.
+ */ var $adec0a2405d8065db4060dfa9cbcef86$export$b129213d36e0932a = /*#__PURE__*/ function(_React$Component) {
+    $adec0a2405d8065db4060dfa9cbcef86$import$8db3e3d0e0460463$9099ad97b570f7c(MemoryRouter, _React$Component);
+    function MemoryRouter() {
+        var _this;
+        for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
+        _this = _React$Component.call.apply(_React$Component, [
+            this
+        ].concat(args)) || this;
+        _this.history = $adec0a2405d8065db4060dfa9cbcef86$import$3da9dca5a6cc8306$934e370bc6cf590e(_this.props);
+        return _this;
+    }
+    var _proto = MemoryRouter.prototype;
+    _proto.render = function render() {
+        return $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($adec0a2405d8065db4060dfa9cbcef86$export$1ea3463d2e476fc2, {
+            history: this.history,
+            children: this.props.children
+        });
+    };
+    return MemoryRouter;
+}($adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.Component);
+var $adec0a2405d8065db4060dfa9cbcef86$var$Lifecycle = /*#__PURE__*/ function(_React$Component) {
+    $adec0a2405d8065db4060dfa9cbcef86$import$8db3e3d0e0460463$9099ad97b570f7c(Lifecycle, _React$Component);
+    function Lifecycle() {
+        return _React$Component.apply(this, arguments) || this;
+    }
+    var _proto = Lifecycle.prototype;
+    _proto.componentDidMount = function componentDidMount() {
+        if (this.props.onMount) this.props.onMount.call(this, this);
+    };
+    _proto.componentDidUpdate = function componentDidUpdate(prevProps1) {
+        if (this.props.onUpdate) this.props.onUpdate.call(this, this, prevProps1);
+    };
+    _proto.componentWillUnmount = function componentWillUnmount() {
+        if (this.props.onUnmount) this.props.onUnmount.call(this, this);
+    };
+    _proto.render = function render() {
+        return null;
+    };
+    return Lifecycle;
+}($adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.Component);
+/**
+ * The public API for prompting the user before navigating away from a screen.
+ */ function $adec0a2405d8065db4060dfa9cbcef86$export$48d20fdaaea13f2a(_ref) {
+    var message = _ref.message, _ref$when = _ref.when, when = _ref$when === void 0 ? true : _ref$when;
+    return $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($adec0a2405d8065db4060dfa9cbcef86$export$4ecaa231abd67ccf.Consumer, null, function(context) {
+        !context && $adec0a2405d8065db4060dfa9cbcef86$import$3b59e0a764ef091c$9099ad97b570f7c(false);
+        if (!when || context.staticContext) return null;
+        var method = context.history.block;
+        return $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($adec0a2405d8065db4060dfa9cbcef86$var$Lifecycle, {
+            onMount: function onMount(self) {
+                self.release = method(message);
+            },
+            onUpdate: function onUpdate(self, prevProps1) {
+                if (prevProps1.message !== message) {
+                    self.release();
+                    self.release = method(message);
+                }
+            },
+            onUnmount: function onUnmount(self) {
+                self.release();
+            },
+            message: message
+        });
+    });
+}
+var $adec0a2405d8065db4060dfa9cbcef86$var$messageType;
+var $adec0a2405d8065db4060dfa9cbcef86$var$cache = {
+};
+var $adec0a2405d8065db4060dfa9cbcef86$var$cacheLimit = 10000;
+var $adec0a2405d8065db4060dfa9cbcef86$var$cacheCount = 0;
+function $adec0a2405d8065db4060dfa9cbcef86$var$compilePath(path) {
+    if ($adec0a2405d8065db4060dfa9cbcef86$var$cache[path]) return $adec0a2405d8065db4060dfa9cbcef86$var$cache[path];
+    var generator = $adec0a2405d8065db4060dfa9cbcef86$import$e5392fa5b9858241$9099ad97b570f7c.compile(path);
+    if ($adec0a2405d8065db4060dfa9cbcef86$var$cacheCount < $adec0a2405d8065db4060dfa9cbcef86$var$cacheLimit) {
+        $adec0a2405d8065db4060dfa9cbcef86$var$cache[path] = generator;
+        $adec0a2405d8065db4060dfa9cbcef86$var$cacheCount++;
+    }
+    return generator;
+}
+/**
+ * Public API for generating a URL pathname from a path and parameters.
+ */ function $adec0a2405d8065db4060dfa9cbcef86$export$d1ba0c5c7140e917(path, params) {
+    if (path === void 0) path = "/";
+    if (params === void 0) params = {
+    };
+    return path === "/" ? path : $adec0a2405d8065db4060dfa9cbcef86$var$compilePath(path)(params, {
+        pretty: true
+    });
+}
+/**
+ * The public API for navigating programmatically with a component.
+ */ function $adec0a2405d8065db4060dfa9cbcef86$export$6b432523964017e(_ref) {
+    var computedMatch = _ref.computedMatch, to = _ref.to, _ref$push = _ref.push, push = _ref$push === void 0 ? false : _ref$push;
+    return $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($adec0a2405d8065db4060dfa9cbcef86$export$4ecaa231abd67ccf.Consumer, null, function(context) {
+        !context && $adec0a2405d8065db4060dfa9cbcef86$import$3b59e0a764ef091c$9099ad97b570f7c(false);
+        var history = context.history, staticContext = context.staticContext;
+        var method = push ? history.push : history.replace;
+        var location = $adec0a2405d8065db4060dfa9cbcef86$import$3da9dca5a6cc8306$19341d772daff4ba(computedMatch ? typeof to === "string" ? $adec0a2405d8065db4060dfa9cbcef86$export$d1ba0c5c7140e917(to, computedMatch.params) : $adec0a2405d8065db4060dfa9cbcef86$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+        }, to, {
+            pathname: $adec0a2405d8065db4060dfa9cbcef86$export$d1ba0c5c7140e917(to.pathname, computedMatch.params)
+        }) : to); // When rendering in a static context,
+        // set the new location immediately.
+        if (staticContext) {
+            method(location);
+            return null;
+        }
+        return $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($adec0a2405d8065db4060dfa9cbcef86$var$Lifecycle, {
+            onMount: function onMount() {
+                method(location);
+            },
+            onUpdate: function onUpdate(self, prevProps1) {
+                var prevLocation = $adec0a2405d8065db4060dfa9cbcef86$import$3da9dca5a6cc8306$19341d772daff4ba(prevProps1.to);
+                if (!$adec0a2405d8065db4060dfa9cbcef86$import$3da9dca5a6cc8306$91b6fe0bec73dec1(prevLocation, $adec0a2405d8065db4060dfa9cbcef86$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+                }, location, {
+                    key: prevLocation.key
+                }))) method(location);
+            },
+            to: to
+        });
+    });
+}
+var $adec0a2405d8065db4060dfa9cbcef86$var$cache$1 = {
+};
+var $adec0a2405d8065db4060dfa9cbcef86$var$cacheLimit$1 = 10000;
+var $adec0a2405d8065db4060dfa9cbcef86$var$cacheCount$1 = 0;
+function $adec0a2405d8065db4060dfa9cbcef86$var$compilePath$1(path, options) {
+    var cacheKey = "" + options.end + options.strict + options.sensitive;
+    var pathCache = $adec0a2405d8065db4060dfa9cbcef86$var$cache$1[cacheKey] || ($adec0a2405d8065db4060dfa9cbcef86$var$cache$1[cacheKey] = {
+    });
+    if (pathCache[path]) return pathCache[path];
+    var keys = [];
+    var regexp = $adec0a2405d8065db4060dfa9cbcef86$import$e5392fa5b9858241$9099ad97b570f7c(path, keys, options);
+    var result = {
+        regexp: regexp,
+        keys: keys
+    };
+    if ($adec0a2405d8065db4060dfa9cbcef86$var$cacheCount$1 < $adec0a2405d8065db4060dfa9cbcef86$var$cacheLimit$1) {
+        pathCache[path] = result;
+        $adec0a2405d8065db4060dfa9cbcef86$var$cacheCount$1++;
+    }
+    return result;
+}
+/**
+ * Public API for matching a URL pathname to a path.
+ */ function $adec0a2405d8065db4060dfa9cbcef86$export$4b180c625a8eb76a(pathname, options) {
+    if (options === void 0) options = {
+    };
+    if (typeof options === "string" || Array.isArray(options)) options = {
+        path: options
+    };
+    var _options = options, path = _options.path, _options$exact = _options.exact, exact = _options$exact === void 0 ? false : _options$exact, _options$strict = _options.strict, strict = _options$strict === void 0 ? false : _options$strict, _options$sensitive = _options.sensitive, sensitive = _options$sensitive === void 0 ? false : _options$sensitive;
+    var paths = [].concat(path);
+    return paths.reduce(function(matched, path1) {
+        if (!path1 && path1 !== "") return null;
+        if (matched) return matched;
+        var _compilePath = $adec0a2405d8065db4060dfa9cbcef86$var$compilePath$1(path1, {
+            end: exact,
+            strict: strict,
+            sensitive: sensitive
+        }), regexp = _compilePath.regexp, keys = _compilePath.keys;
+        var match = regexp.exec(pathname);
+        if (!match) return null;
+        var url = match[0], values = match.slice(1);
+        var isExact = pathname === url;
+        if (exact && !isExact) return null;
+        return {
+            path: path1,
+            // the path used to match
+            url: path1 === "/" && url === "" ? "/" : url,
+            // the matched portion of the URL
+            isExact: isExact,
+            // whether or not we matched exactly
+            params: keys.reduce(function(memo, key, index) {
+                memo[key.name] = values[index];
+                return memo;
+            }, {
+            })
+        };
+    }, null);
+}
+function $adec0a2405d8065db4060dfa9cbcef86$var$isEmptyChildren(children) {
+    return $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.Children.count(children) === 0;
+}
+function $adec0a2405d8065db4060dfa9cbcef86$var$evalChildrenDev(children, props, path) {
+    var value = children(props);
+    return value || null;
+}
+/**
+ * The public API for matching a single path and rendering.
+ */ var $adec0a2405d8065db4060dfa9cbcef86$export$90dc2b712eed10fd = /*#__PURE__*/ function(_React$Component) {
+    $adec0a2405d8065db4060dfa9cbcef86$import$8db3e3d0e0460463$9099ad97b570f7c(Route, _React$Component);
+    function Route() {
+        return _React$Component.apply(this, arguments) || this;
+    }
+    var _proto = Route.prototype;
+    _proto.render = function render() {
+        var _this = this;
+        return $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($adec0a2405d8065db4060dfa9cbcef86$export$4ecaa231abd67ccf.Consumer, null, function(context$1) {
+            !context$1 && $adec0a2405d8065db4060dfa9cbcef86$import$3b59e0a764ef091c$9099ad97b570f7c(false);
+            var location = _this.props.location || context$1.location;
+            var match = _this.props.computedMatch ? _this.props.computedMatch : _this.props.path ? $adec0a2405d8065db4060dfa9cbcef86$export$4b180c625a8eb76a(location.pathname, _this.props) : context$1.match;
+            var props = $adec0a2405d8065db4060dfa9cbcef86$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+            }, context$1, {
+                location: location,
+                match: match
+            });
+            var _this$props = _this.props, children = _this$props.children, component = _this$props.component, render1 = _this$props.render; // Preact uses an empty array as children by
+            // default, so use null if that's the case.
+            if (Array.isArray(children) && children.length === 0) children = null;
+            return $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($adec0a2405d8065db4060dfa9cbcef86$export$4ecaa231abd67ccf.Provider, {
+                value: props
+            }, props.match ? children ? typeof children === "function" ? children(props) : children : component ? $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(component, props) : render1 ? render1(props) : null : typeof children === "function" ? children(props) : null);
+        });
+    };
+    return Route;
+}($adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.Component);
+var props, propName, prevProps1;
+function $adec0a2405d8065db4060dfa9cbcef86$var$addLeadingSlash(path) {
+    return path.charAt(0) === "/" ? path : "/" + path;
+}
+function $adec0a2405d8065db4060dfa9cbcef86$var$addBasename(basename, location) {
+    if (!basename) return location;
+    return $adec0a2405d8065db4060dfa9cbcef86$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, location, {
+        pathname: $adec0a2405d8065db4060dfa9cbcef86$var$addLeadingSlash(basename) + location.pathname
+    });
+}
+function $adec0a2405d8065db4060dfa9cbcef86$var$stripBasename(basename, location) {
+    if (!basename) return location;
+    var base = $adec0a2405d8065db4060dfa9cbcef86$var$addLeadingSlash(basename);
+    if (location.pathname.indexOf(base) !== 0) return location;
+    return $adec0a2405d8065db4060dfa9cbcef86$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, location, {
+        pathname: location.pathname.substr(base.length)
+    });
+}
+function $adec0a2405d8065db4060dfa9cbcef86$var$createURL(location) {
+    return typeof location === "string" ? location : $adec0a2405d8065db4060dfa9cbcef86$import$3da9dca5a6cc8306$43676c1794ae0683(location);
+}
+function $adec0a2405d8065db4060dfa9cbcef86$var$staticHandler(methodName) {
+    return function() {
+        $adec0a2405d8065db4060dfa9cbcef86$import$3b59e0a764ef091c$9099ad97b570f7c(false);
+    };
+}
+function $adec0a2405d8065db4060dfa9cbcef86$var$noop() {
+}
+/**
+ * The public top-level API for a "static" <Router>, so-called because it
+ * can't actually change the current location. Instead, it just records
+ * location changes in a context object. Useful mainly in testing and
+ * server-rendering scenarios.
+ */ var $adec0a2405d8065db4060dfa9cbcef86$export$105e39f04812db9b = /*#__PURE__*/ function(_React$Component) {
+    $adec0a2405d8065db4060dfa9cbcef86$import$8db3e3d0e0460463$9099ad97b570f7c(StaticRouter, _React$Component);
+    function StaticRouter() {
+        var _this;
+        for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
+        _this = _React$Component.call.apply(_React$Component, [
+            this
+        ].concat(args)) || this;
+        _this.handlePush = function(location) {
+            return _this.navigateTo(location, "PUSH");
+        };
+        _this.handleReplace = function(location) {
+            return _this.navigateTo(location, "REPLACE");
+        };
+        _this.handleListen = function() {
+            return $adec0a2405d8065db4060dfa9cbcef86$var$noop;
+        };
+        _this.handleBlock = function() {
+            return $adec0a2405d8065db4060dfa9cbcef86$var$noop;
+        };
+        return _this;
+    }
+    var _proto = StaticRouter.prototype;
+    _proto.navigateTo = function navigateTo(location, action) {
+        var _this$props = this.props, _this$props$basename = _this$props.basename, basename = _this$props$basename === void 0 ? "" : _this$props$basename, _this$props$context = _this$props.context, context = _this$props$context === void 0 ? {
+        } : _this$props$context;
+        context.action = action;
+        context.location = $adec0a2405d8065db4060dfa9cbcef86$var$addBasename(basename, $adec0a2405d8065db4060dfa9cbcef86$import$3da9dca5a6cc8306$19341d772daff4ba(location));
+        context.url = $adec0a2405d8065db4060dfa9cbcef86$var$createURL(context.location);
+    };
+    _proto.render = function render() {
+        var _this$props2 = this.props, _this$props2$basename = _this$props2.basename, basename = _this$props2$basename === void 0 ? "" : _this$props2$basename, _this$props2$context = _this$props2.context, context = _this$props2$context === void 0 ? {
+        } : _this$props2$context, _this$props2$location = _this$props2.location, location = _this$props2$location === void 0 ? "/" : _this$props2$location, rest = $adec0a2405d8065db4060dfa9cbcef86$import$555fcbd5081a286a$9099ad97b570f7c(_this$props2, [
+            "basename",
+            "context",
+            "location"
+        ]);
+        var history = {
+            createHref: function createHref(path) {
+                return $adec0a2405d8065db4060dfa9cbcef86$var$addLeadingSlash(basename + $adec0a2405d8065db4060dfa9cbcef86$var$createURL(path));
+            },
+            action: "POP",
+            location: $adec0a2405d8065db4060dfa9cbcef86$var$stripBasename(basename, $adec0a2405d8065db4060dfa9cbcef86$import$3da9dca5a6cc8306$19341d772daff4ba(location)),
+            push: this.handlePush,
+            replace: this.handleReplace,
+            go: $adec0a2405d8065db4060dfa9cbcef86$var$staticHandler("go"),
+            goBack: $adec0a2405d8065db4060dfa9cbcef86$var$staticHandler("goBack"),
+            goForward: $adec0a2405d8065db4060dfa9cbcef86$var$staticHandler("goForward"),
+            listen: this.handleListen,
+            block: this.handleBlock
+        };
+        return $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($adec0a2405d8065db4060dfa9cbcef86$export$1ea3463d2e476fc2, $adec0a2405d8065db4060dfa9cbcef86$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+        }, rest, {
+            history: history,
+            staticContext: context
+        }));
+    };
+    return StaticRouter;
+}($adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.Component);
+/**
+ * The public API for rendering the first <Route> that matches.
+ */ var $adec0a2405d8065db4060dfa9cbcef86$export$a0e0bdc72e03d2b1 = /*#__PURE__*/ function(_React$Component) {
+    $adec0a2405d8065db4060dfa9cbcef86$import$8db3e3d0e0460463$9099ad97b570f7c(Switch, _React$Component);
+    function Switch() {
+        return _React$Component.apply(this, arguments) || this;
+    }
+    var _proto = Switch.prototype;
+    _proto.render = function render() {
+        var _this = this;
+        return $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($adec0a2405d8065db4060dfa9cbcef86$export$4ecaa231abd67ccf.Consumer, null, function(context) {
+            !context && $adec0a2405d8065db4060dfa9cbcef86$import$3b59e0a764ef091c$9099ad97b570f7c(false);
+            var location = _this.props.location || context.location;
+            var element, match; // We use React.Children.forEach instead of React.Children.toArray().find()
+            // here because toArray adds keys to all child elements and we do not want
+            // to trigger an unmount/remount for two <Route>s that render the same
+            // component at different URLs.
+            $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.Children.forEach(_this.props.children, function(child) {
+                if (match == null && $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.isValidElement(child)) {
+                    element = child;
+                    var path = child.props.path || child.props.from;
+                    match = path ? $adec0a2405d8065db4060dfa9cbcef86$export$4b180c625a8eb76a(location.pathname, $adec0a2405d8065db4060dfa9cbcef86$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+                    }, child.props, {
+                        path: path
+                    })) : context.match;
+                }
+            });
+            return match ? $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.cloneElement(element, {
+                location: location,
+                computedMatch: match
+            }) : null;
+        });
+    };
+    return Switch;
+}($adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.Component);
+var prevProps2;
+/**
+ * A public higher-order component to access the imperative API
+ */ function $adec0a2405d8065db4060dfa9cbcef86$export$22569e5fa56e6461(Component) {
+    var displayName = "withRouter(" + (Component.displayName || Component.name) + ")";
+    var C = function C1(props1) {
+        var wrappedComponentRef = props1.wrappedComponentRef, remainingProps = $adec0a2405d8065db4060dfa9cbcef86$import$555fcbd5081a286a$9099ad97b570f7c(props1, [
+            "wrappedComponentRef"
+        ]);
+        return $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($adec0a2405d8065db4060dfa9cbcef86$export$4ecaa231abd67ccf.Consumer, null, function(context) {
+            !context && $adec0a2405d8065db4060dfa9cbcef86$import$3b59e0a764ef091c$9099ad97b570f7c(false);
+            return $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, $adec0a2405d8065db4060dfa9cbcef86$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+            }, remainingProps, context, {
+                ref: wrappedComponentRef
+            }));
+        });
+    };
+    C.displayName = displayName;
+    C.WrappedComponent = Component;
+    return $adec0a2405d8065db4060dfa9cbcef86$import$96277b2d9dcb8ffd$9099ad97b570f7c(C, Component);
+}
+var $adec0a2405d8065db4060dfa9cbcef86$var$useContext = $adec0a2405d8065db4060dfa9cbcef86$import$f02ba03fc070e88c$9099ad97b570f7c.useContext;
+function $adec0a2405d8065db4060dfa9cbcef86$export$91086302b3863684() {
+    return $adec0a2405d8065db4060dfa9cbcef86$var$useContext($adec0a2405d8065db4060dfa9cbcef86$export$71d3c7554e2ab109);
+}
+function $adec0a2405d8065db4060dfa9cbcef86$export$1515fdc3b11948f8() {
+    return $adec0a2405d8065db4060dfa9cbcef86$var$useContext($adec0a2405d8065db4060dfa9cbcef86$export$4ecaa231abd67ccf).location;
+}
+function $adec0a2405d8065db4060dfa9cbcef86$export$9b253b8f1430728() {
+    var match = $adec0a2405d8065db4060dfa9cbcef86$var$useContext($adec0a2405d8065db4060dfa9cbcef86$export$4ecaa231abd67ccf).match;
+    return match ? match.params : {
+    };
+}
+function $adec0a2405d8065db4060dfa9cbcef86$export$5aa63392116956be(path) {
+    var location = $adec0a2405d8065db4060dfa9cbcef86$export$1515fdc3b11948f8();
+    var match = $adec0a2405d8065db4060dfa9cbcef86$var$useContext($adec0a2405d8065db4060dfa9cbcef86$export$4ecaa231abd67ccf).match;
+    return path ? $adec0a2405d8065db4060dfa9cbcef86$export$4b180c625a8eb76a(location.pathname, path) : match;
+}
+var $adec0a2405d8065db4060dfa9cbcef86$var$global, $adec0a2405d8065db4060dfa9cbcef86$var$key, $adec0a2405d8065db4060dfa9cbcef86$var$buildNames, $adec0a2405d8065db4060dfa9cbcef86$var$initialBuildName, $adec0a2405d8065db4060dfa9cbcef86$var$secondaryBuildName;

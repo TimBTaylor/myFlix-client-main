@@ -1,0 +1,42 @@
+import   "868359815120012af1cf913a96da9ebf:@babel/runtime/helpers/esm/extends";
+import   "868359815120012af1cf913a96da9ebf:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "868359815120012af1cf913a96da9ebf:classnames";
+import   "868359815120012af1cf913a96da9ebf:react";
+import   "868359815120012af1cf913a96da9ebf:warning";
+import   "868359815120012af1cf913a96da9ebf:./Col";
+import   "868359815120012af1cf913a96da9ebf:./FormContext";
+import   "868359815120012af1cf913a96da9ebf:./ThemeProvider";
+var $868359815120012af1cf913a96da9ebf$var$defaultProps = {
+    column: false,
+    srOnly: false
+};
+var $868359815120012af1cf913a96da9ebf$var$FormLabel = /*#__PURE__*/ $868359815120012af1cf913a96da9ebf$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var _ref$as = _ref.as, Component = _ref$as === void 0 ? 'label' : _ref$as, bsPrefix = _ref.bsPrefix, column = _ref.column, srOnly = _ref.srOnly, className = _ref.className, htmlFor = _ref.htmlFor, props = $868359815120012af1cf913a96da9ebf$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "as",
+        "bsPrefix",
+        "column",
+        "srOnly",
+        "className",
+        "htmlFor"
+    ]);
+    var _useContext = $868359815120012af1cf913a96da9ebf$import$f02ba03fc070e88c$d532f802c57568ca($868359815120012af1cf913a96da9ebf$import$3c9bcaee959fbd2b$9099ad97b570f7c), controlId = _useContext.controlId;
+    bsPrefix = $868359815120012af1cf913a96da9ebf$import$1581226de02c9527$6efad33e744e1774(bsPrefix, 'form-label');
+    var columnClass = 'col-form-label';
+    if (typeof column === 'string') columnClass = columnClass + " " + columnClass + "-" + column;
+    var classes = $868359815120012af1cf913a96da9ebf$import$c7a3314ec092e1bf$9099ad97b570f7c(className, bsPrefix, srOnly && 'sr-only', column && columnClass);
+    htmlFor = htmlFor || controlId;
+    if (column) return(/*#__PURE__*/ $868359815120012af1cf913a96da9ebf$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($868359815120012af1cf913a96da9ebf$import$5331c85cda511560$9099ad97b570f7c, $868359815120012af1cf913a96da9ebf$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+        as: "label",
+        className: classes,
+        htmlFor: htmlFor
+    }, props)));
+    return(/*#__PURE__*/ // eslint-disable-next-line jsx-a11y/label-has-for, jsx-a11y/label-has-associated-control
+    $868359815120012af1cf913a96da9ebf$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, $868359815120012af1cf913a96da9ebf$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+        ref: ref,
+        className: classes,
+        htmlFor: htmlFor
+    }, props)));
+});
+$868359815120012af1cf913a96da9ebf$var$FormLabel.displayName = 'FormLabel';
+$868359815120012af1cf913a96da9ebf$var$FormLabel.defaultProps = $868359815120012af1cf913a96da9ebf$var$defaultProps;
+var $868359815120012af1cf913a96da9ebf$export$9099ad97b570f7c = $868359815120012af1cf913a96da9ebf$var$FormLabel;

@@ -1,0 +1,35 @@
+import   "808fd023c27abb7641d85395a1b48569:@babel/runtime/helpers/esm/extends";
+import   "808fd023c27abb7641d85395a1b48569:../utils/verifyPlainObject";
+function $808fd023c27abb7641d85395a1b48569$export$1887867e1e745544(stateProps, dispatchProps, ownProps) {
+    return $808fd023c27abb7641d85395a1b48569$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, ownProps, stateProps, dispatchProps);
+}
+function $808fd023c27abb7641d85395a1b48569$export$18e28dbc35527498(mergeProps) {
+    return function initMergePropsProxy(dispatch, _ref) {
+        var displayName = _ref.displayName, pure = _ref.pure, areMergedPropsEqual = _ref.areMergedPropsEqual;
+        var hasRunOnce = false;
+        var mergedProps;
+        return function mergePropsProxy(stateProps, dispatchProps, ownProps) {
+            var nextMergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+            if (hasRunOnce) {
+                if (!pure || !areMergedPropsEqual(nextMergedProps, mergedProps)) mergedProps = nextMergedProps;
+            } else {
+                hasRunOnce = true;
+                mergedProps = nextMergedProps;
+            }
+            return mergedProps;
+        };
+    };
+}
+function $808fd023c27abb7641d85395a1b48569$export$30dfc902f7d753e1(mergeProps) {
+    return typeof mergeProps === 'function' ? $808fd023c27abb7641d85395a1b48569$export$18e28dbc35527498(mergeProps) : undefined;
+}
+function $808fd023c27abb7641d85395a1b48569$export$372e1793184bd672(mergeProps) {
+    return !mergeProps ? function() {
+        return $808fd023c27abb7641d85395a1b48569$export$1887867e1e745544;
+    } : undefined;
+}
+var $808fd023c27abb7641d85395a1b48569$export$9099ad97b570f7c = [
+    $808fd023c27abb7641d85395a1b48569$export$30dfc902f7d753e1,
+    $808fd023c27abb7641d85395a1b48569$export$372e1793184bd672
+];

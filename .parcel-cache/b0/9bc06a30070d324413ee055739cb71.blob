@@ -1,0 +1,2 @@
+import   "3781bba88f367e7c071886851e3ce94d:react";
+var $3781bba88f367e7c071886851e3ce94d$export$add87c67e40100d3 = typeof window !== 'undefined' && typeof window.document !== 'undefined' && typeof window.document.createElement !== 'undefined' ? $3781bba88f367e7c071886851e3ce94d$import$f02ba03fc070e88c$3839ad89c0ec6b31 : $3781bba88f367e7c071886851e3ce94d$import$f02ba03fc070e88c$7e977b4ca969aabd;

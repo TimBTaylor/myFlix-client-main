@@ -1,0 +1,5 @@
+import   "b3cb29ef29aac16784c134ae08a5c152:./isPlainObject";
+import   "b3cb29ef29aac16784c134ae08a5c152:./warning";
+function $b3cb29ef29aac16784c134ae08a5c152$export$9099ad97b570f7c(value, displayName, methodName) {
+    if (!$b3cb29ef29aac16784c134ae08a5c152$import$3902b212620eb378$9099ad97b570f7c(value)) $b3cb29ef29aac16784c134ae08a5c152$import$4f3a0bba5ae07446$9099ad97b570f7c(methodName + "() in " + displayName + " must return a plain object. Instead received " + value + ".");
+}

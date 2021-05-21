@@ -1,0 +1,76 @@
+import   "f6b4c51398f7224094eee823b2998994:@babel/runtime/helpers/esm/extends";
+import   "f6b4c51398f7224094eee823b2998994:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "f6b4c51398f7224094eee823b2998994:classnames";
+import   "f6b4c51398f7224094eee823b2998994:react";
+import   "f6b4c51398f7224094eee823b2998994:prop-types-extra/lib/all";
+import   "f6b4c51398f7224094eee823b2998994:./Feedback";
+import   "f6b4c51398f7224094eee823b2998994:./FormFileInput";
+import   "f6b4c51398f7224094eee823b2998994:./FormFileLabel";
+import   "f6b4c51398f7224094eee823b2998994:./FormContext";
+import   "f6b4c51398f7224094eee823b2998994:./ThemeProvider";
+var $f6b4c51398f7224094eee823b2998994$var$FormFile = /*#__PURE__*/ $f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var id = _ref.id, bsPrefix = _ref.bsPrefix, bsCustomPrefix = _ref.bsCustomPrefix, _ref$disabled = _ref.disabled, disabled = _ref$disabled === void 0 ? false : _ref$disabled, _ref$isValid = _ref.isValid, isValid = _ref$isValid === void 0 ? false : _ref$isValid, _ref$isInvalid = _ref.isInvalid, isInvalid = _ref$isInvalid === void 0 ? false : _ref$isInvalid, _ref$feedbackTooltip = _ref.feedbackTooltip, feedbackTooltip = _ref$feedbackTooltip === void 0 ? false : _ref$feedbackTooltip, feedback = _ref.feedback, className = _ref.className, style = _ref.style, label = _ref.label, children = _ref.children, custom = _ref.custom, lang = _ref.lang, dataBrowse = _ref['data-browse'], _ref$as = _ref.as, Component = _ref$as === void 0 ? 'div' : _ref$as, _ref$inputAs = _ref.inputAs, inputAs = _ref$inputAs === void 0 ? 'input' : _ref$inputAs, props = $f6b4c51398f7224094eee823b2998994$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "id",
+        "bsPrefix",
+        "bsCustomPrefix",
+        "disabled",
+        "isValid",
+        "isInvalid",
+        "feedbackTooltip",
+        "feedback",
+        "className",
+        "style",
+        "label",
+        "children",
+        "custom",
+        "lang",
+        "data-browse",
+        "as",
+        "inputAs"
+    ]);
+    var _ref2 = custom ? [
+        bsCustomPrefix,
+        'custom'
+    ] : [
+        bsPrefix,
+        'form-file'
+    ], prefix = _ref2[0], defaultPrefix = _ref2[1];
+    bsPrefix = $f6b4c51398f7224094eee823b2998994$import$1581226de02c9527$6efad33e744e1774(prefix, defaultPrefix);
+    var type = 'file';
+    var _useContext = $f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$d532f802c57568ca($f6b4c51398f7224094eee823b2998994$import$3c9bcaee959fbd2b$9099ad97b570f7c), controlId = _useContext.controlId;
+    var innerFormContext = $f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$fe55aea32a6cbc49(function() {
+        return {
+            controlId: id || controlId,
+            custom: custom
+        };
+    }, [
+        controlId,
+        custom,
+        id
+    ]);
+    var hasLabel = label != null && label !== false && !children;
+    var input = /*#__PURE__*/ $f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f6b4c51398f7224094eee823b2998994$import$21d9b8d7521a3041$9099ad97b570f7c, $f6b4c51398f7224094eee823b2998994$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, props, {
+        ref: ref,
+        isValid: isValid,
+        isInvalid: isInvalid,
+        disabled: disabled,
+        as: inputAs,
+        lang: lang
+    }));
+    return(/*#__PURE__*/ $f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f6b4c51398f7224094eee823b2998994$import$3c9bcaee959fbd2b$9099ad97b570f7c.Provider, {
+        value: innerFormContext
+    }, /*#__PURE__*/ $f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, {
+        style: style,
+        className: $f6b4c51398f7224094eee823b2998994$import$c7a3314ec092e1bf$9099ad97b570f7c(className, bsPrefix, custom && "custom-" + type)
+    }, children || /*#__PURE__*/ $f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$9099ad97b570f7c.Fragment, null, custom ? /*#__PURE__*/ $f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$9099ad97b570f7c.Fragment, null, input, hasLabel && /*#__PURE__*/ $f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f6b4c51398f7224094eee823b2998994$import$d1e80be0a802e25d$9099ad97b570f7c, {
+        "data-browse": dataBrowse
+    }, label)) : /*#__PURE__*/ $f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$9099ad97b570f7c.Fragment, null, hasLabel && /*#__PURE__*/ $f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f6b4c51398f7224094eee823b2998994$import$d1e80be0a802e25d$9099ad97b570f7c, null, label), input), (isValid || isInvalid) && /*#__PURE__*/ $f6b4c51398f7224094eee823b2998994$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f6b4c51398f7224094eee823b2998994$import$f9172ff0ece4602$9099ad97b570f7c, {
+        type: isValid ? 'valid' : 'invalid',
+        tooltip: feedbackTooltip
+    }, feedback)))));
+});
+$f6b4c51398f7224094eee823b2998994$var$FormFile.displayName = 'FormFile';
+$f6b4c51398f7224094eee823b2998994$var$FormFile.Input = $f6b4c51398f7224094eee823b2998994$import$21d9b8d7521a3041$9099ad97b570f7c;
+$f6b4c51398f7224094eee823b2998994$var$FormFile.Label = $f6b4c51398f7224094eee823b2998994$import$d1e80be0a802e25d$9099ad97b570f7c;
+var $f6b4c51398f7224094eee823b2998994$export$9099ad97b570f7c = $f6b4c51398f7224094eee823b2998994$var$FormFile;

@@ -1,0 +1,70 @@
+import   "9b2efccdbc28683de9beba17eb9e5178:@babel/runtime/helpers/esm/extends";
+import   "9b2efccdbc28683de9beba17eb9e5178:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "9b2efccdbc28683de9beba17eb9e5178:classnames";
+import   "9b2efccdbc28683de9beba17eb9e5178:prop-types-extra/lib/all";
+import   "9b2efccdbc28683de9beba17eb9e5178:react";
+import   "9b2efccdbc28683de9beba17eb9e5178:warning";
+import   "9b2efccdbc28683de9beba17eb9e5178:./Feedback";
+import   "9b2efccdbc28683de9beba17eb9e5178:./FormContext";
+import   "9b2efccdbc28683de9beba17eb9e5178:./ThemeProvider";
+var $9b2efccdbc28683de9beba17eb9e5178$var$FormControl = /*#__PURE__*/ $9b2efccdbc28683de9beba17eb9e5178$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var bsPrefix = _ref.bsPrefix, bsCustomPrefix = _ref.bsCustomPrefix, type = _ref.type, size = _ref.size, htmlSize = _ref.htmlSize, id = _ref.id, className = _ref.className, _ref$isValid = _ref.isValid, isValid = _ref$isValid === void 0 ? false : _ref$isValid, _ref$isInvalid = _ref.isInvalid, isInvalid = _ref$isInvalid === void 0 ? false : _ref$isInvalid, plaintext = _ref.plaintext, readOnly = _ref.readOnly, custom = _ref.custom, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'input' : _ref$as, props = $9b2efccdbc28683de9beba17eb9e5178$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "bsPrefix",
+        "bsCustomPrefix",
+        "type",
+        "size",
+        "htmlSize",
+        "id",
+        "className",
+        "isValid",
+        "isInvalid",
+        "plaintext",
+        "readOnly",
+        "custom",
+        "as"
+    ]);
+    var _useContext = $9b2efccdbc28683de9beba17eb9e5178$import$f02ba03fc070e88c$d532f802c57568ca($9b2efccdbc28683de9beba17eb9e5178$import$3c9bcaee959fbd2b$9099ad97b570f7c), controlId = _useContext.controlId;
+    var _ref2 = custom ? [
+        bsCustomPrefix,
+        'custom'
+    ] : [
+        bsPrefix,
+        'form-control'
+    ], prefix = _ref2[0], defaultPrefix = _ref2[1];
+    bsPrefix = $9b2efccdbc28683de9beba17eb9e5178$import$1581226de02c9527$6efad33e744e1774(prefix, defaultPrefix);
+    var classes;
+    if (plaintext) {
+        var _classes;
+        classes = (_classes = {
+        }, _classes[bsPrefix + "-plaintext"] = true, _classes);
+    } else if (type === 'file') {
+        var _classes2;
+        classes = (_classes2 = {
+        }, _classes2[bsPrefix + "-file"] = true, _classes2);
+    } else if (type === 'range') {
+        var _classes3;
+        classes = (_classes3 = {
+        }, _classes3[bsPrefix + "-range"] = true, _classes3);
+    } else if (Component === 'select' && custom) {
+        var _classes4;
+        classes = (_classes4 = {
+        }, _classes4[bsPrefix + "-select"] = true, _classes4[bsPrefix + "-select-" + size] = size, _classes4);
+    } else {
+        var _classes5;
+        classes = (_classes5 = {
+        }, _classes5[bsPrefix] = true, _classes5[bsPrefix + "-" + size] = size, _classes5);
+    }
+    return(/*#__PURE__*/ $9b2efccdbc28683de9beba17eb9e5178$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, $9b2efccdbc28683de9beba17eb9e5178$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, props, {
+        type: type,
+        size: htmlSize,
+        ref: ref,
+        readOnly: readOnly,
+        id: id || controlId,
+        className: $9b2efccdbc28683de9beba17eb9e5178$import$c7a3314ec092e1bf$9099ad97b570f7c(className, classes, isValid && "is-valid", isInvalid && "is-invalid")
+    })));
+});
+$9b2efccdbc28683de9beba17eb9e5178$var$FormControl.displayName = 'FormControl';
+var $9b2efccdbc28683de9beba17eb9e5178$export$9099ad97b570f7c = Object.assign($9b2efccdbc28683de9beba17eb9e5178$var$FormControl, {
+    Feedback: $9b2efccdbc28683de9beba17eb9e5178$import$f9172ff0ece4602$9099ad97b570f7c
+});

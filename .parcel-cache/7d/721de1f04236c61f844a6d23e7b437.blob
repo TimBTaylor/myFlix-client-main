@@ -1,0 +1,40 @@
+import   "69d484f0ab17433d60c87cbb27c8b8ba:react";
+import   "69d484f0ab17433d60c87cbb27c8b8ba:prop-types";
+import   "69d484f0ab17433d60c87cbb27c8b8ba:./Context";
+import   "69d484f0ab17433d60c87cbb27c8b8ba:../utils/Subscription";
+import   "69d484f0ab17433d60c87cbb27c8b8ba:../utils/useIsomorphicLayoutEffect";
+function $69d484f0ab17433d60c87cbb27c8b8ba$var$Provider(_ref) {
+    var store = _ref.store, context = _ref.context, children = _ref.children;
+    var contextValue = $69d484f0ab17433d60c87cbb27c8b8ba$import$f02ba03fc070e88c$fe55aea32a6cbc49(function() {
+        var subscription = new $69d484f0ab17433d60c87cbb27c8b8ba$import$d1e56e6b21956fca$9099ad97b570f7c(store);
+        subscription.onStateChange = subscription.notifyNestedSubs;
+        return {
+            store: store,
+            subscription: subscription
+        };
+    }, [
+        store
+    ]);
+    var previousState = $69d484f0ab17433d60c87cbb27c8b8ba$import$f02ba03fc070e88c$fe55aea32a6cbc49(function() {
+        return store.getState();
+    }, [
+        store
+    ]);
+    $69d484f0ab17433d60c87cbb27c8b8ba$import$4e56e21d712ba287$add87c67e40100d3(function() {
+        var subscription = contextValue.subscription;
+        subscription.trySubscribe();
+        if (previousState !== store.getState()) subscription.notifyNestedSubs();
+        return function() {
+            subscription.tryUnsubscribe();
+            subscription.onStateChange = null;
+        };
+    }, [
+        contextValue,
+        previousState
+    ]);
+    var Context = context || $69d484f0ab17433d60c87cbb27c8b8ba$import$f36a0291370ccde3$8a4bd31a1c5faed1;
+    return(/*#__PURE__*/ $69d484f0ab17433d60c87cbb27c8b8ba$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Context.Provider, {
+        value: contextValue
+    }, children));
+}
+var $69d484f0ab17433d60c87cbb27c8b8ba$export$9099ad97b570f7c = $69d484f0ab17433d60c87cbb27c8b8ba$var$Provider;

@@ -1,0 +1,37 @@
+import   "7e5f54f0429417d2ae671f1e9b197ea3:@babel/runtime/helpers/esm/extends";
+import   "7e5f54f0429417d2ae671f1e9b197ea3:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "7e5f54f0429417d2ae671f1e9b197ea3:classnames";
+import   "7e5f54f0429417d2ae671f1e9b197ea3:react";
+import   "7e5f54f0429417d2ae671f1e9b197ea3:./FormContext";
+import   "7e5f54f0429417d2ae671f1e9b197ea3:./ThemeProvider";
+var $7e5f54f0429417d2ae671f1e9b197ea3$var$FormCheckInput = /*#__PURE__*/ $7e5f54f0429417d2ae671f1e9b197ea3$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var id = _ref.id, bsPrefix = _ref.bsPrefix, bsCustomPrefix = _ref.bsCustomPrefix, className = _ref.className, _ref$type = _ref.type, type = _ref$type === void 0 ? 'checkbox' : _ref$type, _ref$isValid = _ref.isValid, isValid = _ref$isValid === void 0 ? false : _ref$isValid, _ref$isInvalid = _ref.isInvalid, isInvalid = _ref$isInvalid === void 0 ? false : _ref$isInvalid, isStatic = _ref.isStatic, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'input' : _ref$as, props = $7e5f54f0429417d2ae671f1e9b197ea3$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "id",
+        "bsPrefix",
+        "bsCustomPrefix",
+        "className",
+        "type",
+        "isValid",
+        "isInvalid",
+        "isStatic",
+        "as"
+    ]);
+    var _useContext = $7e5f54f0429417d2ae671f1e9b197ea3$import$f02ba03fc070e88c$d532f802c57568ca($7e5f54f0429417d2ae671f1e9b197ea3$import$3c9bcaee959fbd2b$9099ad97b570f7c), controlId = _useContext.controlId, custom = _useContext.custom;
+    var _ref2 = custom ? [
+        bsCustomPrefix,
+        'custom-control-input'
+    ] : [
+        bsPrefix,
+        'form-check-input'
+    ], prefix = _ref2[0], defaultPrefix = _ref2[1];
+    bsPrefix = $7e5f54f0429417d2ae671f1e9b197ea3$import$1581226de02c9527$6efad33e744e1774(prefix, defaultPrefix);
+    return(/*#__PURE__*/ $7e5f54f0429417d2ae671f1e9b197ea3$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, $7e5f54f0429417d2ae671f1e9b197ea3$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, props, {
+        ref: ref,
+        type: type,
+        id: id || controlId,
+        className: $7e5f54f0429417d2ae671f1e9b197ea3$import$c7a3314ec092e1bf$9099ad97b570f7c(className, bsPrefix, isValid && 'is-valid', isInvalid && 'is-invalid', isStatic && 'position-static')
+    })));
+});
+$7e5f54f0429417d2ae671f1e9b197ea3$var$FormCheckInput.displayName = 'FormCheckInput';
+var $7e5f54f0429417d2ae671f1e9b197ea3$export$9099ad97b570f7c = $7e5f54f0429417d2ae671f1e9b197ea3$var$FormCheckInput;

@@ -1,0 +1,32 @@
+import   "bd54fcb834eb19359f3fbb8aac1624df:@babel/runtime/helpers/esm/extends";
+import   "bd54fcb834eb19359f3fbb8aac1624df:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "bd54fcb834eb19359f3fbb8aac1624df:classnames";
+import   "bd54fcb834eb19359f3fbb8aac1624df:react";
+import   "bd54fcb834eb19359f3fbb8aac1624df:./FormContext";
+import   "bd54fcb834eb19359f3fbb8aac1624df:./ThemeProvider";
+var $bd54fcb834eb19359f3fbb8aac1624df$var$FormFileLabel = /*#__PURE__*/ $bd54fcb834eb19359f3fbb8aac1624df$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var bsPrefix = _ref.bsPrefix, bsCustomPrefix = _ref.bsCustomPrefix, className = _ref.className, htmlFor = _ref.htmlFor, props = $bd54fcb834eb19359f3fbb8aac1624df$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "bsPrefix",
+        "bsCustomPrefix",
+        "className",
+        "htmlFor"
+    ]);
+    var _useContext = $bd54fcb834eb19359f3fbb8aac1624df$import$f02ba03fc070e88c$d532f802c57568ca($bd54fcb834eb19359f3fbb8aac1624df$import$3c9bcaee959fbd2b$9099ad97b570f7c), controlId = _useContext.controlId, custom = _useContext.custom;
+    var _ref2 = custom ? [
+        bsCustomPrefix,
+        'custom-file-label'
+    ] : [
+        bsPrefix,
+        'form-file-label'
+    ], prefix = _ref2[0], defaultPrefix = _ref2[1];
+    bsPrefix = $bd54fcb834eb19359f3fbb8aac1624df$import$1581226de02c9527$6efad33e744e1774(prefix, defaultPrefix);
+    return(/*#__PURE__*/ $bd54fcb834eb19359f3fbb8aac1624df$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("label", $bd54fcb834eb19359f3fbb8aac1624df$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, props, {
+        ref: ref,
+        htmlFor: htmlFor || controlId,
+        className: $bd54fcb834eb19359f3fbb8aac1624df$import$c7a3314ec092e1bf$9099ad97b570f7c(className, bsPrefix),
+        "data-browse": props['data-browse']
+    })));
+});
+$bd54fcb834eb19359f3fbb8aac1624df$var$FormFileLabel.displayName = 'FormFileLabel';
+var $bd54fcb834eb19359f3fbb8aac1624df$export$9099ad97b570f7c = $bd54fcb834eb19359f3fbb8aac1624df$var$FormFileLabel;

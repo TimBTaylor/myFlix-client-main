@@ -1,0 +1,56 @@
+import   "12f01a771694f58627de9ee33502563c:react";
+import   "12f01a771694f58627de9ee33502563c:react-bootstrap/Button";
+import   "12f01a771694f58627de9ee33502563c:react-bootstrap/Card";
+import   "12f01a771694f58627de9ee33502563c:react-router-dom";
+class $12f01a771694f58627de9ee33502563c$export$b652bac727f5774 extends $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.Component {
+    render() {
+        const { director: director , movies: movies , onBackClick: onBackClick  } = this.props;
+        return(/*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "director-view"
+        }, /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "director-name"
+        }, /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "label"
+        }, "Name: "), /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "value"
+        }, director.Name)), /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "director-bio"
+        }, /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "label"
+        }, "Bio: "), /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "value"
+        }, director.Bio)), /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "director-birth"
+        }, /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "label"
+        }, "Birth: "), /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "value"
+        }, director.Birth)), /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "director-death"
+        }, /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "label"
+        }, "Death: "), /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "value"
+        }, director.Death)), /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "director-movies"
+        }, /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "label"
+        }, "Movies directed by ", director.Name, ": "), /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", null, movies.map((m)=>{
+            if (m.Director.Name === director.Name) return(/*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+                key: m._id
+            }, /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($12f01a771694f58627de9ee33502563c$import$7167a86633e97921$9099ad97b570f7c, null, /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($12f01a771694f58627de9ee33502563c$import$7167a86633e97921$9099ad97b570f7c.Img, {
+                variant: "top",
+                src: m.ImagePath
+            }), /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($12f01a771694f58627de9ee33502563c$import$7167a86633e97921$9099ad97b570f7c.Body, null, /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($12f01a771694f58627de9ee33502563c$import$7167a86633e97921$9099ad97b570f7c.Title, null, m.Title), /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($12f01a771694f58627de9ee33502563c$import$46a3a2459f86404b$454c04d8f1b76440, {
+                to: `/movies/${m._id}`
+            }, /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($12f01a771694f58627de9ee33502563c$import$4f4877c85d888a51$9099ad97b570f7c, {
+                variant: "outline-primary"
+            }, "Open"))))));
+        }))), /*#__PURE__*/ $12f01a771694f58627de9ee33502563c$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($12f01a771694f58627de9ee33502563c$import$4f4877c85d888a51$9099ad97b570f7c, {
+            variant: "secondary",
+            onClick: ()=>{
+                onBackClick(null);
+            }
+        }, "Back")));
+    }
+}

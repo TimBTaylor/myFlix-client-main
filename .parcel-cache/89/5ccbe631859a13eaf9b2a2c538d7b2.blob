@@ -1,0 +1,26 @@
+import   "a8be63fa69dfc39e3dc75790bd330837:@babel/runtime/helpers/esm/extends";
+import   "a8be63fa69dfc39e3dc75790bd330837:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "a8be63fa69dfc39e3dc75790bd330837:classnames";
+import   "a8be63fa69dfc39e3dc75790bd330837:react";
+import   "a8be63fa69dfc39e3dc75790bd330837:./ThemeProvider";
+var $a8be63fa69dfc39e3dc75790bd330837$var$defaultProps = {
+    fluid: false
+};
+var $a8be63fa69dfc39e3dc75790bd330837$var$Container = /*#__PURE__*/ $a8be63fa69dfc39e3dc75790bd330837$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var bsPrefix = _ref.bsPrefix, fluid = _ref.fluid, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'div' : _ref$as, className = _ref.className, props = $a8be63fa69dfc39e3dc75790bd330837$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "bsPrefix",
+        "fluid",
+        "as",
+        "className"
+    ]);
+    var prefix = $a8be63fa69dfc39e3dc75790bd330837$import$1581226de02c9527$6efad33e744e1774(bsPrefix, 'container');
+    var suffix = typeof fluid === 'string' ? "-" + fluid : '-fluid';
+    return(/*#__PURE__*/ $a8be63fa69dfc39e3dc75790bd330837$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, $a8be63fa69dfc39e3dc75790bd330837$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+        ref: ref
+    }, props, {
+        className: $a8be63fa69dfc39e3dc75790bd330837$import$c7a3314ec092e1bf$9099ad97b570f7c(className, fluid ? "" + prefix + suffix : prefix)
+    })));
+});
+$a8be63fa69dfc39e3dc75790bd330837$var$Container.displayName = 'Container';
+$a8be63fa69dfc39e3dc75790bd330837$var$Container.defaultProps = $a8be63fa69dfc39e3dc75790bd330837$var$defaultProps;
+var $a8be63fa69dfc39e3dc75790bd330837$export$9099ad97b570f7c = $a8be63fa69dfc39e3dc75790bd330837$var$Container;

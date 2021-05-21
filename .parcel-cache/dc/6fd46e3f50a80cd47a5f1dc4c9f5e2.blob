@@ -1,0 +1,24 @@
+import   "7fff499d3c2f0964a1b059dedb2963fe:react";
+import   "7fff499d3c2f0964a1b059dedb2963fe:prop-types";
+import   "7fff499d3c2f0964a1b059dedb2963fe:react-bootstrap/Button";
+import   "7fff499d3c2f0964a1b059dedb2963fe:react-bootstrap/Card";
+import   "7fff499d3c2f0964a1b059dedb2963fe:react-router-dom";
+import   "7fff499d3c2f0964a1b059dedb2963fe:./movie-card.scss";
+class $7fff499d3c2f0964a1b059dedb2963fe$export$62bf5cc77ed0da1e extends $7fff499d3c2f0964a1b059dedb2963fe$import$f02ba03fc070e88c$9099ad97b570f7c.Component {
+    render() {
+        const { movie: movie  } = this.props;
+        return(/*#__PURE__*/ $7fff499d3c2f0964a1b059dedb2963fe$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($7fff499d3c2f0964a1b059dedb2963fe$import$7167a86633e97921$9099ad97b570f7c, null, /*#__PURE__*/ $7fff499d3c2f0964a1b059dedb2963fe$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($7fff499d3c2f0964a1b059dedb2963fe$import$7167a86633e97921$9099ad97b570f7c.Img, {
+            variant: "top",
+            src: movie.ImagePath
+        }), /*#__PURE__*/ $7fff499d3c2f0964a1b059dedb2963fe$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($7fff499d3c2f0964a1b059dedb2963fe$import$7167a86633e97921$9099ad97b570f7c.Body, null, /*#__PURE__*/ $7fff499d3c2f0964a1b059dedb2963fe$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($7fff499d3c2f0964a1b059dedb2963fe$import$7167a86633e97921$9099ad97b570f7c.Title, null, movie.Title), /*#__PURE__*/ $7fff499d3c2f0964a1b059dedb2963fe$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($7fff499d3c2f0964a1b059dedb2963fe$import$7167a86633e97921$9099ad97b570f7c.Text, null, movie.Description), /*#__PURE__*/ $7fff499d3c2f0964a1b059dedb2963fe$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($7fff499d3c2f0964a1b059dedb2963fe$import$46a3a2459f86404b$454c04d8f1b76440, {
+            to: `/movies/${movie._id}`
+        }, /*#__PURE__*/ $7fff499d3c2f0964a1b059dedb2963fe$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($7fff499d3c2f0964a1b059dedb2963fe$import$4f4877c85d888a51$9099ad97b570f7c, {
+            variant: "outline-primary"
+        }, "Open")))));
+    }
+}
+$7fff499d3c2f0964a1b059dedb2963fe$export$62bf5cc77ed0da1e.proptypes = {
+    movie: $7fff499d3c2f0964a1b059dedb2963fe$import$67a8cc6ac06859d5$9099ad97b570f7c.shape({
+        Title: $7fff499d3c2f0964a1b059dedb2963fe$import$67a8cc6ac06859d5$9099ad97b570f7c.string
+    }).isRequired
+};

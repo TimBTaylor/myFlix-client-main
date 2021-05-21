@@ -1,0 +1,128 @@
+import   "fb76e17f3f862094e51d675534781699:react";
+import   "fb76e17f3f862094e51d675534781699:react-bootstrap/Form";
+import   "fb76e17f3f862094e51d675534781699:react-bootstrap/Button";
+import   "fb76e17f3f862094e51d675534781699:react-router-dom";
+import   "fb76e17f3f862094e51d675534781699:axios";
+function $fb76e17f3f862094e51d675534781699$export$5b7330800b64d3a3(props) {
+    const [username, setUsername] = $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$f54936751fc2c51("");
+    const [password, setPassword] = $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$f54936751fc2c51("");
+    const [email, setEmail] = $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$f54936751fc2c51("");
+    const [birthday, setBirthday] = $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$f54936751fc2c51("");
+    const [usernameError, setUsernameError] = $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$f54936751fc2c51({
+    });
+    const [passwordError, setPasswordError] = $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$f54936751fc2c51({
+    });
+    const [emailError, setEmailError] = $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$f54936751fc2c51({
+    });
+    const onBackClick = props.onBackClick;
+    const handleUpdate = (e)=>{
+        e.preventDefault();
+        const isValid = formValidation();
+        const url = "https://flixinfo.herokuapp.com/users/" + localStorage.getItem("user");
+        if (isValid) $fb76e17f3f862094e51d675534781699$import$bed27987f94bc6dd$9099ad97b570f7c.put(url, {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
+        }, {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("token")
+            }
+        }).then((response)=>{
+            const data = response.data;
+            localStorage.setItem("user", data.Username);
+            localStorage.setItem('email', data.Email);
+            localStorage.setItem('birthday', data.Birthday);
+            alert("Your profile was updated successfully");
+            window.open("/", "_self");
+        }).catch((e1)=>{
+            console.log(e1);
+        });
+    };
+    const formValidation = ()=>{
+        const usernameError1 = {
+        };
+        const passwordError1 = {
+        };
+        const emailError1 = {
+        };
+        let isValid = true;
+        if (username.trim().length < 5) {
+            usernameError1.usernameShort = "Username must be at least 5 characters";
+            isValid = false;
+        }
+        if (password.trim().length < 1) {
+            passwordError1.passwordMissing = "You must enter a password";
+            isValid = false;
+        }
+        if (!email.includes(".") && !email.includes("@")) {
+            emailError1.emailNotEmail = "A valid email address is required";
+            isValid = false;
+        }
+        setUsernameError(usernameError1);
+        setPasswordError(passwordError1);
+        setEmailError(emailError1);
+        return isValid;
+    };
+    return(/*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", null, /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("h1", null, "Update your profile"), /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$c33866132872a26f$9099ad97b570f7c, {
+        className: "registration-form"
+    }, /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$c33866132872a26f$9099ad97b570f7c.Group, {
+        controlId: "formBasicUsername"
+    }, /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$c33866132872a26f$9099ad97b570f7c.Label, null, "Username:"), /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$c33866132872a26f$9099ad97b570f7c.Control, {
+        type: "text",
+        value: username,
+        placeholder: "Enter username",
+        required: true,
+        onChange: (e)=>setUsername(e.target.value)
+    }), Object.keys(usernameError).map((key)=>{
+        return(/*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            key: key,
+            style: {
+                color: "red"
+            }
+        }, usernameError[key]));
+    })), /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$c33866132872a26f$9099ad97b570f7c.Group, {
+        controlId: "formBasicPassword"
+    }, /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$c33866132872a26f$9099ad97b570f7c.Label, null, "Password:"), /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$c33866132872a26f$9099ad97b570f7c.Control, {
+        type: "password",
+        value: password,
+        placeholder: "Enter password",
+        required: true,
+        onChange: (e)=>setPassword(e.target.value)
+    }), Object.keys(passwordError).map((key)=>{
+        return(/*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            key: key,
+            style: {
+                color: "red"
+            }
+        }, passwordError[key]));
+    })), /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$c33866132872a26f$9099ad97b570f7c.Group, null, /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$c33866132872a26f$9099ad97b570f7c.Label, null, "Date of Birth:"), /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$c33866132872a26f$9099ad97b570f7c.Control, {
+        type: "text",
+        value: birthday,
+        onChange: (e)=>setBirthday(e.target.value)
+    })), /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$c33866132872a26f$9099ad97b570f7c.Group, {
+        controlId: "formBasicEmail"
+    }, /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$c33866132872a26f$9099ad97b570f7c.Label, null, "Email:"), /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$c33866132872a26f$9099ad97b570f7c.Control, {
+        type: "email",
+        value: email,
+        placeholder: "name@example.com",
+        required: true,
+        onChange: (e)=>setEmail(e.target.value)
+    }), Object.keys(emailError).map((key)=>{
+        return(/*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            key: key,
+            style: {
+                color: "red"
+            }
+        }, emailError[key]));
+    })), /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$46a3a2459f86404b$454c04d8f1b76440, {
+        to: `/users/`
+    }, /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$4f4877c85d888a51$9099ad97b570f7c, {
+        variant: "primary",
+        type: "submit",
+        onClick: handleUpdate
+    }, "Update")), /*#__PURE__*/ $fb76e17f3f862094e51d675534781699$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($fb76e17f3f862094e51d675534781699$import$4f4877c85d888a51$9099ad97b570f7c, {
+        variant: "secondary",
+        onClick: onBackClick
+    }, "Back"))));
+}

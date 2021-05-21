@@ -1,0 +1,217 @@
+import   "3befe0c1d711985648cc102597d7e579:react";
+import   "3befe0c1d711985648cc102597d7e579:axios";
+import   "3befe0c1d711985648cc102597d7e579:react-redux";
+import   "3befe0c1d711985648cc102597d7e579:../../actions/actions";
+import   "3befe0c1d711985648cc102597d7e579:../movies-list/movies-list";
+import   "3befe0c1d711985648cc102597d7e579:react-router-dom";
+import   "3befe0c1d711985648cc102597d7e579:react-router-dom";
+import   "3befe0c1d711985648cc102597d7e579:react-bootstrap/Row";
+import   "3befe0c1d711985648cc102597d7e579:react-bootstrap/Col";
+import   "3befe0c1d711985648cc102597d7e579:react-bootstrap/Button";
+import   "3befe0c1d711985648cc102597d7e579:../login-view/login-view";
+import   "3befe0c1d711985648cc102597d7e579:../registration-view/registration-view";
+import   "3befe0c1d711985648cc102597d7e579:../movie-view/movie-view";
+import   "3befe0c1d711985648cc102597d7e579:../director-view/director-view";
+import   "3befe0c1d711985648cc102597d7e579:../genre-view/genre-view";
+import   "3befe0c1d711985648cc102597d7e579:../profile-view/profile-view";
+import   "3befe0c1d711985648cc102597d7e579:../profile-update/profile-update";
+class $3befe0c1d711985648cc102597d7e579$var$MainView extends $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.Component {
+    constructor(){
+        super();
+        this.state = {
+            user: null
+        };
+    }
+    componentDidMount() {
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
+            this.setState({
+                user: localStorage.getItem('user')
+            });
+            this.getMovies(accessToken);
+        }
+    }
+    onLoggedIn(authData) {
+        console.log(authData);
+        this.setState({
+            user: authData.user.Username
+        });
+        localStorage.setItem('token', authData.token);
+        localStorage.setItem('user', authData.user.Username);
+        localStorage.setItem('email', authData.user.Email);
+        localStorage.setItem('birthday', authData.user.Birthday);
+        localStorage.setItem('favoriteMovies', JSON.stringify(authData.user.FavoriteMovies));
+        this.getMovies(authData.token);
+        const favMoves = localStorage.getItem('FavoriteMovies');
+        console.log(favMovis);
+    }
+    getMovies(token) {
+        $3befe0c1d711985648cc102597d7e579$import$bed27987f94bc6dd$9099ad97b570f7c.get('https://timsmyflix.herokuapp.com/movies', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            this.props.setMovies(response.data);
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+    logOut() {
+        localStorage.clear();
+        this.setState({
+            user: null
+        });
+        console.log("logout successful");
+        window.open("/", "_self");
+    }
+    render() {
+        const { user: user  } = this.state;
+        const { movies: movies  } = this.props;
+        return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", null, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$46a3a2459f86404b$23ac238d08219e97, null, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "insert-navbar"
+        }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$46a3a2459f86404b$454c04d8f1b76440, {
+            to: `/`
+        }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$4f4877c85d888a51$9099ad97b570f7c, {
+            variant: "link",
+            className: "navbar-link",
+            onClick: ()=>this.logOut()
+        }, "Sign Out")), /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$46a3a2459f86404b$454c04d8f1b76440, {
+            to: `/users/${user}`
+        }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$4f4877c85d888a51$9099ad97b570f7c, {
+            variant: "link",
+            className: "navbar-link"
+        }, "My Profile"))), /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$cc38948d830542d3$9099ad97b570f7c, {
+            className: "main-view justify-content-md-center"
+        }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$46a3a2459f86404b$90dc2b712eed10fd, {
+            exact: true,
+            path: "/",
+            render: ()=>{
+                if (!user) return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$f6437e7de1c0263b$9099ad97b570f7c, {
+                    md: 6
+                }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$ddd2ef262ae903a$772705468adc79d3, {
+                    onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                })));
+                if (movies.length === 0) return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+                    className: "main-view"
+                }));
+                return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$48ab6b4df65b9d19$9099ad97b570f7c, {
+                    movies: movies
+                }));
+            }
+        }), /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$46a3a2459f86404b$90dc2b712eed10fd, {
+            path: "/register",
+            render: ()=>{
+                if (user) return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$46a3a2459f86404b$6b432523964017e, {
+                    to: "/"
+                }));
+                return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$f6437e7de1c0263b$9099ad97b570f7c, {
+                    md: 6
+                }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$93614052c4bab766$be145813352386bb, null)));
+            }
+        }), /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$46a3a2459f86404b$90dc2b712eed10fd, {
+            path: "/movies/:movieId",
+            render: ({ match: match , history: history  })=>{
+                if (!user) return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$f6437e7de1c0263b$9099ad97b570f7c, {
+                    md: 6
+                }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$ddd2ef262ae903a$772705468adc79d3, {
+                    onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                })));
+                if (movies.length === 0) return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+                    className: "main-view"
+                }));
+                return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$f6437e7de1c0263b$9099ad97b570f7c, {
+                    md: 8
+                }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$889b52c0e363dcea$7a4253a85ccac5dc, {
+                    movie: movies.find((m)=>m._id === match.params.movieId
+                    ),
+                    onBackClick: ()=>history.goBack()
+                })));
+            }
+        }), /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$46a3a2459f86404b$90dc2b712eed10fd, {
+            path: "/directors/:name",
+            render: ({ match: match , history: history  })=>{
+                if (!user) return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$f6437e7de1c0263b$9099ad97b570f7c, {
+                    md: 6
+                }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$ddd2ef262ae903a$772705468adc79d3, {
+                    onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                })));
+                if (movies.length === 0) return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+                    className: "main-view"
+                }));
+                return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$f6437e7de1c0263b$9099ad97b570f7c, {
+                    md: 8
+                }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$2f8e36e87ee65e09$b652bac727f5774, {
+                    director: movies.find((m)=>m.Director.Name === match.params.name
+                    ).Director,
+                    movies: movies,
+                    onBackClick: ()=>history.goBack()
+                })));
+            }
+        }), /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$46a3a2459f86404b$90dc2b712eed10fd, {
+            path: "/genres/:name",
+            render: ({ match: match , history: history  })=>{
+                if (!user) return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$f6437e7de1c0263b$9099ad97b570f7c, {
+                    md: 6
+                }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$ddd2ef262ae903a$772705468adc79d3, {
+                    onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                })));
+                if (movies.length === 0) return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+                    className: "main-view"
+                }));
+                return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$f6437e7de1c0263b$9099ad97b570f7c, {
+                    md: 8
+                }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$78b92b1bd93494cb$7ca4026d42a195d7, {
+                    genre: movies.find((m)=>m.Genre.Name === match.params.name
+                    ).Genre,
+                    onBackClick: ()=>history.goBack()
+                    ,
+                    movies: movies
+                })));
+            }
+        }), /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$46a3a2459f86404b$90dc2b712eed10fd, {
+            path: "/users/:userId",
+            render: ({ history: history  })=>{
+                if (!user) return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$f6437e7de1c0263b$9099ad97b570f7c, {
+                    md: 6
+                }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$ddd2ef262ae903a$772705468adc79d3, {
+                    onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                })));
+                if (movies.length === 0) return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+                    className: "main-view"
+                }));
+                return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$f6437e7de1c0263b$9099ad97b570f7c, {
+                    md: 8
+                }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$a02159de0be7dca4$19171ea33e9e98aa, {
+                    movies: movies,
+                    onBackClick: ()=>history.goBack()
+                })));
+            }
+        }), /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$46a3a2459f86404b$90dc2b712eed10fd, {
+            path: "/update/:userId",
+            render: ({ history: history  })=>{
+                if (!user) return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$f6437e7de1c0263b$9099ad97b570f7c, {
+                    md: 6
+                }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$ddd2ef262ae903a$772705468adc79d3, {
+                    onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                })));
+                if (movies.length === 0) return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+                    className: "main-view"
+                }));
+                return(/*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$f6437e7de1c0263b$9099ad97b570f7c, {
+                    md: 8
+                }, /*#__PURE__*/ $3befe0c1d711985648cc102597d7e579$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($3befe0c1d711985648cc102597d7e579$import$ba68df28dc61ea3c$5b7330800b64d3a3, {
+                    movies: movies,
+                    onBackClick: ()=>history.goBack()
+                })));
+            }
+        })))));
+    }
+}
+let $3befe0c1d711985648cc102597d7e579$var$mapStateToProps = (state)=>{
+    return {
+        movies: state.movies
+    };
+};
+var $3befe0c1d711985648cc102597d7e579$export$9099ad97b570f7c = $3befe0c1d711985648cc102597d7e579$import$336b048844a0f5a7$b4e85276e81c9e28($3befe0c1d711985648cc102597d7e579$var$mapStateToProps, {
+    setMovies: $3befe0c1d711985648cc102597d7e579$import$d0c24893051b0b44$7dd36e4bea655c1f
+})($3befe0c1d711985648cc102597d7e579$var$MainView);

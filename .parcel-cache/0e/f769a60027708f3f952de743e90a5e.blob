@@ -1,0 +1,52 @@
+import   "8614620c1736b143281d8a8f8010d872:@babel/runtime/helpers/esm/extends";
+import   "8614620c1736b143281d8a8f8010d872:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "8614620c1736b143281d8a8f8010d872:react";
+import   "8614620c1736b143281d8a8f8010d872:./createChainedFunction";
+function $8614620c1736b143281d8a8f8010d872$var$isTrivialHref(href) {
+    return !href || href.trim() === '#';
+}
+/**
+ * There are situations due to browser quirks or Bootstrap CSS where
+ * an anchor tag is needed, when semantically a button tag is the
+ * better choice. SafeAnchor ensures that when an anchor is used like a
+ * button its accessible. It also emulates input `disabled` behavior for
+ * links, which is usually desirable for Buttons, NavItems, DropdownItems, etc.
+ */ var $8614620c1736b143281d8a8f8010d872$var$SafeAnchor = /*#__PURE__*/ $8614620c1736b143281d8a8f8010d872$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var _ref$as = _ref.as, Component = _ref$as === void 0 ? 'a' : _ref$as, disabled = _ref.disabled, onKeyDown = _ref.onKeyDown, props = $8614620c1736b143281d8a8f8010d872$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "as",
+        "disabled",
+        "onKeyDown"
+    ]);
+    var handleClick = function handleClick1(event) {
+        var href = props.href, onClick = props.onClick;
+        if (disabled || $8614620c1736b143281d8a8f8010d872$var$isTrivialHref(href)) event.preventDefault();
+        if (disabled) {
+            event.stopPropagation();
+            return;
+        }
+        if (onClick) onClick(event);
+    };
+    var handleKeyDown = function handleKeyDown1(event) {
+        if (event.key === ' ') {
+            event.preventDefault();
+            handleClick(event);
+        }
+    };
+    if ($8614620c1736b143281d8a8f8010d872$var$isTrivialHref(props.href)) {
+        props.role = props.role || 'button'; // we want to make sure there is a href attribute on the node
+        // otherwise, the cursor incorrectly styled (except with role='button')
+        props.href = props.href || '#';
+    }
+    if (disabled) {
+        props.tabIndex = -1;
+        props['aria-disabled'] = true;
+    }
+    return(/*#__PURE__*/ $8614620c1736b143281d8a8f8010d872$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, $8614620c1736b143281d8a8f8010d872$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+        ref: ref
+    }, props, {
+        onClick: handleClick,
+        onKeyDown: $8614620c1736b143281d8a8f8010d872$import$abf4b549bc088b40$9099ad97b570f7c(handleKeyDown, onKeyDown)
+    })));
+});
+$8614620c1736b143281d8a8f8010d872$var$SafeAnchor.displayName = 'SafeAnchor';
+var $8614620c1736b143281d8a8f8010d872$export$9099ad97b570f7c = $8614620c1736b143281d8a8f8010d872$var$SafeAnchor;

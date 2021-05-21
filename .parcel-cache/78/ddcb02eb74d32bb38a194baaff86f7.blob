@@ -1,0 +1,32 @@
+import   "0c2f3c973c0935fb3c8af35def8c9e5a:@babel/runtime/helpers/esm/extends";
+import   "0c2f3c973c0935fb3c8af35def8c9e5a:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "0c2f3c973c0935fb3c8af35def8c9e5a:classnames";
+import   "0c2f3c973c0935fb3c8af35def8c9e5a:react";
+import   "0c2f3c973c0935fb3c8af35def8c9e5a:./FormContext";
+import   "0c2f3c973c0935fb3c8af35def8c9e5a:./ThemeProvider";
+var $0c2f3c973c0935fb3c8af35def8c9e5a$var$FormGroup = /*#__PURE__*/ $0c2f3c973c0935fb3c8af35def8c9e5a$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var bsPrefix = _ref.bsPrefix, className = _ref.className, children = _ref.children, controlId = _ref.controlId, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'div' : _ref$as, props = $0c2f3c973c0935fb3c8af35def8c9e5a$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "bsPrefix",
+        "className",
+        "children",
+        "controlId",
+        "as"
+    ]);
+    bsPrefix = $0c2f3c973c0935fb3c8af35def8c9e5a$import$1581226de02c9527$6efad33e744e1774(bsPrefix, 'form-group');
+    var context = $0c2f3c973c0935fb3c8af35def8c9e5a$import$f02ba03fc070e88c$fe55aea32a6cbc49(function() {
+        return {
+            controlId: controlId
+        };
+    }, [
+        controlId
+    ]);
+    return(/*#__PURE__*/ $0c2f3c973c0935fb3c8af35def8c9e5a$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($0c2f3c973c0935fb3c8af35def8c9e5a$import$3c9bcaee959fbd2b$9099ad97b570f7c.Provider, {
+        value: context
+    }, /*#__PURE__*/ $0c2f3c973c0935fb3c8af35def8c9e5a$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, $0c2f3c973c0935fb3c8af35def8c9e5a$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, props, {
+        ref: ref,
+        className: $0c2f3c973c0935fb3c8af35def8c9e5a$import$c7a3314ec092e1bf$9099ad97b570f7c(className, bsPrefix)
+    }), children)));
+});
+$0c2f3c973c0935fb3c8af35def8c9e5a$var$FormGroup.displayName = 'FormGroup';
+var $0c2f3c973c0935fb3c8af35def8c9e5a$export$9099ad97b570f7c = $0c2f3c973c0935fb3c8af35def8c9e5a$var$FormGroup;

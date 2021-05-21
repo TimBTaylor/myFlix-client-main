@@ -1,0 +1,8 @@
+var $29e16f862bf0c24e3282982148012eb2$var$isProduction = true;
+var $29e16f862bf0c24e3282982148012eb2$var$prefix = 'Invariant failed';
+function $29e16f862bf0c24e3282982148012eb2$var$invariant(condition, message) {
+    if (condition) return;
+    if ($29e16f862bf0c24e3282982148012eb2$var$isProduction) throw new Error($29e16f862bf0c24e3282982148012eb2$var$prefix);
+    throw new Error($29e16f862bf0c24e3282982148012eb2$var$prefix + ": " + (message || ''));
+}
+var $29e16f862bf0c24e3282982148012eb2$export$9099ad97b570f7c = $29e16f862bf0c24e3282982148012eb2$var$invariant;

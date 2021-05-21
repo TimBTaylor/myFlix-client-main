@@ -1,0 +1,45 @@
+import   "f7fdedf37c1eab68228b043950d985c7:react";
+import   "f7fdedf37c1eab68228b043950d985c7:react-bootstrap/Form";
+import   "f7fdedf37c1eab68228b043950d985c7:react-bootstrap/Button";
+import   "f7fdedf37c1eab68228b043950d985c7:axios";
+import   "f7fdedf37c1eab68228b043950d985c7:react-router-dom";
+function $f7fdedf37c1eab68228b043950d985c7$export$772705468adc79d3(props) {
+    const [username, setUsername] = $f7fdedf37c1eab68228b043950d985c7$import$f02ba03fc070e88c$f54936751fc2c51('');
+    const [password, setPassword] = $f7fdedf37c1eab68228b043950d985c7$import$f02ba03fc070e88c$f54936751fc2c51('');
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        $f7fdedf37c1eab68228b043950d985c7$import$bed27987f94bc6dd$9099ad97b570f7c.post('https://timsmyflix.herokuapp.com/login', {
+            Username: username,
+            Password: password
+        }).then((response)=>{
+            const data = response.data;
+            props.onLoggedIn(data);
+        }).catch((e1)=>{
+            console.log('no such user');
+        });
+    };
+    return(/*#__PURE__*/ $f7fdedf37c1eab68228b043950d985c7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f7fdedf37c1eab68228b043950d985c7$import$c33866132872a26f$9099ad97b570f7c, null, /*#__PURE__*/ $f7fdedf37c1eab68228b043950d985c7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f7fdedf37c1eab68228b043950d985c7$import$c33866132872a26f$9099ad97b570f7c.Group, {
+        controlId: "formUsername"
+    }, /*#__PURE__*/ $f7fdedf37c1eab68228b043950d985c7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f7fdedf37c1eab68228b043950d985c7$import$c33866132872a26f$9099ad97b570f7c.Label, null, "Username:"), /*#__PURE__*/ $f7fdedf37c1eab68228b043950d985c7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f7fdedf37c1eab68228b043950d985c7$import$c33866132872a26f$9099ad97b570f7c.Control, {
+        type: "text",
+        placeholder: "Enter username",
+        value: username,
+        onChange: (e)=>setUsername(e.target.value)
+    })), /*#__PURE__*/ $f7fdedf37c1eab68228b043950d985c7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f7fdedf37c1eab68228b043950d985c7$import$c33866132872a26f$9099ad97b570f7c.Group, {
+        controlId: "formPassword"
+    }, /*#__PURE__*/ $f7fdedf37c1eab68228b043950d985c7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f7fdedf37c1eab68228b043950d985c7$import$c33866132872a26f$9099ad97b570f7c.Label, null, "Password"), /*#__PURE__*/ $f7fdedf37c1eab68228b043950d985c7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f7fdedf37c1eab68228b043950d985c7$import$c33866132872a26f$9099ad97b570f7c.Control, {
+        type: "password",
+        placeholder: "Password",
+        value: password,
+        onChange: (e)=>setPassword(e.target.value)
+    })), /*#__PURE__*/ $f7fdedf37c1eab68228b043950d985c7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f7fdedf37c1eab68228b043950d985c7$import$4f4877c85d888a51$9099ad97b570f7c, {
+        variant: "primary",
+        type: "submit",
+        onClick: handleSubmit
+    }, "Submit"), /*#__PURE__*/ $f7fdedf37c1eab68228b043950d985c7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f7fdedf37c1eab68228b043950d985c7$import$46a3a2459f86404b$454c04d8f1b76440, {
+        to: "/register"
+    }, /*#__PURE__*/ $f7fdedf37c1eab68228b043950d985c7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f7fdedf37c1eab68228b043950d985c7$import$4f4877c85d888a51$9099ad97b570f7c, {
+        varaint: "primary",
+        type: "submit"
+    }, "Register"))));
+}

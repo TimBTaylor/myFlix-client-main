@@ -1,0 +1,26 @@
+import   "9d5e466193a723c69a03553ae8fa7fa6:./defineProperty.js";
+function $9d5e466193a723c69a03553ae8fa7fa6$var$ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        if (enumerableOnly) symbols = symbols.filter(function(sym) {
+            return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        });
+        keys.push.apply(keys, symbols);
+    }
+    return keys;
+}
+function $9d5e466193a723c69a03553ae8fa7fa6$export$9099ad97b570f7c(target) {
+    for(var i = 1; i < arguments.length; i++){
+        var source = arguments[i] != null ? arguments[i] : {
+        };
+        if (i % 2) $9d5e466193a723c69a03553ae8fa7fa6$var$ownKeys(Object(source), true).forEach(function(key) {
+            $9d5e466193a723c69a03553ae8fa7fa6$import$f724e7c18dbfcc39$9099ad97b570f7c(target, key, source[key]);
+        });
+        else if (Object.getOwnPropertyDescriptors) Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+        else $9d5e466193a723c69a03553ae8fa7fa6$var$ownKeys(Object(source)).forEach(function(key) {
+            Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+    }
+    return target;
+}

@@ -1,0 +1,47 @@
+'use strict';
+import   "ea182a60f6c3729931fdb5051f0fed05:./utils";
+import   "ea182a60f6c3729931fdb5051f0fed05:./helpers/bind";
+import   "ea182a60f6c3729931fdb5051f0fed05:./core/Axios";
+import   "ea182a60f6c3729931fdb5051f0fed05:./core/mergeConfig";
+import   "ea182a60f6c3729931fdb5051f0fed05:./defaults";
+/**
+ * Create an instance of Axios
+ *
+ * @param {Object} defaultConfig The default config for the instance
+ * @return {Axios} A new instance of Axios
+ */ function $ea182a60f6c3729931fdb5051f0fed05$var$createInstance(defaultConfig) {
+    var context = new $ea182a60f6c3729931fdb5051f0fed05$import$35ea4eb0d66d9f15(defaultConfig);
+    var instance = $ea182a60f6c3729931fdb5051f0fed05$import$51621407ea3899ee($ea182a60f6c3729931fdb5051f0fed05$import$35ea4eb0d66d9f15.prototype.request, context);
+    // Copy axios.prototype to instance
+    $ea182a60f6c3729931fdb5051f0fed05$import$4b1ea399deea6e65$46e35401bc090c62(instance, $ea182a60f6c3729931fdb5051f0fed05$import$35ea4eb0d66d9f15.prototype, context);
+    // Copy context to instance
+    $ea182a60f6c3729931fdb5051f0fed05$import$4b1ea399deea6e65$46e35401bc090c62(instance, context);
+    return instance;
+}
+// Create the default instance to be exported
+var $ea182a60f6c3729931fdb5051f0fed05$var$axios = $ea182a60f6c3729931fdb5051f0fed05$var$createInstance($ea182a60f6c3729931fdb5051f0fed05$import$395c9d2d7218ac6d);
+// Expose Axios class to allow class inheritance
+$ea182a60f6c3729931fdb5051f0fed05$var$axios.Axios = $ea182a60f6c3729931fdb5051f0fed05$import$35ea4eb0d66d9f15;
+// Factory for creating new instances
+$ea182a60f6c3729931fdb5051f0fed05$var$axios.create = function create(instanceConfig) {
+    return $ea182a60f6c3729931fdb5051f0fed05$var$createInstance($ea182a60f6c3729931fdb5051f0fed05$import$421756ac3e0c0d50($ea182a60f6c3729931fdb5051f0fed05$var$axios.defaults, instanceConfig));
+};
+import   "ea182a60f6c3729931fdb5051f0fed05:./cancel/Cancel";
+// Expose Cancel & CancelToken
+$ea182a60f6c3729931fdb5051f0fed05$var$axios.Cancel = $ea182a60f6c3729931fdb5051f0fed05$import$d26bfc3b6e747317;
+import   "ea182a60f6c3729931fdb5051f0fed05:./cancel/CancelToken";
+$ea182a60f6c3729931fdb5051f0fed05$var$axios.CancelToken = $ea182a60f6c3729931fdb5051f0fed05$import$f393aa074ca5da66;
+import   "ea182a60f6c3729931fdb5051f0fed05:./cancel/isCancel";
+$ea182a60f6c3729931fdb5051f0fed05$var$axios.isCancel = $ea182a60f6c3729931fdb5051f0fed05$import$2f4e2fd2a1e3f10b;
+// Expose all/spread
+$ea182a60f6c3729931fdb5051f0fed05$var$axios.all = function all(promises) {
+    return Promise.all(promises);
+};
+import   "ea182a60f6c3729931fdb5051f0fed05:./helpers/spread";
+$ea182a60f6c3729931fdb5051f0fed05$var$axios.spread = $ea182a60f6c3729931fdb5051f0fed05$import$b93a5739b158d5fb;
+import   "ea182a60f6c3729931fdb5051f0fed05:./helpers/isAxiosError";
+// Expose isAxiosError
+$ea182a60f6c3729931fdb5051f0fed05$var$axios.isAxiosError = $ea182a60f6c3729931fdb5051f0fed05$import$7004208ed6584459;
+$ea182a60f6c3729931fdb5051f0fed05$exports = $ea182a60f6c3729931fdb5051f0fed05$var$axios;
+// Allow use of default import syntax in TypeScript
+$ea182a60f6c3729931fdb5051f0fed05$exports.default = $ea182a60f6c3729931fdb5051f0fed05$var$axios;

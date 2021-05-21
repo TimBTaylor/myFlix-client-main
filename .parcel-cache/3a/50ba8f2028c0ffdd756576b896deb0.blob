@@ -1,0 +1,14 @@
+import   "a0aee06c95d198a851566e2bc4ce501b:react";
+import   "a0aee06c95d198a851566e2bc4ce501b:../components/Context";
+import   "a0aee06c95d198a851566e2bc4ce501b:./useReduxContext";
+function $a0aee06c95d198a851566e2bc4ce501b$export$5c2867716a4db522(context) {
+    if (context === void 0) context = $a0aee06c95d198a851566e2bc4ce501b$import$6666e241bca34f1c$8a4bd31a1c5faed1;
+    var useReduxContext = context === $a0aee06c95d198a851566e2bc4ce501b$import$6666e241bca34f1c$8a4bd31a1c5faed1 ? $a0aee06c95d198a851566e2bc4ce501b$import$ee0f4c636453026a$26d5e781f89025ee : function() {
+        return $a0aee06c95d198a851566e2bc4ce501b$import$f02ba03fc070e88c$d532f802c57568ca(context);
+    };
+    return function useStore() {
+        var _useReduxContext = useReduxContext(), store = _useReduxContext.store;
+        return store;
+    };
+}
+var $a0aee06c95d198a851566e2bc4ce501b$export$75b9c8ae179b34d = /*#__PURE__*/ $a0aee06c95d198a851566e2bc4ce501b$export$5c2867716a4db522();

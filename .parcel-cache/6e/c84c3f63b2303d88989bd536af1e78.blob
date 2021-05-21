@@ -1,0 +1,180 @@
+import   "ddbaf1319fbcd6e7a1e8f328ac58b6e1:react-router";
+import   "ddbaf1319fbcd6e7a1e8f328ac58b6e1:react-router";
+import   "ddbaf1319fbcd6e7a1e8f328ac58b6e1:@babel/runtime/helpers/esm/inheritsLoose";
+import   "ddbaf1319fbcd6e7a1e8f328ac58b6e1:react";
+import   "ddbaf1319fbcd6e7a1e8f328ac58b6e1:history";
+import   "ddbaf1319fbcd6e7a1e8f328ac58b6e1:prop-types";
+import   "ddbaf1319fbcd6e7a1e8f328ac58b6e1:tiny-warning";
+import   "ddbaf1319fbcd6e7a1e8f328ac58b6e1:@babel/runtime/helpers/esm/extends";
+import   "ddbaf1319fbcd6e7a1e8f328ac58b6e1:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "ddbaf1319fbcd6e7a1e8f328ac58b6e1:tiny-invariant";
+/**
+ * The public API for a <Router> that uses HTML5 history.
+ */ var $ddbaf1319fbcd6e7a1e8f328ac58b6e1$export$23ac238d08219e97 = /*#__PURE__*/ function(_React$Component) {
+    $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$8db3e3d0e0460463$9099ad97b570f7c(BrowserRouter, _React$Component);
+    function BrowserRouter() {
+        var _this;
+        for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
+        _this = _React$Component.call.apply(_React$Component, [
+            this
+        ].concat(args)) || this;
+        _this.history = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$3da9dca5a6cc8306$74d65f283c895e31(_this.props);
+        return _this;
+    }
+    var _proto = BrowserRouter.prototype;
+    _proto.render = function render() {
+        return $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$3adae457ff54e497$1ea3463d2e476fc2, {
+            history: this.history,
+            children: this.props.children
+        });
+    };
+    return BrowserRouter;
+}($ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$f02ba03fc070e88c$9099ad97b570f7c.Component);
+/**
+ * The public API for a <Router> that uses window.location.hash.
+ */ var $ddbaf1319fbcd6e7a1e8f328ac58b6e1$export$ffe9bf6230afb975 = /*#__PURE__*/ function(_React$Component) {
+    $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$8db3e3d0e0460463$9099ad97b570f7c(HashRouter, _React$Component);
+    function HashRouter() {
+        var _this;
+        for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
+        _this = _React$Component.call.apply(_React$Component, [
+            this
+        ].concat(args)) || this;
+        _this.history = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$3da9dca5a6cc8306$9ce9d9cab9744a00(_this.props);
+        return _this;
+    }
+    var _proto = HashRouter.prototype;
+    _proto.render = function render() {
+        return $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$3adae457ff54e497$1ea3463d2e476fc2, {
+            history: this.history,
+            children: this.props.children
+        });
+    };
+    return HashRouter;
+}($ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$f02ba03fc070e88c$9099ad97b570f7c.Component);
+var $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$resolveToLocation = function resolveToLocation(to, currentLocation) {
+    return typeof to === "function" ? to(currentLocation) : to;
+};
+var $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$normalizeToLocation = function normalizeToLocation(to, currentLocation) {
+    return typeof to === "string" ? $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$3da9dca5a6cc8306$19341d772daff4ba(to, null, null, currentLocation) : to;
+};
+var $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRefShim = function forwardRefShim(C) {
+    return C;
+};
+var $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRef = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef;
+if (typeof $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRef === "undefined") $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRef = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRefShim;
+function $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$isModifiedEvent(event) {
+    return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+}
+var $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$LinkAnchor = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRef(function(_ref, forwardedRef) {
+    var innerRef = _ref.innerRef, navigate = _ref.navigate, _onClick = _ref.onClick, rest = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "innerRef",
+        "navigate",
+        "onClick"
+    ]);
+    var target = rest.target;
+    var props = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, rest, {
+        onClick: function onClick(event) {
+            try {
+                if (_onClick) _onClick(event);
+            } catch (ex) {
+                event.preventDefault();
+                throw ex;
+            }
+            if (!event.defaultPrevented && event.button === 0 && (!target || target === "_self") && !$ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$isModifiedEvent(event)) {
+                event.preventDefault();
+                navigate();
+            }
+        }
+    }); // React 15 compat
+    if ($ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRefShim !== $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRef) props.ref = forwardedRef || innerRef;
+    else props.ref = innerRef;
+    /* eslint-disable-next-line jsx-a11y/anchor-has-content */ return $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("a", props);
+});
+/**
+ * The public API for rendering a history-aware <a>.
+ */ var $ddbaf1319fbcd6e7a1e8f328ac58b6e1$export$454c04d8f1b76440 = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRef(function(_ref2, forwardedRef) {
+    var _ref2$component = _ref2.component, component = _ref2$component === void 0 ? $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$LinkAnchor : _ref2$component, replace = _ref2.replace, to = _ref2.to, innerRef = _ref2.innerRef, rest = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$555fcbd5081a286a$9099ad97b570f7c(_ref2, [
+        "component",
+        "replace",
+        "to",
+        "innerRef"
+    ]);
+    return $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$3adae457ff54e497$4ecaa231abd67ccf.Consumer, null, function(context) {
+        !context && $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$3b59e0a764ef091c$9099ad97b570f7c(false);
+        var history = context.history;
+        var location = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$normalizeToLocation($ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$resolveToLocation(to, context.location), context.location);
+        var href = location ? history.createHref(location) : "";
+        var props = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+        }, rest, {
+            href: href,
+            navigate: function navigate() {
+                var location1 = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$resolveToLocation(to, context.location);
+                var method = replace ? history.replace : history.push;
+                method(location1);
+            }
+        }); // React 15 compat
+        if ($ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRefShim !== $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRef) props.ref = forwardedRef || innerRef;
+        else props.innerRef = innerRef;
+        return $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(component, props);
+    });
+});
+var $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$toType, $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$refType;
+var $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRefShim$1 = function forwardRefShim1(C) {
+    return C;
+};
+var $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRef$1 = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef;
+if (typeof $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRef$1 === "undefined") $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRef$1 = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRefShim$1;
+function $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$joinClassnames() {
+    for(var _len = arguments.length, classnames = new Array(_len), _key = 0; _key < _len; _key++)classnames[_key] = arguments[_key];
+    return classnames.filter(function(i) {
+        return i;
+    }).join(" ");
+}
+/**
+ * A <Link> wrapper that knows if it's "active" or not.
+ */ var $ddbaf1319fbcd6e7a1e8f328ac58b6e1$export$e40c70402045244d = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRef$1(function(_ref, forwardedRef) {
+    var _ref$ariaCurrent = _ref["aria-current"], ariaCurrent = _ref$ariaCurrent === void 0 ? "page" : _ref$ariaCurrent, _ref$activeClassName = _ref.activeClassName, activeClassName = _ref$activeClassName === void 0 ? "active" : _ref$activeClassName, activeStyle = _ref.activeStyle, classNameProp = _ref.className, exact = _ref.exact, isActiveProp = _ref.isActive, locationProp = _ref.location, sensitive = _ref.sensitive, strict = _ref.strict, styleProp = _ref.style, to = _ref.to, innerRef = _ref.innerRef, rest = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "aria-current",
+        "activeClassName",
+        "activeStyle",
+        "className",
+        "exact",
+        "isActive",
+        "location",
+        "sensitive",
+        "strict",
+        "style",
+        "to",
+        "innerRef"
+    ]);
+    return $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$3adae457ff54e497$4ecaa231abd67ccf.Consumer, null, function(context) {
+        !context && $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$3b59e0a764ef091c$9099ad97b570f7c(false);
+        var currentLocation = locationProp || context.location;
+        var toLocation = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$normalizeToLocation($ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$resolveToLocation(to, currentLocation), currentLocation);
+        var path = toLocation.pathname; // Regex taken from: https://github.com/pillarjs/path-to-regexp/blob/master/index.js#L202
+        var escapedPath = path && path.replace(/([.+*?=^!:${}()[\]|/\\])/g, "\\$1");
+        var match = escapedPath ? $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$3adae457ff54e497$4b180c625a8eb76a(currentLocation.pathname, {
+            path: escapedPath,
+            exact: exact,
+            sensitive: sensitive,
+            strict: strict
+        }) : null;
+        var isActive = !!(isActiveProp ? isActiveProp(match, currentLocation) : match);
+        var className = isActive ? $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$joinClassnames(classNameProp, activeClassName) : classNameProp;
+        var style = isActive ? $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+        }, styleProp, {
+        }, activeStyle) : styleProp;
+        var props = $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+            "aria-current": isActive && ariaCurrent || null,
+            className: className,
+            style: style,
+            to: toLocation
+        }, rest); // React 15 compat
+        if ($ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRefShim$1 !== $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$forwardRef$1) props.ref = forwardedRef || innerRef;
+        else props.innerRef = innerRef;
+        return $ddbaf1319fbcd6e7a1e8f328ac58b6e1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ddbaf1319fbcd6e7a1e8f328ac58b6e1$export$454c04d8f1b76440, props);
+    });
+});
+var $ddbaf1319fbcd6e7a1e8f328ac58b6e1$var$ariaCurrentType;

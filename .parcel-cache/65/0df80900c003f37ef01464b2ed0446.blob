@@ -1,0 +1,17 @@
+'use strict';
+function $754c4f72a851537241b3501cf0ac9aaf$var$checkDCE() {
+    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function') return;
+    try {
+        // Verify that the code above has been dead code eliminated (DCE'd).
+        __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE($754c4f72a851537241b3501cf0ac9aaf$var$checkDCE);
+    } catch (err) {
+        // DevTools shouldn't crash React, no matter what.
+        // We should still report in case we break this code.
+        console.error(err);
+    }
+}
+// DCE check should happen before ReactDOM bundle executes so that
+// DevTools can report bad minification during injection.
+$754c4f72a851537241b3501cf0ac9aaf$var$checkDCE();
+import   "754c4f72a851537241b3501cf0ac9aaf:./cjs/react-dom.production.min.js";
+$754c4f72a851537241b3501cf0ac9aaf$exports = $754c4f72a851537241b3501cf0ac9aaf$import$487d05f78b9045f6;

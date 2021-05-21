@@ -1,0 +1,22 @@
+import   "ef0ca83fe52c6fd180754f635dd38411:react";
+import   "ef0ca83fe52c6fd180754f635dd38411:react-dom";
+import   "ef0ca83fe52c6fd180754f635dd38411:./components/main-view/main-view.jsx";
+import   "ef0ca83fe52c6fd180754f635dd38411:react-bootstrap/Container";
+import   "ef0ca83fe52c6fd180754f635dd38411:redux";
+import   "ef0ca83fe52c6fd180754f635dd38411:react-redux";
+import   "ef0ca83fe52c6fd180754f635dd38411:./reducers/reducers";
+import   "ef0ca83fe52c6fd180754f635dd38411:redux-devtools-extension";
+import   "ef0ca83fe52c6fd180754f635dd38411:./index.scss";
+const $ef0ca83fe52c6fd180754f635dd38411$var$store = $ef0ca83fe52c6fd180754f635dd38411$import$d2c1a3469fe7a17a$9da1c8fdab7958ac($ef0ca83fe52c6fd180754f635dd38411$import$64b48473c3c21aee$9099ad97b570f7c, $ef0ca83fe52c6fd180754f635dd38411$import$329ee194d7ae9c6e$8d288ad1b1a0553e());
+// Main component (will eventually use all the others)
+class $ef0ca83fe52c6fd180754f635dd38411$var$MyFlixApplication extends $ef0ca83fe52c6fd180754f635dd38411$import$f02ba03fc070e88c$9099ad97b570f7c.Component {
+    render() {
+        return(/*#__PURE__*/ $ef0ca83fe52c6fd180754f635dd38411$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ef0ca83fe52c6fd180754f635dd38411$import$336b048844a0f5a7$d3482167be4fdb85, {
+            store: $ef0ca83fe52c6fd180754f635dd38411$var$store
+        }, /*#__PURE__*/ $ef0ca83fe52c6fd180754f635dd38411$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ef0ca83fe52c6fd180754f635dd38411$import$b57f412d96bb23fc$9099ad97b570f7c, null, /*#__PURE__*/ $ef0ca83fe52c6fd180754f635dd38411$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ef0ca83fe52c6fd180754f635dd38411$import$238a9b3008a59f66$9099ad97b570f7c, null))));
+    }
+}
+// Finds the root of your app
+const $ef0ca83fe52c6fd180754f635dd38411$var$container = document.getElementsByClassName('app-container')[0];
+// Tells React to render your app in the root DOM element
+$ef0ca83fe52c6fd180754f635dd38411$import$9c1aa63963514e3e$9099ad97b570f7c.render(/*#__PURE__*/ $ef0ca83fe52c6fd180754f635dd38411$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ef0ca83fe52c6fd180754f635dd38411$var$MyFlixApplication), $ef0ca83fe52c6fd180754f635dd38411$var$container);

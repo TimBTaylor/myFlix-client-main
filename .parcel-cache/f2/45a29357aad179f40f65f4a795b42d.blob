@@ -1,0 +1,52 @@
+'use strict';
+import   "5541138bac2e3d21afd0249ec7822d13:./../utils";
+import   "5541138bac2e3d21afd0249ec7822d13:./transformData";
+import   "5541138bac2e3d21afd0249ec7822d13:../cancel/isCancel";
+import   "5541138bac2e3d21afd0249ec7822d13:../defaults";
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */ function $5541138bac2e3d21afd0249ec7822d13$var$throwIfCancellationRequested(config) {
+    if (config.cancelToken) config.cancelToken.throwIfRequested();
+}
+/**
+ * Dispatch a request to the server using the configured adapter.
+ *
+ * @param {object} config The config that is to be used for the request
+ * @returns {Promise} The Promise to be fulfilled
+ */ $5541138bac2e3d21afd0249ec7822d13$exports = function dispatchRequest(config) {
+    $5541138bac2e3d21afd0249ec7822d13$var$throwIfCancellationRequested(config);
+    // Ensure headers exist
+    config.headers = config.headers || {
+    };
+    // Transform request data
+    config.data = $5541138bac2e3d21afd0249ec7822d13$import$9ea9aaf2e864462(config.data, config.headers, config.transformRequest);
+    // Flatten headers
+    config.headers = $5541138bac2e3d21afd0249ec7822d13$import$61f3fc819ec50e70$7e2a8c166c5904b7(config.headers.common || {
+    }, config.headers[config.method] || {
+    }, config.headers);
+    $5541138bac2e3d21afd0249ec7822d13$import$61f3fc819ec50e70$40f3d9558cf6e846([
+        'delete',
+        'get',
+        'head',
+        'post',
+        'put',
+        'patch',
+        'common'
+    ], function cleanHeaderConfig(method) {
+        delete config.headers[method];
+    });
+    var adapter = config.adapter || $5541138bac2e3d21afd0249ec7822d13$import$cef52e75eb639063$df94c9ad6e2f0c8a;
+    return adapter(config).then(function onAdapterResolution(response) {
+        $5541138bac2e3d21afd0249ec7822d13$var$throwIfCancellationRequested(config);
+        // Transform response data
+        response.data = $5541138bac2e3d21afd0249ec7822d13$import$9ea9aaf2e864462(response.data, response.headers, config.transformResponse);
+        return response;
+    }, function onAdapterRejection(reason) {
+        if (!$5541138bac2e3d21afd0249ec7822d13$import$89a861530dbe976f(reason)) {
+            $5541138bac2e3d21afd0249ec7822d13$var$throwIfCancellationRequested(config);
+            // Transform response data
+            if (reason && reason.response) reason.response.data = $5541138bac2e3d21afd0249ec7822d13$import$9ea9aaf2e864462(reason.response.data, reason.response.headers, config.transformResponse);
+        }
+        return Promise.reject(reason);
+    });
+};

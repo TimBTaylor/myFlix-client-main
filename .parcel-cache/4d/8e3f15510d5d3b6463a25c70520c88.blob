@@ -1,0 +1,4 @@
+import   "56c79a05f466fe7a05fea48d8ffade31:react";
+var $56c79a05f466fe7a05fea48d8ffade31$var$context = /*#__PURE__*/ $56c79a05f466fe7a05fea48d8ffade31$import$f02ba03fc070e88c$9099ad97b570f7c.createContext(null);
+$56c79a05f466fe7a05fea48d8ffade31$var$context.displayName = 'CardContext';
+var $56c79a05f466fe7a05fea48d8ffade31$export$9099ad97b570f7c = $56c79a05f466fe7a05fea48d8ffade31$var$context;

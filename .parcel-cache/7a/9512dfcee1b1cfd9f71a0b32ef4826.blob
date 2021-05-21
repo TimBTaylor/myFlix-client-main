@@ -1,0 +1,11 @@
+// Default to a dummy "batch" implementation that just runs the callback
+function $ab6a5d912776844fe7bd00aa029b97dd$var$defaultNoopBatch(callback) {
+    callback();
+}
+var $ab6a5d912776844fe7bd00aa029b97dd$var$batch = $ab6a5d912776844fe7bd00aa029b97dd$var$defaultNoopBatch; // Allow injecting another batching function later
+var $ab6a5d912776844fe7bd00aa029b97dd$export$cb3f2d0c813c23fc = function setBatch(newBatch) {
+    return $ab6a5d912776844fe7bd00aa029b97dd$var$batch = newBatch;
+}; // Supply a getter just to skip dealing with ESM bindings
+var $ab6a5d912776844fe7bd00aa029b97dd$export$65f34041b2634816 = function getBatch() {
+    return $ab6a5d912776844fe7bd00aa029b97dd$var$batch;
+};

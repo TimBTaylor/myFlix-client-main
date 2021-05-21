@@ -1,0 +1,130 @@
+import   "ddaca5c2a308c4002bd78981dd8cf4b1:react";
+import   "ddaca5c2a308c4002bd78981dd8cf4b1:prop-types";
+import   "ddaca5c2a308c4002bd78981dd8cf4b1:react-bootstrap/Button";
+import   "ddaca5c2a308c4002bd78981dd8cf4b1:react-router-dom";
+import   "ddaca5c2a308c4002bd78981dd8cf4b1:axios";
+import   "ddaca5c2a308c4002bd78981dd8cf4b1:./movie-view.scss";
+import   "ddaca5c2a308c4002bd78981dd8cf4b1:react-bootstrap/esm/ThemeProvider";
+class $ddaca5c2a308c4002bd78981dd8cf4b1$export$7a4253a85ccac5dc extends $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.Component {
+    constructor(){
+        super();
+        this.state = {
+            favoriteMovies: [],
+            inFavorites: null
+        };
+    }
+    isFavorite() {
+        const favMovies = JSON.parse(localStorage.getItem('favoriteMovies'));
+        const movieID = this.props.movie._id;
+        const inFavMovies = favMovies.includes(movieID);
+        if (inFavMovies) this.setState({
+            inFavorites: true
+        });
+    }
+    componentDidMount() {
+        this.getMovies();
+        this.isFavorite();
+    }
+    getMovies() {
+        this.setState({
+            favoriteMovies: JSON.parse(localStorage.getItem("favoriteMovies"))
+        });
+    }
+    removeFavorite(movie) {
+        this.setState({
+            inFavorites: !this.state.inFavorites
+        });
+        let token = localStorage.getItem("token");
+        let url = "https://timsmyflix.herokuapp.com/users/" + localStorage.getItem("user") + "/movies/" + movie._id;
+        $ddaca5c2a308c4002bd78981dd8cf4b1$import$bed27987f94bc6dd$9099ad97b570f7c.delete(url, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            console.log(response);
+            localStorage.setItem('favoriteMovies', JSON.stringify(response.data.FavoriteMovies));
+            this.componentDidMount();
+        });
+    }
+    addFavorite(movie) {
+        this.setState({
+            inFavorites: !this.state.inFavorites
+        });
+        let token = localStorage.getItem("token");
+        let url = "https://timsmyflix.herokuapp.com/users/" + localStorage.getItem("user") + "/movies/" + movie._id;
+        console.log(token);
+        $ddaca5c2a308c4002bd78981dd8cf4b1$import$bed27987f94bc6dd$9099ad97b570f7c.post(url, "", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            console.log(response);
+            alert("Added to favorites!");
+            const favMovies = response.data.FavoriteMovies;
+            localStorage.setItem('favoriteMovies', JSON.stringify(favMovies));
+            console.log(favMovies);
+        });
+    }
+    render() {
+        const { movie: movie , onBackClick: onBackClick  } = this.props;
+        const buttonVisible = this.state.inFavorites ? /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ddaca5c2a308c4002bd78981dd8cf4b1$import$4f4877c85d888a51$9099ad97b570f7c, {
+            variant: "primary",
+            size: "sm",
+            onClick: ()=>{
+                this.removeFavorite(movie);
+            }
+        }, "Remove from Favorites") : /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ddaca5c2a308c4002bd78981dd8cf4b1$import$4f4877c85d888a51$9099ad97b570f7c, {
+            variant: "primary",
+            size: "sm",
+            onClick: ()=>{
+                this.addFavorite(movie);
+            }
+        }, "Add to Favorites");
+        return(/*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "movie-view"
+        }, /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "movie-image"
+        }, /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("img", {
+            src: movie.ImagePath
+        })), /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "movie-title"
+        }, /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "label"
+        }, "Title: "), /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "value"
+        }, movie.Title)), /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "movie-description"
+        }, /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "label"
+        }, "Description: "), /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "value"
+        }, movie.Description)), /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "movie-director"
+        }, /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", null, "Director: "), /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ddaca5c2a308c4002bd78981dd8cf4b1$import$46a3a2459f86404b$454c04d8f1b76440, {
+            to: `/directors/${movie.Director.Name}`
+        }, /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ddaca5c2a308c4002bd78981dd8cf4b1$import$4f4877c85d888a51$9099ad97b570f7c, {
+            variant: "link"
+        }, movie.Director.Name))), /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "movie-genre"
+        }, /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "label"
+        }, "Genre: "), /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ddaca5c2a308c4002bd78981dd8cf4b1$import$46a3a2459f86404b$454c04d8f1b76440, {
+            to: `/genres/${movie.Genre.Name}`
+        }, /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ddaca5c2a308c4002bd78981dd8cf4b1$import$4f4877c85d888a51$9099ad97b570f7c, {
+            variant: "link"
+        }, movie.Genre.Name))), buttonVisible, /*#__PURE__*/ $ddaca5c2a308c4002bd78981dd8cf4b1$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ddaca5c2a308c4002bd78981dd8cf4b1$import$4f4877c85d888a51$9099ad97b570f7c, {
+            variant: "secondary",
+            onClick: ()=>{
+                onBackClick();
+            }
+        }, "Back")));
+    }
+}
+$ddaca5c2a308c4002bd78981dd8cf4b1$export$7a4253a85ccac5dc.Proptypes = {
+    movie: $ddaca5c2a308c4002bd78981dd8cf4b1$import$67a8cc6ac06859d5$9099ad97b570f7c.shape({
+        Title: $ddaca5c2a308c4002bd78981dd8cf4b1$import$67a8cc6ac06859d5$9099ad97b570f7c.string.isRequired,
+        Description: $ddaca5c2a308c4002bd78981dd8cf4b1$import$67a8cc6ac06859d5$9099ad97b570f7c.string.isRequired,
+        ImagePath: $ddaca5c2a308c4002bd78981dd8cf4b1$import$67a8cc6ac06859d5$9099ad97b570f7c.string.isRequired
+    }).isRequired,
+    onBackClick: $ddaca5c2a308c4002bd78981dd8cf4b1$import$67a8cc6ac06859d5$9099ad97b570f7c.func.isRequired
+};

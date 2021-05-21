@@ -1,0 +1,23 @@
+import   "22fc9b1425040ae1f6819a7a4486e9df:redux";
+import   "22fc9b1425040ae1f6819a7a4486e9df:../actions/actions";
+function $22fc9b1425040ae1f6819a7a4486e9df$var$visibilityFilter(state = '', action) {
+    switch(action.type){
+        case $22fc9b1425040ae1f6819a7a4486e9df$import$b88d53df13dba550$685f663c2784bd13:
+            return action.value;
+        default:
+            return state;
+    }
+}
+function $22fc9b1425040ae1f6819a7a4486e9df$var$movies(state = [], action) {
+    switch(action.type){
+        case $22fc9b1425040ae1f6819a7a4486e9df$import$b88d53df13dba550$a85a62df51c1db11:
+            return action.value;
+        default:
+            return state;
+    }
+}
+const $22fc9b1425040ae1f6819a7a4486e9df$var$moviesApp = $22fc9b1425040ae1f6819a7a4486e9df$import$d2c1a3469fe7a17a$9ad8f5dc3065c117({
+    visibilityFilter: $22fc9b1425040ae1f6819a7a4486e9df$var$visibilityFilter,
+    movies: $22fc9b1425040ae1f6819a7a4486e9df$var$movies
+});
+var $22fc9b1425040ae1f6819a7a4486e9df$export$9099ad97b570f7c = $22fc9b1425040ae1f6819a7a4486e9df$var$moviesApp;

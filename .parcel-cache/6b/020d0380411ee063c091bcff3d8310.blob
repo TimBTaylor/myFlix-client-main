@@ -1,0 +1,110 @@
+import   "b224803f606cf88d6259040424b45468:react";
+import   "b224803f606cf88d6259040424b45468:react-bootstrap/Form";
+import   "b224803f606cf88d6259040424b45468:react-bootstrap/Button";
+import   "b224803f606cf88d6259040424b45468:axios";
+import   "b224803f606cf88d6259040424b45468:react-router-dom";
+function $b224803f606cf88d6259040424b45468$export$be145813352386bb(props) {
+    const [username, setUsername] = $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$f54936751fc2c51('');
+    const [password, setPassword] = $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$f54936751fc2c51('');
+    const [email, setEmail] = $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$f54936751fc2c51('');
+    const [birthday, setBirthday] = $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$f54936751fc2c51('');
+    const [usernameError, setUsernameError] = $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$f54936751fc2c51({
+    });
+    const [passwordError, setPasswordError] = $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$f54936751fc2c51({
+    });
+    const [emailError, setEmailError] = $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$f54936751fc2c51({
+    });
+    const handleRegister = (e)=>{
+        e.preventDefault();
+        console.log(username, password, email, birthday);
+        const isValid = formValidation();
+        if (isValid) $b224803f606cf88d6259040424b45468$import$bed27987f94bc6dd$9099ad97b570f7c.post('https://timsmyflix.herokuapp.com/users', {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
+        }).then((response)=>{
+            const data = response.data;
+            console.log(data);
+            window.open('/', '_self');
+        }).catch((e1)=>{
+            console.log('error registering the user');
+        });
+    };
+    const formValidation = ()=>{
+        const usernameError1 = {
+        };
+        const passwordError1 = {
+        };
+        const emailError1 = {
+        };
+        let isValid = true;
+        if (username.trim().length < 5) {
+            usernameError1.usernameShort = "Username must be at least 5 characters";
+            isValid = false;
+        }
+        if (password.trim().length < 1) {
+            passwordError1.passwordMissing = "You must enter a password";
+            isValid = false;
+        }
+        if (!email.includes(".") && !email.includes("@")) {
+            emailError1.emailNotEmail = "A valid email address is required";
+            isValid = false;
+        }
+        setUsernameError(usernameError1);
+        setPasswordError(passwordError1);
+        setEmailError(emailError1);
+        return isValid;
+    };
+    return(/*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$c33866132872a26f$9099ad97b570f7c, null, /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$c33866132872a26f$9099ad97b570f7c.Group, {
+        controlId: "registerUsername"
+    }, /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$c33866132872a26f$9099ad97b570f7c.Label, null, "Username"), /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$c33866132872a26f$9099ad97b570f7c.Control, {
+        type: "text",
+        onChange: (e)=>setUsername(e.target.value)
+    })), Object.keys(usernameError).map((key)=>{
+        return(/*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            key: key,
+            style: {
+                color: "red"
+            }
+        }, usernameError[key]));
+    }), /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$c33866132872a26f$9099ad97b570f7c.Group, {
+        controlId: "registerPassword"
+    }, /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$c33866132872a26f$9099ad97b570f7c.Label, null, "Password"), /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$c33866132872a26f$9099ad97b570f7c.Control, {
+        type: "password",
+        onChange: (e)=>setPassword(e.target.value)
+    })), Object.keys(passwordError).map((key)=>{
+        return(/*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            key: key,
+            style: {
+                color: "red"
+            }
+        }, usernameError[key]));
+    }), /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$c33866132872a26f$9099ad97b570f7c.Group, {
+        controlId: "registerEmail"
+    }, /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$c33866132872a26f$9099ad97b570f7c.Label, null, "Email"), /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$c33866132872a26f$9099ad97b570f7c.Control, {
+        type: "text",
+        onChange: (e)=>setEmail(e.target.value)
+    })), Object.keys(emailError).map((key)=>{
+        return(/*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            key: key,
+            style: {
+                color: "red"
+            }
+        }, emailError[key]));
+    }), /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$c33866132872a26f$9099ad97b570f7c.Group, {
+        controlId: "registerBirthday"
+    }, /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$c33866132872a26f$9099ad97b570f7c.Label, null, "Birthdate"), /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$c33866132872a26f$9099ad97b570f7c.Control, {
+        type: "text",
+        onChange: (e)=>setBirthday(e.target.value)
+    })), /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$4f4877c85d888a51$9099ad97b570f7c, {
+        variant: "primary",
+        type: "submit",
+        onClick: handleRegister
+    }, "Register"), /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$46a3a2459f86404b$454c04d8f1b76440, {
+        to: "/"
+    }, /*#__PURE__*/ $b224803f606cf88d6259040424b45468$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b224803f606cf88d6259040424b45468$import$4f4877c85d888a51$9099ad97b570f7c, {
+        varaint: "primary",
+        type: "submit"
+    }, "Existing User"))));
+}

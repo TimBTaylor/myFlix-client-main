@@ -11,10 +11,12 @@
 3. React.js
 4. Redux
 5. Bootstrap
-Netlify to host my frontend.
+6. 
+Netlify to host the frontend.
 
 #### Backend
 1. Node.js
 2. Express.js
 3. MongoDB
-Heroku to host my backend API.
+4. 
+Heroku to host the backend API.

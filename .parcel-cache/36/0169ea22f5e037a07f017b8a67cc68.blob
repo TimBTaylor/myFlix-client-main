@@ -1,0 +1,6 @@
+.genre-info {
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+  border-radius: 25px;
+}

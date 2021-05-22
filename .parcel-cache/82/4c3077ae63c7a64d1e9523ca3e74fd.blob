@@ -1,0 +1,10 @@
+.director-info {
+  margin-top: 15px;
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.director-name {
+  text-align: center;
+}

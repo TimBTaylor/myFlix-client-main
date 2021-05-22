@@ -1,0 +1,9 @@
+.welcome {
+  padding-top: 25px;
+  text-align: center;
+}
+
+.intro {
+  text-align: center;
+  font-size: 20px;
+}

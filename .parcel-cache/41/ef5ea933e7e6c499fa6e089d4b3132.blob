@@ -1,0 +1,46 @@
+.movie-view {
+  margin-top: 20px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 25px;
+}
+
+.movie-image {
+  text-align: center;
+}
+
+.movie-title {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 35px;
+}
+
+.movie-description, .movie-director, .movie-genre {
+  text-align: left;
+  padding-top: 10px;
+}
+
+.description-header {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.director-header {
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.director-link {
+  display: inline-block;
+}
+
+.genre-header {
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.genre-link {
+  display: inline-block;
+}

@@ -1,0 +1,44 @@
+.director-info {
+  margin-top: 15px;
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.director-name {
+  text-align: center;
+}
+
+.name {
+  font-size: 35px;
+  text-decoration: underline;
+}
+
+.bio-header, .born-header, .death-header {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.director-movies {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.directed-by {
+  display: block;
+  font-size: 30px;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.movies {
+  display: inline-block;
+}
+
+.back-button-div {
+  text-align: center;
+}
+
+.go-back {
+  margin-top: 20px;
+}

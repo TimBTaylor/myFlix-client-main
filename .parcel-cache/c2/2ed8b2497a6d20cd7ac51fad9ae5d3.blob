@@ -1,0 +1,273 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ProfileUpdate", ()=>ProfileUpdate
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _reactRouterDom = require("react-router-dom");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _s = $RefreshSig$();
+function ProfileUpdate(props) {
+    _s();
+    const [username, setUsername] = _react.useState("");
+    const [password, setPassword] = _react.useState("");
+    const [email, setEmail] = _react.useState("");
+    const [birthday, setBirthday] = _react.useState("");
+    const [usernameError, setUsernameError] = _react.useState({
+    });
+    const [passwordError, setPasswordError] = _react.useState({
+    });
+    const [emailError, setEmailError] = _react.useState({
+    });
+    const onBackClick = props.onBackClick;
+    const handleUpdate = (e)=>{
+        e.preventDefault();
+        const isValid = formValidation();
+        const url = "https://flixinfo.herokuapp.com/users/" + localStorage.getItem("user");
+        if (isValid) _axiosDefault.default.put(url, {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
+        }, {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("token")
+            }
+        }).then((response)=>{
+            const data = response.data;
+            localStorage.setItem("user", data.Username);
+            localStorage.setItem('email', data.Email);
+            localStorage.setItem('birthday', data.Birthday);
+            alert("Your profile was updated successfully");
+            window.open("/", "_self");
+        }).catch((e1)=>{
+            console.log(e1);
+        });
+    };
+    const formValidation = ()=>{
+        const usernameError1 = {
+        };
+        const passwordError1 = {
+        };
+        const emailError1 = {
+        };
+        let isValid = true;
+        if (username.trim().length < 5) {
+            usernameError1.usernameShort = "Username must be at least 5 characters";
+            isValid = false;
+        }
+        if (password.trim().length < 1) {
+            passwordError1.passwordMissing = "You must enter a password";
+            isValid = false;
+        }
+        if (!email.includes(".") && !email.includes("@")) {
+            emailError1.emailNotEmail = "A valid email address is required";
+            isValid = false;
+        }
+        setUsernameError(usernameError1);
+        setPasswordError(passwordError1);
+        setEmailError(emailError1);
+        return isValid;
+    };
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        className: "update-div",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 86
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h1", {
+        className: "update-intro",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 87
+        },
+        __self: this
+    }, "Update your profile"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default, {
+        className: "register-form",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 88
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formBasicUsername",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 89
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 90
+        },
+        __self: this
+    }, "Username:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "text",
+        value: username,
+        placeholder: "Enter username",
+        required: true,
+        onChange: (e)=>setUsername(e.target.value)
+        ,
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 91
+        },
+        __self: this
+    }), Object.keys(usernameError).map((key)=>{
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            key: key,
+            style: {
+                color: "red"
+            },
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+                lineNumber: 100
+            },
+            __self: this
+        }, usernameError[key]));
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formBasicPassword",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 106
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 107
+        },
+        __self: this
+    }, "Password:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "password",
+        value: password,
+        placeholder: "Enter password",
+        required: true,
+        onChange: (e)=>setPassword(e.target.value)
+        ,
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 108
+        },
+        __self: this
+    }), Object.keys(passwordError).map((key)=>{
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            key: key,
+            style: {
+                color: "red"
+            },
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+                lineNumber: 117
+            },
+            __self: this
+        }, passwordError[key]));
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 123
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 124
+        },
+        __self: this
+    }, "Date of Birth:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        placeholder: "MM/DD/YYYY",
+        type: "text",
+        value: birthday,
+        onChange: (e)=>setBirthday(e.target.value)
+        ,
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 125
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formBasicEmail",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 132
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 133
+        },
+        __self: this
+    }, "Email:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "email",
+        value: email,
+        placeholder: "name@example.com",
+        required: true,
+        onChange: (e)=>setEmail(e.target.value)
+        ,
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 134
+        },
+        __self: this
+    }), Object.keys(emailError).map((key)=>{
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            key: key,
+            style: {
+                color: "red"
+            },
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+                lineNumber: 143
+            },
+            __self: this
+        }, emailError[key]));
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
+        to: `/users/`,
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 149
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+        variant: "primary",
+        type: "submit",
+        onClick: handleUpdate,
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 150
+        },
+        __self: this
+    }, "Update")), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+        variant: "secondary",
+        onClick: onBackClick,
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-update/profile-update.jsx",
+            lineNumber: 158
+        },
+        __self: this
+    }, "Back"))));
+}
+_s(ProfileUpdate, "jCPcO1VOFS64zxuNNZZTxAl1HvI=");
+_c = ProfileUpdate;
+var _c;
+$RefreshReg$(_c, "ProfileUpdate");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

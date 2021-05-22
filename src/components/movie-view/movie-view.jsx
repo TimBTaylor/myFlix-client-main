@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import "./movie-view.scss";
-import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 
 export class MovieView extends React.Component {
 	constructor() {
@@ -81,34 +80,35 @@ export class MovieView extends React.Component {
 
 	render() {
 		const { movie, onBackClick } = this.props;
-		const buttonVisible = this.state.inFavorites ? (<Button variant="primary" size="sm" onClick={() => { this.removeFavorite(movie) }}>Remove from Favorites</Button>) : (<Button variant="primary" size="sm" onClick={() => { this.addFavorite(movie) }}>Add to Favorites</Button>);
+		const buttonVisible = this.state.inFavorites ? (<Button className="favorite-button" variant="primary" size="sm" onClick={() => { this.removeFavorite(movie) }}>Remove from Favorites</Button>) : (<Button className="favorite-button" variant="primary" size="sm" onClick={() => { this.addFavorite(movie) }}>Add to Favorites</Button>);
 		return (
 			<div className="movie-view">
 				<div className="movie-image">
 					<img src={movie.ImagePath} />
 				</div>
 				<div className="movie-title">
-					<span className="label">Title: </span>
-					<span className="value">{movie.Title}</span>
+					<span className="movie-title">{movie.Title}</span>
 				</div>
 				<div className="movie-description">
-					<span className="label">Description: </span>
-					<span className="value">{movie.Description}</span>
+					<span className="description-header">Description:</span>
+					<span className="description"> {movie.Description}</span>
 				</div>
 				<div className="movie-director">
-					<span>Director: </span>
+					<span className="director-header">Director: </span>
 					<Link to={`/directors/${movie.Director.Name}`}>
-						<Button variant="link">{movie.Director.Name}</Button>
+						<h6 className="director-link"> {movie.Director.Name}</h6>
 					</Link>
 				</div>
 				<div className="movie-genre">
-					<span className="label">Genre: </span>
+					<span className="genre-header">Genre:</span>
 					<Link to={`/genres/${movie.Genre.Name}`}>
-						<Button variant="link">{movie.Genre.Name}</Button>
+						<h6 className="genre-link">{movie.Genre.Name}</h6>
 					</Link>
 				</div>
-				{buttonVisible}
-				<Button variant="secondary" onClick={() => { onBackClick() }}>Back</Button>
+				<div className="buttons">
+					{buttonVisible}
+					<Button className="back-button" variant="secondary" onClick={() => { onBackClick() }}>Back</Button>
+				</div>
 			</div>
 		);
 	}

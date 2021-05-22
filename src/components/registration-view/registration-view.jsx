@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import "./registration-view.scss";
 export function RegistrationView(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -62,53 +63,59 @@ export function RegistrationView(props) {
     };
 
     return (
-        <Form>
-            <Form.Group controlId="registerUsername">
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
-            </Form.Group>
-            {Object.keys(usernameError).map((key) => {
-                return (
-                    <div key={key} style={{ color: "red" }}>
-                        {usernameError[key]}
-                    </div>
-                );
-            })}
+        <div className="container">
+            <h1 className="welcome">Welcome to My Flix!</h1>
+            <Form className="register-form">
+                <Form.Group controlId="registerUsername">
+                    <Form.Label>Username:</Form.Label>
+                    <Form.Control placeholder="Enter username" type="text" onChange={e => setUsername(e.target.value)} />
+                </Form.Group>
+                {Object.keys(usernameError).map((key) => {
+                    return (
+                        <div key={key} style={{ color: "red" }}>
+                            {usernameError[key]}
+                        </div>
+                    );
+                })}
 
-            <Form.Group controlId="registerPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
-            </Form.Group>
+                <Form.Group controlId="registerPassword">
+                    <Form.Label>Password:</Form.Label>
+                    <Form.Control placeholder="Enter password" type="password" onChange={e => setPassword(e.target.value)} />
+                </Form.Group>
 
-            {Object.keys(passwordError).map((key) => {
-                return (
-                    <div key={key} style={{ color: "red" }}>
-                        {usernameError[key]}
-                    </div>
-                );
-            })}
+                {Object.keys(passwordError).map((key) => {
+                    return (
+                        <div key={key} style={{ color: "red" }}>
+                            {usernameError[key]}
+                        </div>
+                    );
+                })}
 
-            <Form.Group controlId="registerEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="text" onChange={e => setEmail(e.target.value)} />
-            </Form.Group>
-            {Object.keys(emailError).map((key) => {
-                return (
-                    <div key={key} style={{ color: "red" }}>
-                        {emailError[key]}
-                    </div>
-                );
-            })}
+                <Form.Group controlId="registerEmail">
+                    <Form.Label>Email:</Form.Label>
+                    <Form.Control placeholder="sample@email.com" type="text" onChange={e => setEmail(e.target.value)} />
+                </Form.Group>
+                {Object.keys(emailError).map((key) => {
+                    return (
+                        <div key={key} style={{ color: "red" }}>
+                            {emailError[key]}
+                        </div>
+                    );
+                })}
 
-            <Form.Group controlId="registerBirthday">
-                <Form.Label>Birthdate</Form.Label>
-                <Form.Control type="text" onChange={e => setBirthday(e.target.value)} />
-            </Form.Group>
+                <Form.Group controlId="registerBirthday">
+                    <Form.Label>Birthdate:</Form.Label>
+                    <Form.Control placeholder="MM/DD/YYYY" type="text" onChange={e => setBirthday(e.target.value)} />
+                </Form.Group>
 
-            <Button variant="primary" type="submit" onClick={handleRegister}>Register</Button>
-            <Link to={"/"}>
-                <Button varaint="primary" type="submit">Existing User</Button>
-            </Link>
-        </Form>
+                <Button variant="primary" type="submit" onClick={handleRegister}>Create Account</Button>
+            </Form>
+            <div className="existing-user">
+                <h6 className="exisiting">Already have an account?</h6>
+                <Link to={"/"}>
+                    <h6 className="sign-in">Sign in here</h6>
+                </Link>
+            </div>
+        </div>
     );
 }

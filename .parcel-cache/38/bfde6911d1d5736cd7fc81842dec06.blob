@@ -1,0 +1,308 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ProfileView", ()=>ProfileView
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+var _reactRouterDom = require("react-router-dom");
+var _card = require("react-bootstrap/Card");
+var _cardDefault = parcelHelpers.interopDefault(_card);
+var _col = require("react-bootstrap/Col");
+var _colDefault = parcelHelpers.interopDefault(_col);
+var _profileViewScss = require("./profile-view.scss");
+class ProfileView extends _reactDefault.default.Component {
+    constructor(){
+        super();
+        this.state = {
+            username: "",
+            email: "",
+            birthday: "",
+            favoriteMovies: [],
+            movies: ""
+        };
+    }
+    componentDidMount() {
+        this.getUser();
+    }
+    getUser() {
+        this.setState({
+            username: localStorage.getItem("user"),
+            email: localStorage.getItem("email"),
+            birthday: localStorage.getItem('birthday'),
+            favoriteMovies: JSON.parse(localStorage.getItem('favoriteMovies'))
+        });
+    }
+    removeFavorite(movie) {
+        let token = localStorage.getItem("token");
+        let url = "https://timsmyflix.herokuapp.com/users/" + localStorage.getItem("user") + "/movies/" + movie._id;
+        _axiosDefault.default.delete(url, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            console.log(response);
+            let favMovies = response.data.FavoriteMovies;
+            localStorage.setItem('favoriteMovies', JSON.stringify(favMovies));
+            this.componentDidMount();
+        });
+    }
+    handleDelete() {
+        let token = localStorage.getItem("token");
+        let user = localStorage.getItem("user");
+        _axiosDefault.default.delete(`https://timsmyflix.herokuapp.com/users/${user}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(()=>{
+            alert(user + " has been deleted");
+            localStorage.removeItem("user");
+            localStorage.removeItem("token");
+            window.location.pathname = "/";
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+    render() {
+        const { movies , onBackClick  } = this.props;
+        const favoriteMovieList = movies.filter((movie)=>{
+            return this.state.favoriteMovies.includes(movie._id);
+        });
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 78
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "user-info",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 79
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h1", {
+            className: "user-info-header",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 80
+            },
+            __self: this
+        }, "Your Information"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default, {
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 81
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+            controlId: "formBasicUsername",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 82
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 83
+            },
+            __self: this
+        }, "Username: "), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 84
+            },
+            __self: this
+        }, " ", this.state.username)), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+            controlId: "formBasicEmail",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 86
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 87
+            },
+            __self: this
+        }, "Email:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 88
+            },
+            __self: this
+        }, this.state.email)), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+            controlId: "formBasicDate",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 90
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h5", {
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 91
+            },
+            __self: this
+        }, "Date of Birth:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 92
+            },
+            __self: this
+        }, this.state.birthday)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "update-and-delete",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 94
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
+            to: `/update/${this.state.username}`,
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 95
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            variant: "link",
+            className: "edit-info",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 96
+            },
+            __self: this
+        }, "Edit information")), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 98
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h6", {
+            className: "delete-profile",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 99
+            },
+            __self: this
+        }, "YOU ONLY GET ONE CLICK, ARE YOU SURE?"), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            className: "delete-profile-button",
+            variant: "outline-danger",
+            onClick: ()=>{
+                this.handleDelete();
+            },
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 100
+            },
+            __self: this
+        }, "Delete Profile"))))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "favorite-movies",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 105
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h1", {
+            className: "movies-intro",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 106
+            },
+            __self: this
+        }, "Favorite Movies"), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movies",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                lineNumber: 107
+            },
+            __self: this
+        }, favoriteMovieList.map((movie)=>{
+            return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+                className: "movie-div",
+                key: movie._id,
+                __source: {
+                    fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 110
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
+                className: "movie-card",
+                __source: {
+                    fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 111
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
+                variant: "top",
+                src: movie.ImagePath,
+                __source: {
+                    fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 112
+                },
+                __self: this
+            }), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
+                __source: {
+                    fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 113
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
+                __source: {
+                    fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 114
+                },
+                __self: this
+            }, movie.Title), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+                __source: {
+                    fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 115
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
+                to: `/movies/${movie._id}`,
+                __source: {
+                    fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 116
+                },
+                __self: this
+            }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+                className: "see-more-button",
+                variant: "link",
+                __source: {
+                    fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 117
+                },
+                __self: this
+            }, "See more details"))), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+                className: "remove-button",
+                variant: "link",
+                onClick: ()=>this.removeFavorite(movie)
+                ,
+                __source: {
+                    fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 120
+                },
+                __self: this
+            }, "Remove from favorites")))));
+        })))));
+    }
+}
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -1,0 +1,20 @@
+.movie-image {
+  text-align: center;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.movie-title {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 35px;
+}
+
+.movie-description {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.description-header {
+  font-weight: 500;
+}

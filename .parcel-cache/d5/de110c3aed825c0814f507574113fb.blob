@@ -1,0 +1,12 @@
+.genre-info {
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.desciption-header {
+  text-align: left;
+  font-weight: 500px;
+  text-decoration: underline;
+}

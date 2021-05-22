@@ -1,0 +1,4 @@
+.movie-card {
+  margin-top: 25px;
+  padding: 10px;
+}

@@ -1,0 +1,161 @@
+.movie-card {
+  margin-top: 25px;
+  padding: 10px;
+}
+.my-flix {
+  font-size: 70px;
+  text-align: center;
+  border-bottom: 1px solid black;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  margin-bottom: 50px;
+}
+
+.welcome {
+  margin-bottom: 45px;
+}
+
+.welcome-back {
+  text-align: center;
+}
+
+.sign-in-form {
+  border: 2px solid steelblue;
+  padding: 15px;
+  border-radius: 25px;
+}
+
+.register {
+  padding-top: 10px;
+}
+
+.register-question {
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.register-link {
+  display: inline-block;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+.welcome {
+  padding-top: 25px;
+  text-align: center;
+}
+
+.register-form {
+  border: 2px solid steelblue;
+  padding: 15px;
+  border-radius: 25px;
+}
+
+.exisiting {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.sign-in {
+  display: inline-block;
+}
+
+.sign-in:hover {
+  text-decoration: underline;
+}
+.movie-view {
+  margin-top: 20px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 25px;
+}
+
+.movie-image {
+  text-align: center;
+}
+
+.movie-title {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 35px;
+}
+
+.movie-description, .movie-director, .movie-genre {
+  text-align: left;
+  padding-top: 10px;
+}
+
+.description-header, .director-header, .genre-header {
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.director-link, .genre-link {
+  display: inline-block;
+}
+
+.director-link:hover, .genre-link:hover {
+  text-decoration: underline;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.back-button {
+  margin-left: 10px;
+}
+.director-info {
+  margin-top: 15px;
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.director-name {
+  text-align: center;
+}
+
+.name {
+  font-size: 35px;
+  text-decoration: underline;
+}
+
+.bio-header, .born-header, .death-header {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.director-movies {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.directed-by {
+  display: block;
+  font-size: 30px;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.movies {
+  display: inline-block;
+}
+
+.back-button {
+  text-align: center;
+  display: inline-block;
+}
+.navbar {
+  margin-bottom: 10px;
+}
+.body {
+  background-color: #CECECE;
+}
+/*# sourceMappingURL=index.HASH_REF_533487eabd72991ff818d0dc53681a74.css.map */

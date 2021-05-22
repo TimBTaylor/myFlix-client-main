@@ -1,0 +1,35 @@
+.movie-view {
+  margin-top: 20px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 25px;
+}
+
+.movie-image {
+  text-align: center;
+}
+
+.movie-title {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 35px;
+}
+
+.movie-description, .movie-director, .movie-genre {
+  text-align: left;
+  padding-top: 10px;
+}
+
+.description-header, .director-header, .genre-header {
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.director-link, .genre-link {
+  display: inline-block;
+}
+
+.back-button {
+  display: block;
+}

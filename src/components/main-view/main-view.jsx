@@ -7,10 +7,12 @@ import { setMovies, setUser } from '../../actions/actions';
 import MoviesList from '../movies-list/movies-list';
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Navbar, Nav, Button } from 'react-bootstrap';
+
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view'
 import { MovieView } from '../movie-view/movie-view';
@@ -70,8 +72,19 @@ class MainView extends React.Component {
 		const { movies, user } = this.props;
 
 		return (
-			<div>
+			<div className="main-div">
 				<Router>
+					<Navbar className="navbar navbar-light bg-light">
+						<Navbar.Brand>My Flix</Navbar.Brand>
+						<Navbar.Toggle />
+						<Navbar.Collapse className="justify-content-end">
+							<Nav className="justify-content-end">
+								<Nav.Link href="/">Home</Nav.Link>
+								<Nav.Link href={`/users/${user.Username}`}>My Account</Nav.Link>
+								<Nav.Link onClick={() => this.logOut()}>Log Out</Nav.Link>
+							</Nav>
+						</Navbar.Collapse>
+					</Navbar>
 					<Row className="main-view justify-content-md-center">
 
 						<Route exact path='/' render={() => {

@@ -1,0 +1,25 @@
+.movie-view {
+  margin-top: 20px;
+  background-color: white;
+  padding: 15px;
+}
+
+.movie-image {
+  text-align: center;
+}
+
+.movie-title {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 35px;
+}
+
+.movie-description {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.description-header {
+  font-weight: 500;
+  text-decoration: underline;
+}

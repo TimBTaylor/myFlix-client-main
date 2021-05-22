@@ -1,0 +1,10 @@
+.welcome {
+  padding-top: 25px;
+  text-align: center;
+}
+
+.register-form {
+  border: 2px solid steelblue;
+  padding: 10px;
+  border-radius: 25px;
+}

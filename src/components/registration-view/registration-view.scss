@@ -1,13 +1,23 @@
-.username {
-    padding-top: 100px;
+.welcome {
+    padding-top: 25px;
+    text-align: center;
 }
 
-
-.register-button {
-    margin-top:15px;
+.register-form {
+    border: 2px solid steelblue;
+    padding: 15px;
+    border-radius: 25px;
 }
 
-.existing-button {
-    margin-left: 5px;
-    margin-top: 15px;
+.exisiting {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.sign-in {
+    display: inline-block;
+}
+
+.sign-in:hover {
+    text-decoration: underline;
 }

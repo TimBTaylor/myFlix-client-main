@@ -1,0 +1,8 @@
+.movie-image {
+  text-align: center;
+}
+
+.movie-title {
+  text-align: center;
+  padding-top: 10px;
+}

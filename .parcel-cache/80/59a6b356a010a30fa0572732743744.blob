@@ -1,0 +1,43 @@
+.my-flix {
+  font-size: 70px;
+  text-align: center;
+  border-bottom: 1px solid black;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  margin-bottom: 50px;
+}
+
+.welcome {
+  margin-bottom: 45px;
+}
+
+.welcome-back {
+  text-align: center;
+}
+
+.sign-in-form {
+  border: 2px solid steelblue;
+  padding: 15px;
+  border-radius: 25px;
+}
+
+.register {
+  padding-top: 10px;
+}
+
+.register-question {
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.register-link {
+  display: inline-block;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}

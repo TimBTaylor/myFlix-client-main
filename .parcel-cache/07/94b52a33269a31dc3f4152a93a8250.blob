@@ -1,0 +1,7 @@
+.my-flix {
+  font-size: 70px;
+  text-align: center;
+  margin-bottom: 50px;
+  border-bottom: 1px solid black;
+  width: 100%;
+}

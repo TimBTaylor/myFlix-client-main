@@ -1,0 +1,163 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "LoginView", ()=>LoginView
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRouterDom = require("react-router-dom");
+var _loginViewScss = require("./login-view.scss");
+var _s = $RefreshSig$();
+function LoginView(props) {
+    _s();
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        _axiosDefault.default.post('https://timsmyflix.herokuapp.com/login', {
+            Username: username,
+            Password: password
+        }).then((response)=>{
+            const data = response.data;
+            props.onLoggedIn(data);
+        }).catch((e1)=>{
+            console.log('no such user');
+        });
+    };
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        className: "container",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 27
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        className: "title",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 28
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h1", {
+        className: "my-flix",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 29
+        },
+        __self: this
+    }, "My Flix")), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        className: "welcome",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 31
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement("h1", {
+        className: "welcome-back",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 32
+        },
+        __self: this
+    }, "Welcome back!")), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default, {
+        className: "sign-in-form",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 34
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formUsername",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 35
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 36
+        },
+        __self: this
+    }, "Username:"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "text",
+        placeholder: "Enter username",
+        value: username,
+        onChange: (e)=>setUsername(e.target.value)
+        ,
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 37
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formPassword",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 40
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 41
+        },
+        __self: this
+    }, "Password"), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "password",
+        placeholder: "Enter password",
+        value: password,
+        onChange: (e)=>setPassword(e.target.value)
+        ,
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 42
+        },
+        __self: this
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+        variant: "primary",
+        type: "submit",
+        onClick: handleSubmit,
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 44
+        },
+        __self: this
+    }, "Log in"), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
+        to: "/register",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 45
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+        varaint: "primary",
+        type: "submit",
+        __source: {
+            fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/login-view/login-view.jsx",
+            lineNumber: 46
+        },
+        __self: this
+    }, "Register")))));
+}
+_s(LoginView, "wuQOK7xaXdVz4RMrZQhWbI751Oc=");
+_c = LoginView;
+var _c;
+$RefreshReg$(_c, "LoginView");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

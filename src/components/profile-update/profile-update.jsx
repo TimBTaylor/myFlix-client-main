@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import './profile-update.scss';
 
 export function ProfileUpdate(props) {
     const [username, setUsername] = useState("");
@@ -14,7 +15,6 @@ export function ProfileUpdate(props) {
     const [passwordError, setPasswordError] = useState({});
     const [emailError, setEmailError] = useState({});
 
-    const onBackClick = props.onBackClick;
 
     const handleUpdate = (e) => {
         e.preventDefault();
@@ -22,7 +22,7 @@ export function ProfileUpdate(props) {
         const isValid = formValidation();
 
         const url =
-            "https://flixinfo.herokuapp.com/users/" +
+            "https://timsmyflix.herokuapp.com/users/" +
             localStorage.getItem("user");
 
         if (isValid) {
@@ -83,9 +83,9 @@ export function ProfileUpdate(props) {
     };
 
     return (
-        <div>
-            <h1>Update your profile</h1>
-            <Form className="registration-form">
+        <div className="update-div">
+            <h1 className="update-intro">Update your information</h1>
+            <Form className="register-form">
                 <Form.Group controlId="formBasicUsername">
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
@@ -123,6 +123,7 @@ export function ProfileUpdate(props) {
                 <Form.Group>
                     <Form.Label>Date of Birth:</Form.Label>
                     <Form.Control
+                        placeholder="MM/DD/YYYY"
                         type="text"
                         value={birthday}
                         onChange={(e) => setBirthday(e.target.value)}
@@ -154,7 +155,6 @@ export function ProfileUpdate(props) {
                         Update
           </Button>
                 </Link>
-                <Button variant="secondary" onClick={onBackClick}>Back</Button>
             </Form>
         </div>
     );

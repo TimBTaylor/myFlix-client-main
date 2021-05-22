@@ -1,0 +1,21 @@
+.my-flix {
+  font-size: 70px;
+  text-align: center;
+  border-bottom: 1px solid black;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  margin-bottom: 50px;
+}
+
+.welcome-back {
+  margin-bottom: 25px;
+}
+
+.sign-in-form {
+  border: 2px solid steelblue;
+  padding: 10px;
+}

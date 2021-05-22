@@ -1,0 +1,243 @@
+var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieView", ()=>MovieView
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _reactRouterDom = require("react-router-dom");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _movieViewScss = require("./movie-view.scss");
+class MovieView extends _reactDefault.default.Component {
+    constructor(){
+        super();
+        this.state = {
+            favoriteMovies: [],
+            inFavorites: null
+        };
+    }
+    isFavorite() {
+        const favMovies = JSON.parse(localStorage.getItem('favoriteMovies'));
+        const movieID = this.props.movie._id;
+        const inFavMovies = favMovies.includes(movieID);
+        if (inFavMovies) this.setState({
+            inFavorites: true
+        });
+    }
+    componentDidMount() {
+        this.getMovies();
+        this.isFavorite();
+    }
+    getMovies() {
+        this.setState({
+            favoriteMovies: JSON.parse(localStorage.getItem("favoriteMovies"))
+        });
+    }
+    removeFavorite(movie) {
+        this.setState({
+            inFavorites: !this.state.inFavorites
+        });
+        let token = localStorage.getItem("token");
+        let url = "https://timsmyflix.herokuapp.com/users/" + localStorage.getItem("user") + "/movies/" + movie._id;
+        _axiosDefault.default.delete(url, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            console.log(response);
+            localStorage.setItem('favoriteMovies', JSON.stringify(response.data.FavoriteMovies));
+            this.componentDidMount();
+        });
+    }
+    addFavorite(movie) {
+        this.setState({
+            inFavorites: !this.state.inFavorites
+        });
+        let token = localStorage.getItem("token");
+        let url = "https://timsmyflix.herokuapp.com/users/" + localStorage.getItem("user") + "/movies/" + movie._id;
+        console.log(token);
+        _axiosDefault.default.post(url, "", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            console.log(response);
+            const favMovies = response.data.FavoriteMovies;
+            localStorage.setItem('favoriteMovies', JSON.stringify(favMovies));
+        });
+    }
+    render() {
+        const { movie , onBackClick  } = this.props;
+        const buttonVisible = this.state.inFavorites ? /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            variant: "primary",
+            size: "sm",
+            onClick: ()=>{
+                this.removeFavorite(movie);
+            },
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 83
+            },
+            __self: this
+        }, "Remove from Favorites") : /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            variant: "primary",
+            size: "sm",
+            onClick: ()=>{
+                this.addFavorite(movie);
+            },
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 83
+            },
+            __self: this
+        }, "Add to Favorites");
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-view",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 85
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-image",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 86
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("img", {
+            src: movie.ImagePath,
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 87
+            },
+            __self: this
+        })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-title",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 89
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "movie-title",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 90
+            },
+            __self: this
+        }, movie.Title)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-description",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 92
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "description-header",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 93
+            },
+            __self: this
+        }, "Description:"), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "description",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 94
+            },
+            __self: this
+        }, " ", movie.Description)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-director",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 96
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "director-header",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 97
+            },
+            __self: this
+        }, "Director:"), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
+            to: `/directors/${movie.Director.Name}`,
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 98
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("h6", {
+            className: "director-link",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 99
+            },
+            __self: this
+        }, movie.Director.Name))), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-genre",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 102
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "genre-header",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 103
+            },
+            __self: this
+        }, "Genre:"), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
+            to: `/genres/${movie.Genre.Name}`,
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 104
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            className: "genre",
+            variant: "link",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 105
+            },
+            __self: this
+        }, " ", movie.Genre.Name))), buttonVisible, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            variant: "secondary",
+            onClick: ()=>{
+                onBackClick();
+            },
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/movie-view/movie-view.jsx",
+                lineNumber: 109
+            },
+            __self: this
+        }, "Back")));
+    }
+}
+MovieView.Proptypes = {
+    movie: _propTypesDefault.default.shape({
+        Title: _propTypesDefault.default.string.isRequired,
+        Description: _propTypesDefault.default.string.isRequired,
+        ImagePath: _propTypesDefault.default.string.isRequired
+    }).isRequired,
+    onBackClick: _propTypesDefault.default.func.isRequired
+};
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -2,6 +2,9 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import "./genre-view.scss";
 
 
 
@@ -10,23 +13,24 @@ export class GenreView extends React.Component {
         const { genre, movies, onBackClick } = this.props;
         return (
             <div className="genre-view">
-                <div className="genre-name">
-                    <span className="label">Name: </span>
-                    <span className="value">{genre.Name}</span>
-                </div>
-                <div className="genre-description">
-                    <span className="label">Description: </span>
-                    <span className="value">{genre.Description}</span>
+                <div className="genre-info">
+                    <div className="genre-name">
+                        <span className="name">{genre.Name}</span>
+                    </div>
+                    <div className="genre-description">
+                        <span className="description-header">Description:</span>
+                        <span className="description"> {genre.Description}</span>
+                    </div>
                 </div>
                 <div className="genre-movies">
-                    <span className="label">{genre.Name} movies: </span>
-                    <div>
+                    <span className="movies-intro">{genre.Name} movies: </span>
+                    <div className="movies">
                         {movies.map((m) => {
                             if (m.Genre.Name === genre.Name) {
                                 return (
-                                    <div key={m._id}>
-                                        <Card>
-                                            <Card.Img variant="top" src={m.ImagePath} />
+                                    <div className="movie-div" key={m._id}>
+                                        <Card className="movie-card">
+                                            <Card.Img className="movie-image" variant="top" src={m.ImagePath} />
                                             <Card.Body>
                                                 <Card.Title>{m.Title}</Card.Title>
                                                 <Link to={`/movies/${m._id}`}>
@@ -40,8 +44,19 @@ export class GenreView extends React.Component {
                         })}
                     </div>
                 </div>
-                <Button variant="secondary" onClick={() => { onBackClick(null) }}>Back</Button>
+                <div className="back-button-div">
+                    <Button variant="secondary" onClick={() => { onBackClick(null) }}>Back</Button>
+                </div>
             </div>
         );
     }
 }
+
+GenreView.propTypes = {
+    movie: PropTypes.shape({
+        Genre: {
+            Name: PropTypes.string,
+            Description: PropTypes.string
+        }
+    })
+};

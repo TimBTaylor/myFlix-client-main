@@ -1,0 +1,5 @@
+.director-info {
+  margin-top: 15px;
+  background-color: white;
+  border-radius: 25px;
+}

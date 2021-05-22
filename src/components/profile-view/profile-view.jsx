@@ -4,7 +4,8 @@ import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
+import PropTypes from 'prop-types';
+import './profile-view.scss';
 
 export class ProfileView extends React.Component {
 
@@ -75,52 +76,60 @@ export class ProfileView extends React.Component {
         });
         return (
             <div>
-                <Form>
-                    <Form.Group controlId="formBasicUsername">
-                        <h6>Username: </h6>
-                        <Form.Label>{this.state.username}</Form.Label>
-                    </Form.Group>
-                    <Form.Group controlId="formBasicEmail">
-                        <h6>Email:</h6>
-                        <Form.Label>{this.state.email}</Form.Label>
-                    </Form.Group>
-                    <Form.Group controlId="formBasicDate">
-                        <h6>Date of Birth:</h6>
-                        <Form.Label>{this.state.birthday}</Form.Label>
-                    </Form.Group>
-                    <Link to={`/update/${this.state.username}`}>
-                        <Button>Edit Profile</Button>
-                    </Link>
-                    <Button variant="warning" onClick={() => { this.handleDelete() }}>Delete Profile</Button>
-                    <Button variant="secondary" onClick={() => { onBackClick() }}>Back</Button>
-                </Form>
-                <div
-                    className="favoriteMovies"
-                    style={{
-                        textAlign: "center",
-                        width: "24rem",
-                    }}
-                >
-                    <h1>Favorite Movies</h1>
-                    {favoriteMovieList.map((movie) => {
-                        return (
-                            <div key={movie._id}>
-                                <Card>
-                                    <Card.Img variant="top" src={movie.ImagePath} />
-                                    <Card.Body>
-                                        <Link to={`/movies/${movie._id}`}>
-                                            <Card.Title>{movie.Title}</Card.Title>
-                                        </Link>
-                                    </Card.Body>
-                                </Card>
-                                <Button onClick={() => this.removeFavorite(movie)}>
-                                    Remove
-                      </Button>
+                <div className="user-info">
+                    <h1 className="user-info-header">Your Information</h1>
+                    <Form>
+                        <Form.Group controlId="formBasicUsername">
+                            <h5>Username: </h5>
+                            <Form.Label> {this.state.username}</Form.Label>
+                        </Form.Group>
+                        <Form.Group controlId="formBasicEmail">
+                            <h5>Email:</h5>
+                            <Form.Label >{this.state.email}</Form.Label>
+                        </Form.Group>
+                        <Form.Group controlId="formBasicDate">
+                            <h5>Date of Birth:</h5>
+                            <Form.Label>{this.state.birthday}</Form.Label>
+                        </Form.Group>
+                        <div className="update-and-delete">
+                            <Link to={`/update/${this.state.username}`}>
+                                <Button variant="link" className="edit-info">Edit information</Button>
+                            </Link>
+                            <div>
+                                <h6 className="delete-profile">YOU ONLY GET ONE CLICK, ARE YOU SURE?</h6>
+                                <Button className="delete-profile-button" variant="outline-danger" onClick={() => { this.handleDelete() }}>Delete Profile</Button>
                             </div>
-                        );
-                    })}
+                        </div>
+                    </Form>
+                </div>
+                <div className="favorite-movies">
+                    <h1 className="movies-intro">Favorite Movies</h1>
+                    <div className="movies">
+                        {favoriteMovieList.map((movie) => {
+                            return (
+                                <div className="movie-div" key={movie._id}>
+                                    <Card className="movie-card">
+                                        <Card.Img variant="top" src={movie.ImagePath} />
+                                        <Card.Body>
+                                            <Card.Title>{movie.Title}</Card.Title>
+                                            <div>
+                                                <Link to={`/movies/${movie._id}`}>
+                                                    <Button className="see-more-button" variant="link">See more details</Button>
+                                                </Link>
+                                            </div>
+                                            <Button className="remove-button" variant="link" onClick={() => this.removeFavorite(movie)}>Remove from favorites</Button>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         )
     }
 }
+
+ProfileView.propTypes = {
+    movies: PropTypes.array.isRequired,
+};

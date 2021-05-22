@@ -1,0 +1,46 @@
+.user-info {
+  margin-top: 15px;
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px;
+  text-align: center;
+}
+
+.user-info-header {
+  display: block;
+  font-size: 30px;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+h5 {
+  text-decoration: underline;
+}
+
+.edit-info {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.edit-info:hover {
+  text-decoration: underline;
+}
+
+.delete-profile {
+  display: inline-block;
+  margin-right: 10px;
+  color: red;
+}
+
+.favorite-movies {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.see-more-button {
+  display: block;
+}
+
+.remove-button {
+  display: block;
+}

@@ -1,0 +1,28 @@
+.user-info {
+  margin-top: 15px;
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px;
+  text-align: center;
+}
+
+.user-info-header {
+  display: block;
+  font-size: 30px;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+h5 {
+  text-decoration: underline;
+}
+
+.edit-info {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.delete-profile {
+  display: inline-block;
+  marign-right: 5px;
+}

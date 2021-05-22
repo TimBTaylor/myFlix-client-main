@@ -1,0 +1,4 @@
+'use strict';
+$034df188f14d1f02466330b5556474aa$exports = function isCancel(value) {
+    return !!(value && value.__CANCEL__);
+};

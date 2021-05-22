@@ -1,0 +1,5 @@
+.title {
+  display: inline-block;
+  text-align: center;
+  text-decoration: underline;
+}

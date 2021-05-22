@@ -1,0 +1,41 @@
+import   "c6ae2683819295b6ad03c3375785854f:@babel/runtime/helpers/esm/extends";
+import   "c6ae2683819295b6ad03c3375785854f:react";
+var $c6ae2683819295b6ad03c3375785854f$var$ThemeContext = /*#__PURE__*/ $c6ae2683819295b6ad03c3375785854f$import$f02ba03fc070e88c$9099ad97b570f7c.createContext({
+});
+var $c6ae2683819295b6ad03c3375785854f$export$8e5911eed63e69e2 = $c6ae2683819295b6ad03c3375785854f$var$ThemeContext.Consumer, $c6ae2683819295b6ad03c3375785854f$var$Provider = $c6ae2683819295b6ad03c3375785854f$var$ThemeContext.Provider;
+function $c6ae2683819295b6ad03c3375785854f$var$ThemeProvider(_ref) {
+    var prefixes = _ref.prefixes, children = _ref.children;
+    var copiedPrefixes = $c6ae2683819295b6ad03c3375785854f$import$f02ba03fc070e88c$fe55aea32a6cbc49(function() {
+        return $c6ae2683819295b6ad03c3375785854f$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+        }, prefixes);
+    }, [
+        prefixes
+    ]);
+    return(/*#__PURE__*/ $c6ae2683819295b6ad03c3375785854f$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($c6ae2683819295b6ad03c3375785854f$var$Provider, {
+        value: copiedPrefixes
+    }, children));
+}
+function $c6ae2683819295b6ad03c3375785854f$export$6efad33e744e1774(prefix, defaultPrefix) {
+    var prefixes = $c6ae2683819295b6ad03c3375785854f$import$f02ba03fc070e88c$d532f802c57568ca($c6ae2683819295b6ad03c3375785854f$var$ThemeContext);
+    return prefix || prefixes[defaultPrefix] || defaultPrefix;
+}
+function $c6ae2683819295b6ad03c3375785854f$export$6631727d283c17d6(Component, opts) {
+    if (typeof opts === 'string') opts = {
+        prefix: opts
+    };
+    var isClassy = Component.prototype && Component.prototype.isReactComponent; // If it's a functional component make sure we don't break it with a ref
+    var _opts = opts, prefix = _opts.prefix, _opts$forwardRefAs = _opts.forwardRefAs, forwardRefAs = _opts$forwardRefAs === void 0 ? isClassy ? 'ref' : 'innerRef' : _opts$forwardRefAs;
+    var Wrapped = /*#__PURE__*/ $c6ae2683819295b6ad03c3375785854f$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref2, ref) {
+        var props = $c6ae2683819295b6ad03c3375785854f$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+        }, _ref2);
+        props[forwardRefAs] = ref;
+        var bsPrefix = $c6ae2683819295b6ad03c3375785854f$export$6efad33e744e1774(props.bsPrefix, prefix);
+        return(/*#__PURE__*/ $c6ae2683819295b6ad03c3375785854f$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, $c6ae2683819295b6ad03c3375785854f$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+        }, props, {
+            bsPrefix: bsPrefix
+        })));
+    });
+    Wrapped.displayName = "Bootstrap(" + (Component.displayName || Component.name) + ")";
+    return Wrapped;
+}
+var $c6ae2683819295b6ad03c3375785854f$export$9099ad97b570f7c = $c6ae2683819295b6ad03c3375785854f$var$ThemeProvider;

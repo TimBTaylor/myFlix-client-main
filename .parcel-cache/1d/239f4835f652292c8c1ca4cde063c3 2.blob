@@ -1,0 +1,12 @@
+import   "330c952854da16b68ac2a4f9cf67277c:../utils/warning";
+function $330c952854da16b68ac2a4f9cf67277c$var$verify(selector, methodName, displayName) {
+    if (!selector) throw new Error("Unexpected value for " + methodName + " in " + displayName + ".");
+    else if (methodName === 'mapStateToProps' || methodName === 'mapDispatchToProps') {
+        if (!Object.prototype.hasOwnProperty.call(selector, 'dependsOnOwnProps')) $330c952854da16b68ac2a4f9cf67277c$import$f2b8d1016007c02$9099ad97b570f7c("The selector for " + methodName + " of " + displayName + " did not specify a value for dependsOnOwnProps.");
+    }
+}
+function $330c952854da16b68ac2a4f9cf67277c$export$9099ad97b570f7c(mapStateToProps, mapDispatchToProps, mergeProps, displayName) {
+    $330c952854da16b68ac2a4f9cf67277c$var$verify(mapStateToProps, 'mapStateToProps', displayName);
+    $330c952854da16b68ac2a4f9cf67277c$var$verify(mapDispatchToProps, 'mapDispatchToProps', displayName);
+    $330c952854da16b68ac2a4f9cf67277c$var$verify(mergeProps, 'mergeProps', displayName);
+}

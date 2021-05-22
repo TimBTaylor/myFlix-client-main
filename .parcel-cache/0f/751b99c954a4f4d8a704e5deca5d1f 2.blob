@@ -1,0 +1,264 @@
+'use strict';
+import   "e19048c42855c3b88d29747cbb9ddb25:./helpers/bind";
+/*global toString:true*/ // utils is a library of generic helper functions non-specific to axios
+var $e19048c42855c3b88d29747cbb9ddb25$var$toString = Object.prototype.toString;
+/**
+ * Determine if a value is an Array
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Array, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isArray(val) {
+    return $e19048c42855c3b88d29747cbb9ddb25$var$toString.call(val) === '[object Array]';
+}
+/**
+ * Determine if a value is undefined
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if the value is undefined, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isUndefined(val) {
+    return typeof val === 'undefined';
+}
+/**
+ * Determine if a value is a Buffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Buffer, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isBuffer(val) {
+    return val !== null && !$e19048c42855c3b88d29747cbb9ddb25$var$isUndefined(val) && val.constructor !== null && !$e19048c42855c3b88d29747cbb9ddb25$var$isUndefined(val.constructor) && typeof val.constructor.isBuffer === 'function' && val.constructor.isBuffer(val);
+}
+/**
+ * Determine if a value is an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an ArrayBuffer, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isArrayBuffer(val) {
+    return $e19048c42855c3b88d29747cbb9ddb25$var$toString.call(val) === '[object ArrayBuffer]';
+}
+/**
+ * Determine if a value is a FormData
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an FormData, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isFormData(val) {
+    return typeof FormData !== 'undefined' && val instanceof FormData;
+}
+/**
+ * Determine if a value is a view on an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isArrayBufferView(val) {
+    var result;
+    if (typeof ArrayBuffer !== 'undefined' && ArrayBuffer.isView) result = ArrayBuffer.isView(val);
+    else result = val && val.buffer && val.buffer instanceof ArrayBuffer;
+    return result;
+}
+/**
+ * Determine if a value is a String
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a String, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isString(val) {
+    return typeof val === 'string';
+}
+/**
+ * Determine if a value is a Number
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Number, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isNumber(val) {
+    return typeof val === 'number';
+}
+/**
+ * Determine if a value is an Object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Object, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isObject(val) {
+    return val !== null && typeof val === 'object';
+}
+/**
+ * Determine if a value is a plain Object
+ *
+ * @param {Object} val The value to test
+ * @return {boolean} True if value is a plain Object, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isPlainObject(val) {
+    if ($e19048c42855c3b88d29747cbb9ddb25$var$toString.call(val) !== '[object Object]') return false;
+    var prototype = Object.getPrototypeOf(val);
+    return prototype === null || prototype === Object.prototype;
+}
+/**
+ * Determine if a value is a Date
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Date, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isDate(val) {
+    return $e19048c42855c3b88d29747cbb9ddb25$var$toString.call(val) === '[object Date]';
+}
+/**
+ * Determine if a value is a File
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a File, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isFile(val) {
+    return $e19048c42855c3b88d29747cbb9ddb25$var$toString.call(val) === '[object File]';
+}
+/**
+ * Determine if a value is a Blob
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Blob, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isBlob(val) {
+    return $e19048c42855c3b88d29747cbb9ddb25$var$toString.call(val) === '[object Blob]';
+}
+/**
+ * Determine if a value is a Function
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Function, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isFunction(val) {
+    return $e19048c42855c3b88d29747cbb9ddb25$var$toString.call(val) === '[object Function]';
+}
+/**
+ * Determine if a value is a Stream
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Stream, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isStream(val) {
+    return $e19048c42855c3b88d29747cbb9ddb25$var$isObject(val) && $e19048c42855c3b88d29747cbb9ddb25$var$isFunction(val.pipe);
+}
+/**
+ * Determine if a value is a URLSearchParams object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a URLSearchParams object, otherwise false
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isURLSearchParams(val) {
+    return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
+}
+/**
+ * Trim excess whitespace off the beginning and end of a string
+ *
+ * @param {String} str The String to trim
+ * @returns {String} The String freed of excess whitespace
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$trim(str) {
+    return str.replace(/^\s*/, '').replace(/\s*$/, '');
+}
+/**
+ * Determine if we're running in a standard browser environment
+ *
+ * This allows axios to run in a web worker, and react-native.
+ * Both environments support XMLHttpRequest, but not fully standard globals.
+ *
+ * web workers:
+ *  typeof window -> undefined
+ *  typeof document -> undefined
+ *
+ * react-native:
+ *  navigator.product -> 'ReactNative'
+ * nativescript
+ *  navigator.product -> 'NativeScript' or 'NS'
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$isStandardBrowserEnv() {
+    if (typeof navigator !== 'undefined' && (navigator.product === 'ReactNative' || navigator.product === 'NativeScript' || navigator.product === 'NS')) return false;
+    return typeof window !== 'undefined' && typeof document !== 'undefined';
+}
+/**
+ * Iterate over an Array or an Object invoking a function for each item.
+ *
+ * If `obj` is an Array callback will be called passing
+ * the value, index, and complete array for each item.
+ *
+ * If 'obj' is an Object callback will be called passing
+ * the value, key, and complete object for each property.
+ *
+ * @param {Object|Array} obj The object to iterate
+ * @param {Function} fn The callback to invoke for each item
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$forEach(obj, fn) {
+    // Don't bother if no value provided
+    if (obj === null || typeof obj === 'undefined') return;
+    // Force an array if not already something iterable
+    if (typeof obj !== 'object') /*eslint no-param-reassign:0*/ obj = [
+        obj
+    ];
+    if ($e19048c42855c3b88d29747cbb9ddb25$var$isArray(obj)) // Iterate over array values
+    for(var i = 0, l = obj.length; i < l; i++)fn.call(null, obj[i], i, obj);
+    else {
+        // Iterate over object keys
+        for(var key in obj)if (Object.prototype.hasOwnProperty.call(obj, key)) fn.call(null, obj[key], key, obj);
+    }
+}
+/**
+ * Accepts varargs expecting each argument to be an object, then
+ * immutably merges the properties of each object and returns result.
+ *
+ * When multiple objects contain the same key the later object in
+ * the arguments list will take precedence.
+ *
+ * Example:
+ *
+ * ```js
+ * var result = merge({foo: 123}, {foo: 456});
+ * console.log(result.foo); // outputs 456
+ * ```
+ *
+ * @param {Object} obj1 Object to merge
+ * @returns {Object} Result of all merge properties
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$merge() {
+    var result = {
+    };
+    function assignValue(val, key) {
+        if ($e19048c42855c3b88d29747cbb9ddb25$var$isPlainObject(result[key]) && $e19048c42855c3b88d29747cbb9ddb25$var$isPlainObject(val)) result[key] = $e19048c42855c3b88d29747cbb9ddb25$var$merge(result[key], val);
+        else if ($e19048c42855c3b88d29747cbb9ddb25$var$isPlainObject(val)) result[key] = $e19048c42855c3b88d29747cbb9ddb25$var$merge({
+        }, val);
+        else if ($e19048c42855c3b88d29747cbb9ddb25$var$isArray(val)) result[key] = val.slice();
+        else result[key] = val;
+    }
+    for(var i = 0, l = arguments.length; i < l; i++)$e19048c42855c3b88d29747cbb9ddb25$var$forEach(arguments[i], assignValue);
+    return result;
+}
+/**
+ * Extends object a by mutably adding to it the properties of object b.
+ *
+ * @param {Object} a The object to be extended
+ * @param {Object} b The object to copy properties from
+ * @param {Object} thisArg The object to bind function to
+ * @return {Object} The resulting value of object a
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$extend(a, b, thisArg) {
+    $e19048c42855c3b88d29747cbb9ddb25$var$forEach(b, function assignValue(val, key) {
+        if (thisArg && typeof val === 'function') a[key] = $e19048c42855c3b88d29747cbb9ddb25$import$51621407ea3899ee(val, thisArg);
+        else a[key] = val;
+    });
+    return a;
+}
+/**
+ * Remove byte order marker. This catches EF BB BF (the UTF-8 BOM)
+ *
+ * @param {string} content with BOM
+ * @return {string} content value without BOM
+ */ function $e19048c42855c3b88d29747cbb9ddb25$var$stripBOM(content) {
+    if (content.charCodeAt(0) === 65279) content = content.slice(1);
+    return content;
+}
+$e19048c42855c3b88d29747cbb9ddb25$exports = {
+    isArray: $e19048c42855c3b88d29747cbb9ddb25$var$isArray,
+    isArrayBuffer: $e19048c42855c3b88d29747cbb9ddb25$var$isArrayBuffer,
+    isBuffer: $e19048c42855c3b88d29747cbb9ddb25$var$isBuffer,
+    isFormData: $e19048c42855c3b88d29747cbb9ddb25$var$isFormData,
+    isArrayBufferView: $e19048c42855c3b88d29747cbb9ddb25$var$isArrayBufferView,
+    isString: $e19048c42855c3b88d29747cbb9ddb25$var$isString,
+    isNumber: $e19048c42855c3b88d29747cbb9ddb25$var$isNumber,
+    isObject: $e19048c42855c3b88d29747cbb9ddb25$var$isObject,
+    isPlainObject: $e19048c42855c3b88d29747cbb9ddb25$var$isPlainObject,
+    isUndefined: $e19048c42855c3b88d29747cbb9ddb25$var$isUndefined,
+    isDate: $e19048c42855c3b88d29747cbb9ddb25$var$isDate,
+    isFile: $e19048c42855c3b88d29747cbb9ddb25$var$isFile,
+    isBlob: $e19048c42855c3b88d29747cbb9ddb25$var$isBlob,
+    isFunction: $e19048c42855c3b88d29747cbb9ddb25$var$isFunction,
+    isStream: $e19048c42855c3b88d29747cbb9ddb25$var$isStream,
+    isURLSearchParams: $e19048c42855c3b88d29747cbb9ddb25$var$isURLSearchParams,
+    isStandardBrowserEnv: $e19048c42855c3b88d29747cbb9ddb25$var$isStandardBrowserEnv,
+    forEach: $e19048c42855c3b88d29747cbb9ddb25$var$forEach,
+    merge: $e19048c42855c3b88d29747cbb9ddb25$var$merge,
+    extend: $e19048c42855c3b88d29747cbb9ddb25$var$extend,
+    trim: $e19048c42855c3b88d29747cbb9ddb25$var$trim,
+    stripBOM: $e19048c42855c3b88d29747cbb9ddb25$var$stripBOM
+};

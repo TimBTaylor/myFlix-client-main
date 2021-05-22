@@ -1,0 +1,38 @@
+import   "11b732206594099e9f9e2d5895baf9c9:@babel/runtime/helpers/esm/extends";
+import   "11b732206594099e9f9e2d5895baf9c9:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "11b732206594099e9f9e2d5895baf9c9:classnames";
+import   "11b732206594099e9f9e2d5895baf9c9:react";
+import   "11b732206594099e9f9e2d5895baf9c9:./FormContext";
+import   "11b732206594099e9f9e2d5895baf9c9:./ThemeProvider";
+var $11b732206594099e9f9e2d5895baf9c9$var$FormFileInput = /*#__PURE__*/ $11b732206594099e9f9e2d5895baf9c9$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var id = _ref.id, bsPrefix = _ref.bsPrefix, bsCustomPrefix = _ref.bsCustomPrefix, className = _ref.className, isValid = _ref.isValid, isInvalid = _ref.isInvalid, lang = _ref.lang, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'input' : _ref$as, props = $11b732206594099e9f9e2d5895baf9c9$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "id",
+        "bsPrefix",
+        "bsCustomPrefix",
+        "className",
+        "isValid",
+        "isInvalid",
+        "lang",
+        "as"
+    ]);
+    var _useContext = $11b732206594099e9f9e2d5895baf9c9$import$f02ba03fc070e88c$d532f802c57568ca($11b732206594099e9f9e2d5895baf9c9$import$3c9bcaee959fbd2b$9099ad97b570f7c), controlId = _useContext.controlId, custom = _useContext.custom;
+    var type = 'file';
+    var _ref2 = custom ? [
+        bsCustomPrefix,
+        'custom-file-input'
+    ] : [
+        bsPrefix,
+        'form-control-file'
+    ], prefix = _ref2[0], defaultPrefix = _ref2[1];
+    bsPrefix = $11b732206594099e9f9e2d5895baf9c9$import$1581226de02c9527$6efad33e744e1774(prefix, defaultPrefix);
+    return(/*#__PURE__*/ $11b732206594099e9f9e2d5895baf9c9$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, $11b732206594099e9f9e2d5895baf9c9$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, props, {
+        ref: ref,
+        id: id || controlId,
+        type: type,
+        lang: lang,
+        className: $11b732206594099e9f9e2d5895baf9c9$import$c7a3314ec092e1bf$9099ad97b570f7c(className, bsPrefix, isValid && 'is-valid', isInvalid && 'is-invalid')
+    })));
+});
+$11b732206594099e9f9e2d5895baf9c9$var$FormFileInput.displayName = 'FormFileInput';
+var $11b732206594099e9f9e2d5895baf9c9$export$9099ad97b570f7c = $11b732206594099e9f9e2d5895baf9c9$var$FormFileInput;

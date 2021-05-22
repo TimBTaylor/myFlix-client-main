@@ -74,10 +74,8 @@ export class MovieView extends React.Component {
 			})
 			.then((response) => {
 				console.log(response);
-				alert("Added to favorites!");
 				const favMovies = response.data.FavoriteMovies;
 				localStorage.setItem('favoriteMovies', JSON.stringify(favMovies));
-				console.log(favMovies);
 			});
 	}
 

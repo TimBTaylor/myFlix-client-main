@@ -1,0 +1,42 @@
+import   "9cf94d42c5dc477e3d67f3e5618ee7e7:@babel/runtime/helpers/esm/extends";
+import   "9cf94d42c5dc477e3d67f3e5618ee7e7:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "9cf94d42c5dc477e3d67f3e5618ee7e7:classnames";
+import   "9cf94d42c5dc477e3d67f3e5618ee7e7:react";
+import   "9cf94d42c5dc477e3d67f3e5618ee7e7:./ThemeProvider";
+import   "9cf94d42c5dc477e3d67f3e5618ee7e7:./SafeAnchor";
+var $9cf94d42c5dc477e3d67f3e5618ee7e7$var$defaultProps = {
+    variant: 'primary',
+    active: false,
+    disabled: false
+};
+var $9cf94d42c5dc477e3d67f3e5618ee7e7$var$Button = /*#__PURE__*/ $9cf94d42c5dc477e3d67f3e5618ee7e7$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var bsPrefix = _ref.bsPrefix, variant = _ref.variant, size = _ref.size, active = _ref.active, className = _ref.className, block = _ref.block, type = _ref.type, as = _ref.as, props = $9cf94d42c5dc477e3d67f3e5618ee7e7$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "bsPrefix",
+        "variant",
+        "size",
+        "active",
+        "className",
+        "block",
+        "type",
+        "as"
+    ]);
+    var prefix = $9cf94d42c5dc477e3d67f3e5618ee7e7$import$1581226de02c9527$6efad33e744e1774(bsPrefix, 'btn');
+    var classes = $9cf94d42c5dc477e3d67f3e5618ee7e7$import$c7a3314ec092e1bf$9099ad97b570f7c(className, prefix, active && 'active', variant && prefix + "-" + variant, block && prefix + "-block", size && prefix + "-" + size);
+    if (props.href) return(/*#__PURE__*/ $9cf94d42c5dc477e3d67f3e5618ee7e7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($9cf94d42c5dc477e3d67f3e5618ee7e7$import$552717ec2dace354$9099ad97b570f7c, $9cf94d42c5dc477e3d67f3e5618ee7e7$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, props, {
+        as: as,
+        ref: ref,
+        className: $9cf94d42c5dc477e3d67f3e5618ee7e7$import$c7a3314ec092e1bf$9099ad97b570f7c(classes, props.disabled && 'disabled')
+    })));
+    if (ref) props.ref = ref;
+    if (type) props.type = type;
+    else if (!as) props.type = 'button';
+    var Component = as || 'button';
+    return(/*#__PURE__*/ $9cf94d42c5dc477e3d67f3e5618ee7e7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, $9cf94d42c5dc477e3d67f3e5618ee7e7$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, props, {
+        className: classes
+    })));
+});
+$9cf94d42c5dc477e3d67f3e5618ee7e7$var$Button.displayName = 'Button';
+$9cf94d42c5dc477e3d67f3e5618ee7e7$var$Button.defaultProps = $9cf94d42c5dc477e3d67f3e5618ee7e7$var$defaultProps;
+var $9cf94d42c5dc477e3d67f3e5618ee7e7$export$9099ad97b570f7c = $9cf94d42c5dc477e3d67f3e5618ee7e7$var$Button;

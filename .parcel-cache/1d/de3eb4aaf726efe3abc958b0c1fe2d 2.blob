@@ -1,0 +1,35 @@
+import   "ee276d0aa6a47ef81cae26d90187d596:../utils/verifyPlainObject";
+function $ee276d0aa6a47ef81cae26d90187d596$export$de246a82820e9ef0(getConstant) {
+    return function initConstantSelector(dispatch, options) {
+        var constant = getConstant(dispatch, options);
+        function constantSelector() {
+            return constant;
+        }
+        constantSelector.dependsOnOwnProps = false;
+        return constantSelector;
+    };
+} // dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
+function $ee276d0aa6a47ef81cae26d90187d596$export$73542dc6d2fd6197(mapToProps) {
+    return mapToProps.dependsOnOwnProps !== null && mapToProps.dependsOnOwnProps !== undefined ? Boolean(mapToProps.dependsOnOwnProps) : mapToProps.length !== 1;
+} // Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
+function $ee276d0aa6a47ef81cae26d90187d596$export$9d0168aee9897371(mapToProps, methodName) {
+    return function initProxySelector(dispatch, _ref) {
+        var displayName = _ref.displayName;
+        var proxy = function mapToPropsProxy(stateOrDispatch, ownProps) {
+            return proxy.dependsOnOwnProps ? proxy.mapToProps(stateOrDispatch, ownProps) : proxy.mapToProps(stateOrDispatch);
+        }; // allow detectFactoryAndVerify to get ownProps
+        proxy.dependsOnOwnProps = true;
+        proxy.mapToProps = function detectFactoryAndVerify(stateOrDispatch, ownProps) {
+            proxy.mapToProps = mapToProps;
+            proxy.dependsOnOwnProps = $ee276d0aa6a47ef81cae26d90187d596$export$73542dc6d2fd6197(mapToProps);
+            var props = proxy(stateOrDispatch, ownProps);
+            if (typeof props === 'function') {
+                proxy.mapToProps = props;
+                proxy.dependsOnOwnProps = $ee276d0aa6a47ef81cae26d90187d596$export$73542dc6d2fd6197(props);
+                props = proxy(stateOrDispatch, ownProps);
+            }
+            return props;
+        };
+        return proxy;
+    };
+}

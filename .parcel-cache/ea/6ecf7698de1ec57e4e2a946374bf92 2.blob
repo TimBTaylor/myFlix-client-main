@@ -1,0 +1,6 @@
+var $fcb4ca6cf94cb17a1a39ec7f56482208$var$rHyphen = /-(.)/g;
+function $fcb4ca6cf94cb17a1a39ec7f56482208$export$9099ad97b570f7c(string) {
+    return string.replace($fcb4ca6cf94cb17a1a39ec7f56482208$var$rHyphen, function(_, chr) {
+        return chr.toUpperCase();
+    });
+}

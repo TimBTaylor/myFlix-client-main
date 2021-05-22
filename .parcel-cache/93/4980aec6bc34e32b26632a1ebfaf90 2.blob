@@ -1,0 +1,14 @@
+import   "f30dbc5cece3b5053dc593b34169f7d0:@babel/runtime/helpers/esm/extends";
+import   "f30dbc5cece3b5053dc593b34169f7d0:react";
+import   "f30dbc5cece3b5053dc593b34169f7d0:./FormCheck";
+var $f30dbc5cece3b5053dc593b34169f7d0$var$Switch = /*#__PURE__*/ $f30dbc5cece3b5053dc593b34169f7d0$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(props, ref) {
+    return(/*#__PURE__*/ $f30dbc5cece3b5053dc593b34169f7d0$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($f30dbc5cece3b5053dc593b34169f7d0$import$97dc9e9c45460986$9099ad97b570f7c, $f30dbc5cece3b5053dc593b34169f7d0$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, props, {
+        ref: ref,
+        type: "switch"
+    })));
+});
+$f30dbc5cece3b5053dc593b34169f7d0$var$Switch.displayName = 'Switch';
+$f30dbc5cece3b5053dc593b34169f7d0$var$Switch.Input = $f30dbc5cece3b5053dc593b34169f7d0$import$97dc9e9c45460986$9099ad97b570f7c.Input;
+$f30dbc5cece3b5053dc593b34169f7d0$var$Switch.Label = $f30dbc5cece3b5053dc593b34169f7d0$import$97dc9e9c45460986$9099ad97b570f7c.Label;
+var $f30dbc5cece3b5053dc593b34169f7d0$export$9099ad97b570f7c = $f30dbc5cece3b5053dc593b34169f7d0$var$Switch;

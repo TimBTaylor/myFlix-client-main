@@ -1,0 +1,77 @@
+import   "4e1d6090649697abdedbfb509bfc29ac:@babel/runtime/helpers/esm/extends";
+import   "4e1d6090649697abdedbfb509bfc29ac:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "4e1d6090649697abdedbfb509bfc29ac:classnames";
+import   "4e1d6090649697abdedbfb509bfc29ac:prop-types-extra/lib/all";
+import   "4e1d6090649697abdedbfb509bfc29ac:react";
+import   "4e1d6090649697abdedbfb509bfc29ac:./Feedback";
+import   "4e1d6090649697abdedbfb509bfc29ac:./FormCheckInput";
+import   "4e1d6090649697abdedbfb509bfc29ac:./FormCheckLabel";
+import   "4e1d6090649697abdedbfb509bfc29ac:./FormContext";
+import   "4e1d6090649697abdedbfb509bfc29ac:./ThemeProvider";
+var $4e1d6090649697abdedbfb509bfc29ac$var$FormCheck = /*#__PURE__*/ $4e1d6090649697abdedbfb509bfc29ac$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var id = _ref.id, bsPrefix = _ref.bsPrefix, bsCustomPrefix = _ref.bsCustomPrefix, _ref$inline = _ref.inline, inline = _ref$inline === void 0 ? false : _ref$inline, _ref$disabled = _ref.disabled, disabled = _ref$disabled === void 0 ? false : _ref$disabled, _ref$isValid = _ref.isValid, isValid = _ref$isValid === void 0 ? false : _ref$isValid, _ref$isInvalid = _ref.isInvalid, isInvalid = _ref$isInvalid === void 0 ? false : _ref$isInvalid, _ref$feedbackTooltip = _ref.feedbackTooltip, feedbackTooltip = _ref$feedbackTooltip === void 0 ? false : _ref$feedbackTooltip, feedback = _ref.feedback, className = _ref.className, style = _ref.style, _ref$title = _ref.title, title = _ref$title === void 0 ? '' : _ref$title, _ref$type = _ref.type, type = _ref$type === void 0 ? 'checkbox' : _ref$type, label = _ref.label, children = _ref.children, propCustom = _ref.custom, _ref$as = _ref.as, as = _ref$as === void 0 ? 'input' : _ref$as, props = $4e1d6090649697abdedbfb509bfc29ac$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "id",
+        "bsPrefix",
+        "bsCustomPrefix",
+        "inline",
+        "disabled",
+        "isValid",
+        "isInvalid",
+        "feedbackTooltip",
+        "feedback",
+        "className",
+        "style",
+        "title",
+        "type",
+        "label",
+        "children",
+        "custom",
+        "as"
+    ]);
+    var custom = type === 'switch' ? true : propCustom;
+    var _ref2 = custom ? [
+        bsCustomPrefix,
+        'custom-control'
+    ] : [
+        bsPrefix,
+        'form-check'
+    ], prefix = _ref2[0], defaultPrefix = _ref2[1];
+    bsPrefix = $4e1d6090649697abdedbfb509bfc29ac$import$1581226de02c9527$6efad33e744e1774(prefix, defaultPrefix);
+    var _useContext = $4e1d6090649697abdedbfb509bfc29ac$import$f02ba03fc070e88c$d532f802c57568ca($4e1d6090649697abdedbfb509bfc29ac$import$3c9bcaee959fbd2b$9099ad97b570f7c), controlId = _useContext.controlId;
+    var innerFormContext = $4e1d6090649697abdedbfb509bfc29ac$import$f02ba03fc070e88c$fe55aea32a6cbc49(function() {
+        return {
+            controlId: id || controlId,
+            custom: custom
+        };
+    }, [
+        controlId,
+        custom,
+        id
+    ]);
+    var hasLabel = custom || label != null && label !== false && !children;
+    var input = /*#__PURE__*/ $4e1d6090649697abdedbfb509bfc29ac$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($4e1d6090649697abdedbfb509bfc29ac$import$530dac5fe58278b4$9099ad97b570f7c, $4e1d6090649697abdedbfb509bfc29ac$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, props, {
+        type: type === 'switch' ? 'checkbox' : type,
+        ref: ref,
+        isValid: isValid,
+        isInvalid: isInvalid,
+        isStatic: !hasLabel,
+        disabled: disabled,
+        as: as
+    }));
+    return(/*#__PURE__*/ $4e1d6090649697abdedbfb509bfc29ac$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($4e1d6090649697abdedbfb509bfc29ac$import$3c9bcaee959fbd2b$9099ad97b570f7c.Provider, {
+        value: innerFormContext
+    }, /*#__PURE__*/ $4e1d6090649697abdedbfb509bfc29ac$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+        style: style,
+        className: $4e1d6090649697abdedbfb509bfc29ac$import$c7a3314ec092e1bf$9099ad97b570f7c(className, bsPrefix, custom && "custom-" + type, inline && bsPrefix + "-inline")
+    }, children || /*#__PURE__*/ $4e1d6090649697abdedbfb509bfc29ac$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($4e1d6090649697abdedbfb509bfc29ac$import$f02ba03fc070e88c$9099ad97b570f7c.Fragment, null, input, hasLabel && /*#__PURE__*/ $4e1d6090649697abdedbfb509bfc29ac$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($4e1d6090649697abdedbfb509bfc29ac$import$f40f75fc9b870f43$9099ad97b570f7c, {
+        title: title
+    }, label), (isValid || isInvalid) && /*#__PURE__*/ $4e1d6090649697abdedbfb509bfc29ac$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($4e1d6090649697abdedbfb509bfc29ac$import$f9172ff0ece4602$9099ad97b570f7c, {
+        type: isValid ? 'valid' : 'invalid',
+        tooltip: feedbackTooltip
+    }, feedback)))));
+});
+$4e1d6090649697abdedbfb509bfc29ac$var$FormCheck.displayName = 'FormCheck';
+$4e1d6090649697abdedbfb509bfc29ac$var$FormCheck.Input = $4e1d6090649697abdedbfb509bfc29ac$import$530dac5fe58278b4$9099ad97b570f7c;
+$4e1d6090649697abdedbfb509bfc29ac$var$FormCheck.Label = $4e1d6090649697abdedbfb509bfc29ac$import$f40f75fc9b870f43$9099ad97b570f7c;
+var $4e1d6090649697abdedbfb509bfc29ac$export$9099ad97b570f7c = $4e1d6090649697abdedbfb509bfc29ac$var$FormCheck;

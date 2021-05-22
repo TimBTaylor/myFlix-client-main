@@ -1,0 +1,124 @@
+import   "7718774bb74e872011bfd8f184bd378c:react";
+import   "7718774bb74e872011bfd8f184bd378c:@babel/runtime/helpers/esm/inheritsLoose";
+import   "7718774bb74e872011bfd8f184bd378c:prop-types";
+import   "7718774bb74e872011bfd8f184bd378c:tiny-warning";
+var $7718774bb74e872011bfd8f184bd378c$var$MAX_SIGNED_31_BIT_INT = 1073741823;
+var $7718774bb74e872011bfd8f184bd378c$var$commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof $parcel$global !== 'undefined' ? $parcel$global : {
+};
+function $7718774bb74e872011bfd8f184bd378c$var$getUniqueId() {
+    var key = '__global_unique_id__';
+    return $7718774bb74e872011bfd8f184bd378c$var$commonjsGlobal[key] = ($7718774bb74e872011bfd8f184bd378c$var$commonjsGlobal[key] || 0) + 1;
+}
+function $7718774bb74e872011bfd8f184bd378c$var$objectIs(x, y) {
+    if (x === y) return x !== 0 || 1 / x === 1 / y;
+    else return x !== x && y !== y;
+}
+function $7718774bb74e872011bfd8f184bd378c$var$createEventEmitter(value) {
+    var handlers = [];
+    return {
+        on: function on(handler) {
+            handlers.push(handler);
+        },
+        off: function off(handler) {
+            handlers = handlers.filter(function(h) {
+                return h !== handler;
+            });
+        },
+        get: function get() {
+            return value;
+        },
+        set: function set(newValue, changedBits) {
+            value = newValue;
+            handlers.forEach(function(handler) {
+                return handler(value, changedBits);
+            });
+        }
+    };
+}
+function $7718774bb74e872011bfd8f184bd378c$var$onlyChild(children) {
+    return Array.isArray(children) ? children[0] : children;
+}
+function $7718774bb74e872011bfd8f184bd378c$var$createReactContext(defaultValue, calculateChangedBits) {
+    var _Provider$childContex, _Consumer$contextType;
+    var contextProp = '__create-react-context-' + $7718774bb74e872011bfd8f184bd378c$var$getUniqueId() + '__';
+    var Provider1 = /*#__PURE__*/ function(_Component) {
+        $7718774bb74e872011bfd8f184bd378c$import$8db3e3d0e0460463$9099ad97b570f7c(Provider2, _Component);
+        function Provider2() {
+            var _this;
+            _this = _Component.apply(this, arguments) || this;
+            _this.emitter = $7718774bb74e872011bfd8f184bd378c$var$createEventEmitter(_this.props.value);
+            return _this;
+        }
+        var _proto = Provider2.prototype;
+        _proto.getChildContext = function getChildContext() {
+            var _ref;
+            return _ref = {
+            }, _ref[contextProp] = this.emitter, _ref;
+        };
+        _proto.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+            if (this.props.value !== nextProps.value) {
+                var oldValue = this.props.value;
+                var newValue = nextProps.value;
+                var changedBits;
+                if ($7718774bb74e872011bfd8f184bd378c$var$objectIs(oldValue, newValue)) changedBits = 0;
+                else {
+                    changedBits = typeof calculateChangedBits === 'function' ? calculateChangedBits(oldValue, newValue) : $7718774bb74e872011bfd8f184bd378c$var$MAX_SIGNED_31_BIT_INT;
+                    changedBits |= 0;
+                    if (changedBits !== 0) this.emitter.set(nextProps.value, changedBits);
+                }
+            }
+        };
+        _proto.render = function render() {
+            return this.props.children;
+        };
+        return Provider2;
+    }($7718774bb74e872011bfd8f184bd378c$import$f02ba03fc070e88c$ea71c44d9cb0d048);
+    Provider1.childContextTypes = (_Provider$childContex = {
+    }, _Provider$childContex[contextProp] = $7718774bb74e872011bfd8f184bd378c$import$67a8cc6ac06859d5$9099ad97b570f7c.object.isRequired, _Provider$childContex);
+    var Consumer1 = /*#__PURE__*/ function(_Component2) {
+        $7718774bb74e872011bfd8f184bd378c$import$8db3e3d0e0460463$9099ad97b570f7c(Consumer2, _Component2);
+        function Consumer2() {
+            var _this2;
+            _this2 = _Component2.apply(this, arguments) || this;
+            _this2.state = {
+                value: _this2.getValue()
+            };
+            _this2.onUpdate = function(newValue, changedBits) {
+                var observedBits = _this2.observedBits | 0;
+                if ((observedBits & changedBits) !== 0) _this2.setState({
+                    value: _this2.getValue()
+                });
+            };
+            return _this2;
+        }
+        var _proto2 = Consumer2.prototype;
+        _proto2.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+            var observedBits = nextProps.observedBits;
+            this.observedBits = observedBits === undefined || observedBits === null ? $7718774bb74e872011bfd8f184bd378c$var$MAX_SIGNED_31_BIT_INT : observedBits;
+        };
+        _proto2.componentDidMount = function componentDidMount() {
+            if (this.context[contextProp]) this.context[contextProp].on(this.onUpdate);
+            var observedBits = this.props.observedBits;
+            this.observedBits = observedBits === undefined || observedBits === null ? $7718774bb74e872011bfd8f184bd378c$var$MAX_SIGNED_31_BIT_INT : observedBits;
+        };
+        _proto2.componentWillUnmount = function componentWillUnmount() {
+            if (this.context[contextProp]) this.context[contextProp].off(this.onUpdate);
+        };
+        _proto2.getValue = function getValue() {
+            if (this.context[contextProp]) return this.context[contextProp].get();
+            else return defaultValue;
+        };
+        _proto2.render = function render() {
+            return $7718774bb74e872011bfd8f184bd378c$var$onlyChild(this.props.children)(this.state.value);
+        };
+        return Consumer2;
+    }($7718774bb74e872011bfd8f184bd378c$import$f02ba03fc070e88c$ea71c44d9cb0d048);
+    Consumer1.contextTypes = (_Consumer$contextType = {
+    }, _Consumer$contextType[contextProp] = $7718774bb74e872011bfd8f184bd378c$import$67a8cc6ac06859d5$9099ad97b570f7c.object, _Consumer$contextType);
+    return {
+        Provider: Provider1,
+        Consumer: Consumer1
+    };
+}
+var $7718774bb74e872011bfd8f184bd378c$var$index = $7718774bb74e872011bfd8f184bd378c$import$f02ba03fc070e88c$9099ad97b570f7c.createContext || $7718774bb74e872011bfd8f184bd378c$var$createReactContext;
+var $7718774bb74e872011bfd8f184bd378c$export$9099ad97b570f7c = $7718774bb74e872011bfd8f184bd378c$var$index;

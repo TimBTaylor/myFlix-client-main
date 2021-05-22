@@ -1,0 +1,24 @@
+import   "40eb3f58562e35af8faad4e299d2cf64:@babel/runtime/helpers/esm/extends";
+import   "40eb3f58562e35af8faad4e299d2cf64:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "40eb3f58562e35af8faad4e299d2cf64:classnames";
+import   "40eb3f58562e35af8faad4e299d2cf64:react";
+import   "40eb3f58562e35af8faad4e299d2cf64:./ThemeProvider";
+var $40eb3f58562e35af8faad4e299d2cf64$var$defaultProps = {
+    variant: null
+};
+var $40eb3f58562e35af8faad4e299d2cf64$var$CardImg = /*#__PURE__*/ $40eb3f58562e35af8faad4e299d2cf64$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var bsPrefix = _ref.bsPrefix, className = _ref.className, variant = _ref.variant, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'img' : _ref$as, props = $40eb3f58562e35af8faad4e299d2cf64$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "bsPrefix",
+        "className",
+        "variant",
+        "as"
+    ]);
+    var prefix = $40eb3f58562e35af8faad4e299d2cf64$import$1581226de02c9527$6efad33e744e1774(bsPrefix, 'card-img');
+    return(/*#__PURE__*/ $40eb3f58562e35af8faad4e299d2cf64$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, $40eb3f58562e35af8faad4e299d2cf64$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+        ref: ref,
+        className: $40eb3f58562e35af8faad4e299d2cf64$import$c7a3314ec092e1bf$9099ad97b570f7c(variant ? prefix + "-" + variant : prefix, className)
+    }, props)));
+});
+$40eb3f58562e35af8faad4e299d2cf64$var$CardImg.displayName = 'CardImg';
+$40eb3f58562e35af8faad4e299d2cf64$var$CardImg.defaultProps = $40eb3f58562e35af8faad4e299d2cf64$var$defaultProps;
+var $40eb3f58562e35af8faad4e299d2cf64$export$9099ad97b570f7c = $40eb3f58562e35af8faad4e299d2cf64$var$CardImg;

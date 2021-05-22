@@ -1,0 +1,12 @@
+.movie-card {
+  background-color: #CECECE !important;
+  margin-top: 25px;
+}
+
+.navbar-link {
+  margin: right auto;
+}
+.myflix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.HASH_REF_533487eabd72991ff818d0dc53681a74.css.map */

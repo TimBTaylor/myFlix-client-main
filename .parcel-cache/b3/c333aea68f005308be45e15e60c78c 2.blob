@@ -1,0 +1,102 @@
+import   "b99182411b0c4385ef7cb9ad77bf0b83:react";
+import   "b99182411b0c4385ef7cb9ad77bf0b83:react-bootstrap/Button";
+import   "b99182411b0c4385ef7cb9ad77bf0b83:axios";
+import   "b99182411b0c4385ef7cb9ad77bf0b83:react-bootstrap/Form";
+import   "b99182411b0c4385ef7cb9ad77bf0b83:react-router-dom";
+import   "b99182411b0c4385ef7cb9ad77bf0b83:react-bootstrap/Card";
+import   "b99182411b0c4385ef7cb9ad77bf0b83:react-bootstrap/Col";
+class $b99182411b0c4385ef7cb9ad77bf0b83$export$19171ea33e9e98aa extends $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.Component {
+    constructor(){
+        super();
+        this.state = {
+            username: "",
+            email: "",
+            birthday: "",
+            favoriteMovies: [],
+            movies: ""
+        };
+    }
+    componentDidMount() {
+        this.getUser();
+    }
+    getUser() {
+        this.setState({
+            username: localStorage.getItem("user"),
+            email: localStorage.getItem("email"),
+            birthday: localStorage.getItem('birthday'),
+            favoriteMovies: JSON.parse(localStorage.getItem('favoriteMovies'))
+        });
+    }
+    removeFavorite(movie) {
+        let token = localStorage.getItem("token");
+        let url = "https://timsmyflix.herokuapp.com/users/" + localStorage.getItem("user") + "/movies/" + movie._id;
+        $b99182411b0c4385ef7cb9ad77bf0b83$import$bed27987f94bc6dd$9099ad97b570f7c.delete(url, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            console.log(response);
+            let favMovies = response.data.FavoriteMovies;
+            localStorage.setItem('favoriteMovies', JSON.stringify(favMovies));
+            this.componentDidMount();
+        });
+    }
+    handleDelete() {
+        let token = localStorage.getItem("token");
+        let user = localStorage.getItem("user");
+        $b99182411b0c4385ef7cb9ad77bf0b83$import$bed27987f94bc6dd$9099ad97b570f7c.delete(`https://timsmyflix.herokuapp.com/users/${user}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(()=>{
+            alert(user + " has been deleted");
+            localStorage.removeItem("user");
+            localStorage.removeItem("token");
+            window.location.pathname = "/";
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+    render() {
+        const { movies: movies , onBackClick: onBackClick  } = this.props;
+        const favoriteMovieList = movies.filter((movie)=>{
+            return this.state.favoriteMovies.includes(movie._id);
+        });
+        return(/*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", null, /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$c33866132872a26f$9099ad97b570f7c, null, /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$c33866132872a26f$9099ad97b570f7c.Group, {
+            controlId: "formBasicUsername"
+        }, /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("h6", null, "Username: "), /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$c33866132872a26f$9099ad97b570f7c.Label, null, this.state.username)), /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$c33866132872a26f$9099ad97b570f7c.Group, {
+            controlId: "formBasicEmail"
+        }, /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("h6", null, "Email:"), /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$c33866132872a26f$9099ad97b570f7c.Label, null, this.state.email)), /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$c33866132872a26f$9099ad97b570f7c.Group, {
+            controlId: "formBasicDate"
+        }, /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("h6", null, "Date of Birth:"), /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$c33866132872a26f$9099ad97b570f7c.Label, null, this.state.birthday)), /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$46a3a2459f86404b$454c04d8f1b76440, {
+            to: `/update/${this.state.username}`
+        }, /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$4f4877c85d888a51$9099ad97b570f7c, null, "Edit Profile")), /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$4f4877c85d888a51$9099ad97b570f7c, {
+            variant: "warning",
+            onClick: ()=>{
+                this.handleDelete();
+            }
+        }, "Delete Profile"), /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$4f4877c85d888a51$9099ad97b570f7c, {
+            variant: "secondary",
+            onClick: ()=>{
+                onBackClick();
+            }
+        }, "Back")), /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "favoriteMovies",
+            style: {
+                textAlign: "center",
+                width: "24rem"
+            }
+        }, /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("h1", null, "Favorite Movies"), favoriteMovieList.map((movie)=>{
+            return(/*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+                key: movie._id
+            }, /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$7167a86633e97921$9099ad97b570f7c, null, /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$7167a86633e97921$9099ad97b570f7c.Img, {
+                variant: "top",
+                src: movie.ImagePath
+            }), /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$7167a86633e97921$9099ad97b570f7c.Body, null, /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$46a3a2459f86404b$454c04d8f1b76440, {
+                to: `/movies/${movie._id}`
+            }, /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$7167a86633e97921$9099ad97b570f7c.Title, null, movie.Title)))), /*#__PURE__*/ $b99182411b0c4385ef7cb9ad77bf0b83$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($b99182411b0c4385ef7cb9ad77bf0b83$import$4f4877c85d888a51$9099ad97b570f7c, {
+                onClick: ()=>this.removeFavorite(movie)
+            }, "Remove")));
+        }))));
+    }
+}

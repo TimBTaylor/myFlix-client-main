@@ -1,0 +1,21 @@
+import   "93e48ee6b0917f3e9b8d4741bcc9183f:@babel/runtime/helpers/esm/extends";
+import   "93e48ee6b0917f3e9b8d4741bcc9183f:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "93e48ee6b0917f3e9b8d4741bcc9183f:classnames";
+import   "93e48ee6b0917f3e9b8d4741bcc9183f:react";
+import   "93e48ee6b0917f3e9b8d4741bcc9183f:./ThemeProvider";
+var $93e48ee6b0917f3e9b8d4741bcc9183f$var$FormText = /*#__PURE__*/ $93e48ee6b0917f3e9b8d4741bcc9183f$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var bsPrefix = _ref.bsPrefix, className = _ref.className, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'small' : _ref$as, muted = _ref.muted, props = $93e48ee6b0917f3e9b8d4741bcc9183f$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "bsPrefix",
+        "className",
+        "as",
+        "muted"
+    ]);
+    bsPrefix = $93e48ee6b0917f3e9b8d4741bcc9183f$import$1581226de02c9527$6efad33e744e1774(bsPrefix, 'form-text');
+    return(/*#__PURE__*/ $93e48ee6b0917f3e9b8d4741bcc9183f$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, $93e48ee6b0917f3e9b8d4741bcc9183f$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, props, {
+        ref: ref,
+        className: $93e48ee6b0917f3e9b8d4741bcc9183f$import$c7a3314ec092e1bf$9099ad97b570f7c(className, bsPrefix, muted && 'text-muted')
+    })));
+});
+$93e48ee6b0917f3e9b8d4741bcc9183f$var$FormText.displayName = 'FormText';
+var $93e48ee6b0917f3e9b8d4741bcc9183f$export$9099ad97b570f7c = $93e48ee6b0917f3e9b8d4741bcc9183f$var$FormText;

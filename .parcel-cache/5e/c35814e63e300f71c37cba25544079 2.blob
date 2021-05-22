@@ -1,0 +1,10 @@
+function $65eb812e78781342e056ad948767e8b9$export$9099ad97b570f7c(obj, key, value) {
+    if (key in obj) Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+    });
+    else obj[key] = value;
+    return obj;
+}

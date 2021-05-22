@@ -1,0 +1,7 @@
+function $bd92e95986a07e50b1991330ca432c01$export$9099ad97b570f7c(o, p) {
+    $bd92e95986a07e50b1991330ca432c01$export$9099ad97b570f7c = Object.setPrototypeOf || function _setPrototypeOf(o1, p1) {
+        o1.__proto__ = p1;
+        return o1;
+    };
+    return $bd92e95986a07e50b1991330ca432c01$export$9099ad97b570f7c(o, p);
+}

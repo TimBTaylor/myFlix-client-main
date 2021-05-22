@@ -1,0 +1,15 @@
+'use strict';
+import   "f3164ab7b4947e0021c4ef04f295c7e7:../helpers/isAbsoluteURL";
+import   "f3164ab7b4947e0021c4ef04f295c7e7:../helpers/combineURLs";
+/**
+ * Creates a new URL by combining the baseURL with the requestedURL,
+ * only when the requestedURL is not already an absolute URL.
+ * If the requestURL is absolute, this function returns the requestedURL untouched.
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} requestedURL Absolute or relative URL to combine
+ * @returns {string} The combined full path
+ */ $f3164ab7b4947e0021c4ef04f295c7e7$exports = function buildFullPath(baseURL, requestedURL) {
+    if (baseURL && !$f3164ab7b4947e0021c4ef04f295c7e7$import$2fbe59f309965432(requestedURL)) return $f3164ab7b4947e0021c4ef04f295c7e7$import$ff1024985c5861de(baseURL, requestedURL);
+    return requestedURL;
+};

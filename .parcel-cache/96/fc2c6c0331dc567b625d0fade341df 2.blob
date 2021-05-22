@@ -1,0 +1,27 @@
+import   "8d89f50b8ec0a375e3a9ea376f0a61b7:react";
+import   "8d89f50b8ec0a375e3a9ea376f0a61b7:react-bootstrap/Col";
+import   "8d89f50b8ec0a375e3a9ea376f0a61b7:react-redux";
+import   "8d89f50b8ec0a375e3a9ea376f0a61b7:../movie-card/movie-card";
+const $8d89f50b8ec0a375e3a9ea376f0a61b7$var$mapStateToProps = (state)=>{
+    const { visibilityFilter: visibilityFilter  } = state;
+    return {
+        visibilityFilter: visibilityFilter
+    };
+};
+function $8d89f50b8ec0a375e3a9ea376f0a61b7$var$MoviesList(props) {
+    const { movies: movies , visibilityFilter: visibilityFilter  } = props;
+    let filteredMovies = movies;
+    if (visibilityFilter !== '') filteredMovies = movies.filter((m)=>m.Title.toLowerCase().includes(visibilityFilter.toLowerCase())
+    );
+    if (!movies) return(/*#__PURE__*/ $8d89f50b8ec0a375e3a9ea376f0a61b7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+        className: "main-view"
+    }));
+    return filteredMovies.map((m)=>/*#__PURE__*/ $8d89f50b8ec0a375e3a9ea376f0a61b7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($8d89f50b8ec0a375e3a9ea376f0a61b7$import$f6437e7de1c0263b$9099ad97b570f7c, {
+            md: 3,
+            key: m._id
+        }, /*#__PURE__*/ $8d89f50b8ec0a375e3a9ea376f0a61b7$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($8d89f50b8ec0a375e3a9ea376f0a61b7$import$a2f201a8ebc0dc5$62bf5cc77ed0da1e, {
+            movie: m
+        }))
+    );
+}
+var $8d89f50b8ec0a375e3a9ea376f0a61b7$export$9099ad97b570f7c = $8d89f50b8ec0a375e3a9ea376f0a61b7$import$336b048844a0f5a7$b4e85276e81c9e28($8d89f50b8ec0a375e3a9ea376f0a61b7$var$mapStateToProps)($8d89f50b8ec0a375e3a9ea376f0a61b7$var$MoviesList);

@@ -1,0 +1,6 @@
+import   "4e804e5b2434a5e72a026d3b2a4c7a25:./setPrototypeOf.js";
+function $4e804e5b2434a5e72a026d3b2a4c7a25$export$9099ad97b570f7c(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    $4e804e5b2434a5e72a026d3b2a4c7a25$import$b1caad471d3937f5$9099ad97b570f7c(subClass, superClass);
+}

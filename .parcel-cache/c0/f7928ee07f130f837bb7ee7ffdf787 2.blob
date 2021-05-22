@@ -1,0 +1,56 @@
+'use strict';
+import   "1c42b662d2905eb6994033a338c2d6dc:./../utils";
+// Headers whose duplicates are ignored by node
+// c.f. https://nodejs.org/api/http.html#http_message_headers
+var $1c42b662d2905eb6994033a338c2d6dc$var$ignoreDuplicateOf = [
+    'age',
+    'authorization',
+    'content-length',
+    'content-type',
+    'etag',
+    'expires',
+    'from',
+    'host',
+    'if-modified-since',
+    'if-unmodified-since',
+    'last-modified',
+    'location',
+    'max-forwards',
+    'proxy-authorization',
+    'referer',
+    'retry-after',
+    'user-agent'
+];
+/**
+ * Parse headers into an object
+ *
+ * ```
+ * Date: Wed, 27 Aug 2014 08:58:49 GMT
+ * Content-Type: application/json
+ * Connection: keep-alive
+ * Transfer-Encoding: chunked
+ * ```
+ *
+ * @param {String} headers Headers needing to be parsed
+ * @returns {Object} Headers parsed into an object
+ */ $1c42b662d2905eb6994033a338c2d6dc$exports = function parseHeaders(headers) {
+    var parsed = {
+    };
+    var key;
+    var val;
+    var i;
+    if (!headers) return parsed;
+    $1c42b662d2905eb6994033a338c2d6dc$import$61f3fc819ec50e70$40f3d9558cf6e846(headers.split('\n'), function parser(line) {
+        i = line.indexOf(':');
+        key = $1c42b662d2905eb6994033a338c2d6dc$import$61f3fc819ec50e70$c7aa272acca91797(line.substr(0, i)).toLowerCase();
+        val = $1c42b662d2905eb6994033a338c2d6dc$import$61f3fc819ec50e70$c7aa272acca91797(line.substr(i + 1));
+        if (key) {
+            if (parsed[key] && $1c42b662d2905eb6994033a338c2d6dc$var$ignoreDuplicateOf.indexOf(key) >= 0) return;
+            if (key === 'set-cookie') parsed[key] = (parsed[key] ? parsed[key] : []).concat([
+                val
+            ]);
+            else parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+        }
+    });
+    return parsed;
+};

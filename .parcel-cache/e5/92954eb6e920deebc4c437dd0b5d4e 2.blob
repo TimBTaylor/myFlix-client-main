@@ -1,0 +1,83 @@
+import   "26b6016cf51ee0e2e40572524ea15b8a:react";
+import   "26b6016cf51ee0e2e40572524ea15b8a:./useReduxContext";
+import   "26b6016cf51ee0e2e40572524ea15b8a:../utils/Subscription";
+import   "26b6016cf51ee0e2e40572524ea15b8a:../utils/useIsomorphicLayoutEffect";
+import   "26b6016cf51ee0e2e40572524ea15b8a:../components/Context";
+var $26b6016cf51ee0e2e40572524ea15b8a$var$refEquality = function refEquality(a, b) {
+    return a === b;
+};
+function $26b6016cf51ee0e2e40572524ea15b8a$var$useSelectorWithStoreAndSubscription(selector, equalityFn, store, contextSub) {
+    var _useReducer = $26b6016cf51ee0e2e40572524ea15b8a$import$f02ba03fc070e88c$6e55c98e7205a356(function(s) {
+        return s + 1;
+    }, 0), forceRender = _useReducer[1];
+    var subscription = $26b6016cf51ee0e2e40572524ea15b8a$import$f02ba03fc070e88c$fe55aea32a6cbc49(function() {
+        return new $26b6016cf51ee0e2e40572524ea15b8a$import$d1e56e6b21956fca$9099ad97b570f7c(store, contextSub);
+    }, [
+        store,
+        contextSub
+    ]);
+    var latestSubscriptionCallbackError = $26b6016cf51ee0e2e40572524ea15b8a$import$f02ba03fc070e88c$575893c07881cfe8();
+    var latestSelector = $26b6016cf51ee0e2e40572524ea15b8a$import$f02ba03fc070e88c$575893c07881cfe8();
+    var latestStoreState = $26b6016cf51ee0e2e40572524ea15b8a$import$f02ba03fc070e88c$575893c07881cfe8();
+    var latestSelectedState = $26b6016cf51ee0e2e40572524ea15b8a$import$f02ba03fc070e88c$575893c07881cfe8();
+    var storeState = store.getState();
+    var selectedState;
+    try {
+        if (selector !== latestSelector.current || storeState !== latestStoreState.current || latestSubscriptionCallbackError.current) {
+            var newSelectedState = selector(storeState); // ensure latest selected state is reused so that a custom equality function can result in identical references
+            if (latestSelectedState.current === undefined || !equalityFn(newSelectedState, latestSelectedState.current)) selectedState = newSelectedState;
+            else selectedState = latestSelectedState.current;
+        } else selectedState = latestSelectedState.current;
+    } catch (err) {
+        if (latestSubscriptionCallbackError.current) err.message += "\nThe error may be correlated with this previous error:\n" + latestSubscriptionCallbackError.current.stack + "\n\n";
+        throw err;
+    }
+    $26b6016cf51ee0e2e40572524ea15b8a$import$4e56e21d712ba287$add87c67e40100d3(function() {
+        latestSelector.current = selector;
+        latestStoreState.current = storeState;
+        latestSelectedState.current = selectedState;
+        latestSubscriptionCallbackError.current = undefined;
+    });
+    $26b6016cf51ee0e2e40572524ea15b8a$import$4e56e21d712ba287$add87c67e40100d3(function() {
+        function checkForUpdates() {
+            try {
+                var newStoreState = store.getState();
+                var _newSelectedState = latestSelector.current(newStoreState);
+                if (equalityFn(_newSelectedState, latestSelectedState.current)) return;
+                latestSelectedState.current = _newSelectedState;
+                latestStoreState.current = newStoreState;
+            } catch (err) {
+                // we ignore all errors here, since when the component
+                // is re-rendered, the selectors are called again, and
+                // will throw again, if neither props nor store state
+                // changed
+                latestSubscriptionCallbackError.current = err;
+            }
+            forceRender();
+        }
+        subscription.onStateChange = checkForUpdates;
+        subscription.trySubscribe();
+        checkForUpdates();
+        return function() {
+            return subscription.tryUnsubscribe();
+        };
+    }, [
+        store,
+        subscription
+    ]);
+    return selectedState;
+}
+function $26b6016cf51ee0e2e40572524ea15b8a$export$df1746afdd5c38b2(context) {
+    if (context === void 0) context = $26b6016cf51ee0e2e40572524ea15b8a$import$6666e241bca34f1c$8a4bd31a1c5faed1;
+    var useReduxContext = context === $26b6016cf51ee0e2e40572524ea15b8a$import$6666e241bca34f1c$8a4bd31a1c5faed1 ? $26b6016cf51ee0e2e40572524ea15b8a$import$ee0f4c636453026a$26d5e781f89025ee : function() {
+        return $26b6016cf51ee0e2e40572524ea15b8a$import$f02ba03fc070e88c$d532f802c57568ca(context);
+    };
+    return function useSelector(selector, equalityFn) {
+        if (equalityFn === void 0) equalityFn = $26b6016cf51ee0e2e40572524ea15b8a$var$refEquality;
+        var _useReduxContext = useReduxContext(), store = _useReduxContext.store, contextSub = _useReduxContext.subscription;
+        var selectedState = $26b6016cf51ee0e2e40572524ea15b8a$var$useSelectorWithStoreAndSubscription(selector, equalityFn, store, contextSub);
+        $26b6016cf51ee0e2e40572524ea15b8a$import$f02ba03fc070e88c$cc6232f21d9652b3(selectedState);
+        return selectedState;
+    };
+}
+var $26b6016cf51ee0e2e40572524ea15b8a$export$a5d178434544e317 = /*#__PURE__*/ $26b6016cf51ee0e2e40572524ea15b8a$export$df1746afdd5c38b2();

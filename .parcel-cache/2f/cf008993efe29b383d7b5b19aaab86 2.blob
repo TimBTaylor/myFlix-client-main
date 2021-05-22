@@ -1,0 +1,5 @@
+var $565cccffce8e77deafeed97109afdb2b$var$ReactIs, $565cccffce8e77deafeed97109afdb2b$var$throwOnDirectAccess;
+import   "565cccffce8e77deafeed97109afdb2b:./factoryWithThrowingShims";
+// By explicitly using `prop-types` you are opting into new production behavior.
+// http://fb.me/prop-types-in-prod
+$565cccffce8e77deafeed97109afdb2b$exports = $565cccffce8e77deafeed97109afdb2b$import$111a8ac3b206eac8();

@@ -1,0 +1,12 @@
+import   "e9fc8592bac64dbbfbccf1e0d62afbcc:@babel/runtime/helpers/esm/extends";
+import   "e9fc8592bac64dbbfbccf1e0d62afbcc:react";
+import   "e9fc8592bac64dbbfbccf1e0d62afbcc:classnames";
+var $e9fc8592bac64dbbfbccf1e0d62afbcc$export$9099ad97b570f7c = function(className) {
+    return(/*#__PURE__*/ $e9fc8592bac64dbbfbccf1e0d62afbcc$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(p, ref) {
+        return(/*#__PURE__*/ $e9fc8592bac64dbbfbccf1e0d62afbcc$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", $e9fc8592bac64dbbfbccf1e0d62afbcc$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+        }, p, {
+            ref: ref,
+            className: $e9fc8592bac64dbbfbccf1e0d62afbcc$import$c7a3314ec092e1bf$9099ad97b570f7c(p.className, className)
+        })));
+    }));
+};

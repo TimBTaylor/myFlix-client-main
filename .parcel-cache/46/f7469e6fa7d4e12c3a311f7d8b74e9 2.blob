@@ -1,0 +1,15 @@
+function $926f4b8194cccebb3abd8a99b7d541e1$var$is(x, y) {
+    if (x === y) return x !== 0 || y !== 0 || 1 / x === 1 / y;
+    else return x !== x && y !== y;
+}
+function $926f4b8194cccebb3abd8a99b7d541e1$export$9099ad97b570f7c(objA, objB) {
+    if ($926f4b8194cccebb3abd8a99b7d541e1$var$is(objA, objB)) return true;
+    if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) return false;
+    var keysA = Object.keys(objA);
+    var keysB = Object.keys(objB);
+    if (keysA.length !== keysB.length) return false;
+    for(var i = 0; i < keysA.length; i++){
+        if (!Object.prototype.hasOwnProperty.call(objB, keysA[i]) || !$926f4b8194cccebb3abd8a99b7d541e1$var$is(objA[keysA[i]], objB[keysA[i]])) return false;
+    }
+    return true;
+}

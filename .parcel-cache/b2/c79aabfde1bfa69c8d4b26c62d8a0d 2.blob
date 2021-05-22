@@ -1,0 +1,15 @@
+'use strict';
+import   "d3ede8ab3ce52ab09010e344a2c223a9:./enhanceError";
+/**
+ * Create an Error with the specified message, config, error code, request and response.
+ *
+ * @param {string} message The error message.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The created error.
+ */ $d3ede8ab3ce52ab09010e344a2c223a9$exports = function createError(message, config, code, request, response) {
+    var error = new Error(message);
+    return $d3ede8ab3ce52ab09010e344a2c223a9$import$30eb041b447379d9(error, config, code, request, response);
+};

@@ -1,0 +1,30 @@
+import   "e9b1152521c023e56a6f69e99ddef255:@babel/runtime/helpers/esm/extends";
+import   "e9b1152521c023e56a6f69e99ddef255:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "e9b1152521c023e56a6f69e99ddef255:classnames";
+import   "e9b1152521c023e56a6f69e99ddef255:react";
+import   "e9b1152521c023e56a6f69e99ddef255:prop-types";
+var $e9b1152521c023e56a6f69e99ddef255$var$propTypes = {
+    /**
+   * Specify whether the feedback is for valid or invalid fields
+   *
+   * @type {('valid'|'invalid')}
+   */ type: $e9b1152521c023e56a6f69e99ddef255$import$67a8cc6ac06859d5$9099ad97b570f7c.string,
+    /** Display feedback as a tooltip. */ tooltip: $e9b1152521c023e56a6f69e99ddef255$import$67a8cc6ac06859d5$9099ad97b570f7c.bool,
+    as: $e9b1152521c023e56a6f69e99ddef255$import$67a8cc6ac06859d5$9099ad97b570f7c.elementType
+};
+var $e9b1152521c023e56a6f69e99ddef255$var$Feedback = /*#__PURE__*/ $e9b1152521c023e56a6f69e99ddef255$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref, ref) {
+    var _ref$as = _ref.as, Component = _ref$as === void 0 ? 'div' : _ref$as, className = _ref.className, _ref$type = _ref.type, type = _ref$type === void 0 ? 'valid' : _ref$type, _ref$tooltip = _ref.tooltip, tooltip = _ref$tooltip === void 0 ? false : _ref$tooltip, props = $e9b1152521c023e56a6f69e99ddef255$import$555fcbd5081a286a$9099ad97b570f7c(_ref, [
+        "as",
+        "className",
+        "type",
+        "tooltip"
+    ]);
+    return(/*#__PURE__*/ $e9b1152521c023e56a6f69e99ddef255$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Component, $e9b1152521c023e56a6f69e99ddef255$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+    }, props, {
+        ref: ref,
+        className: $e9b1152521c023e56a6f69e99ddef255$import$c7a3314ec092e1bf$9099ad97b570f7c(className, type + "-" + (tooltip ? 'tooltip' : 'feedback'))
+    })));
+});
+$e9b1152521c023e56a6f69e99ddef255$var$Feedback.displayName = 'Feedback';
+$e9b1152521c023e56a6f69e99ddef255$var$Feedback.propTypes = $e9b1152521c023e56a6f69e99ddef255$var$propTypes;
+var $e9b1152521c023e56a6f69e99ddef255$export$9099ad97b570f7c = $e9b1152521c023e56a6f69e99ddef255$var$Feedback;

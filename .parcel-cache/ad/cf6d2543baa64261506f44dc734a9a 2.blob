@@ -1,0 +1,44 @@
+import   "ab364e32f6f0b0d73bd033222e95b217:react";
+import   "ab364e32f6f0b0d73bd033222e95b217:react-bootstrap/Button";
+import   "ab364e32f6f0b0d73bd033222e95b217:react-bootstrap/Card";
+import   "ab364e32f6f0b0d73bd033222e95b217:react-router-dom";
+class $ab364e32f6f0b0d73bd033222e95b217$export$7ca4026d42a195d7 extends $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.Component {
+    render() {
+        const { genre: genre , movies: movies , onBackClick: onBackClick  } = this.props;
+        return(/*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "genre-view"
+        }, /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "genre-name"
+        }, /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "label"
+        }, "Name: "), /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "value"
+        }, genre.Name)), /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "genre-description"
+        }, /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "label"
+        }, "Description: "), /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "value"
+        }, genre.Description)), /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+            className: "genre-movies"
+        }, /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("span", {
+            className: "label"
+        }, genre.Name, " movies: "), /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", null, movies.map((m)=>{
+            if (m.Genre.Name === genre.Name) return(/*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement("div", {
+                key: m._id
+            }, /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ab364e32f6f0b0d73bd033222e95b217$import$7167a86633e97921$9099ad97b570f7c, null, /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ab364e32f6f0b0d73bd033222e95b217$import$7167a86633e97921$9099ad97b570f7c.Img, {
+                variant: "top",
+                src: m.ImagePath
+            }), /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ab364e32f6f0b0d73bd033222e95b217$import$7167a86633e97921$9099ad97b570f7c.Body, null, /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ab364e32f6f0b0d73bd033222e95b217$import$7167a86633e97921$9099ad97b570f7c.Title, null, m.Title), /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ab364e32f6f0b0d73bd033222e95b217$import$46a3a2459f86404b$454c04d8f1b76440, {
+                to: `/movies/${m._id}`
+            }, /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ab364e32f6f0b0d73bd033222e95b217$import$4f4877c85d888a51$9099ad97b570f7c, {
+                variant: "outline-primary"
+            }, "Open"))))));
+        }))), /*#__PURE__*/ $ab364e32f6f0b0d73bd033222e95b217$import$f02ba03fc070e88c$9099ad97b570f7c.createElement($ab364e32f6f0b0d73bd033222e95b217$import$4f4877c85d888a51$9099ad97b570f7c, {
+            variant: "secondary",
+            onClick: ()=>{
+                onBackClick(null);
+            }
+        }, "Back")));
+    }
+}

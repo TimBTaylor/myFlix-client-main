@@ -1,0 +1,28 @@
+import   "52d2703ccd21ac8f67714edadbaac3e4:@babel/runtime/helpers/esm/extends";
+import   "52d2703ccd21ac8f67714edadbaac3e4:@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+import   "52d2703ccd21ac8f67714edadbaac3e4:classnames";
+import   "52d2703ccd21ac8f67714edadbaac3e4:dom-helpers/camelize";
+import   "52d2703ccd21ac8f67714edadbaac3e4:react";
+import   "52d2703ccd21ac8f67714edadbaac3e4:./ThemeProvider";
+var $52d2703ccd21ac8f67714edadbaac3e4$var$pascalCase = function pascalCase(str) {
+    return str[0].toUpperCase() + $52d2703ccd21ac8f67714edadbaac3e4$import$d6e4986383579f11$9099ad97b570f7c(str).slice(1);
+};
+function $52d2703ccd21ac8f67714edadbaac3e4$export$9099ad97b570f7c(prefix, _temp) {
+    var _ref = _temp === void 0 ? {
+    } : _temp, _ref$displayName = _ref.displayName, displayName = _ref$displayName === void 0 ? $52d2703ccd21ac8f67714edadbaac3e4$var$pascalCase(prefix) : _ref$displayName, Component = _ref.Component, defaultProps = _ref.defaultProps;
+    var BsComponent = /*#__PURE__*/ $52d2703ccd21ac8f67714edadbaac3e4$import$f02ba03fc070e88c$9099ad97b570f7c.forwardRef(function(_ref2, ref) {
+        var className = _ref2.className, bsPrefix = _ref2.bsPrefix, _ref2$as = _ref2.as, Tag = _ref2$as === void 0 ? Component || 'div' : _ref2$as, props = $52d2703ccd21ac8f67714edadbaac3e4$import$555fcbd5081a286a$9099ad97b570f7c(_ref2, [
+            "className",
+            "bsPrefix",
+            "as"
+        ]);
+        var resolvedPrefix = $52d2703ccd21ac8f67714edadbaac3e4$import$1581226de02c9527$6efad33e744e1774(bsPrefix, prefix);
+        return(/*#__PURE__*/ $52d2703ccd21ac8f67714edadbaac3e4$import$f02ba03fc070e88c$9099ad97b570f7c.createElement(Tag, $52d2703ccd21ac8f67714edadbaac3e4$import$b5eba6ed2ba96e9b$9099ad97b570f7c({
+            ref: ref,
+            className: $52d2703ccd21ac8f67714edadbaac3e4$import$c7a3314ec092e1bf$9099ad97b570f7c(className, resolvedPrefix)
+        }, props)));
+    });
+    BsComponent.defaultProps = defaultProps;
+    BsComponent.displayName = displayName;
+    return BsComponent;
+}

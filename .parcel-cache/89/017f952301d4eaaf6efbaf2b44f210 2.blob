@@ -1,0 +1,11 @@
+import   "07caeff10b06eca3ecb1da25c2c2430d:../components/Context";
+import   "07caeff10b06eca3ecb1da25c2c2430d:./useStore";
+function $07caeff10b06eca3ecb1da25c2c2430d$export$2246b4bfc629856d(context) {
+    if (context === void 0) context = $07caeff10b06eca3ecb1da25c2c2430d$import$6666e241bca34f1c$8a4bd31a1c5faed1;
+    var useStore = context === $07caeff10b06eca3ecb1da25c2c2430d$import$6666e241bca34f1c$8a4bd31a1c5faed1 ? $07caeff10b06eca3ecb1da25c2c2430d$import$d254341092222fb3$75b9c8ae179b34d : $07caeff10b06eca3ecb1da25c2c2430d$import$d254341092222fb3$5c2867716a4db522(context);
+    return function useDispatch() {
+        var store = useStore();
+        return store.dispatch;
+    };
+}
+var $07caeff10b06eca3ecb1da25c2c2430d$export$b359dffbdc8beb7d = /*#__PURE__*/ $07caeff10b06eca3ecb1da25c2c2430d$export$2246b4bfc629856d();

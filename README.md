@@ -6,17 +6,19 @@
 ### Built with
 
 #### Frontend
+Netlify to host the frontend.
 1. HTML/JSX
 2. Css
 3. React.js
 4. Redux
 5. Bootstrap
-6. 
-Netlify to host the frontend.
+
 
 #### Backend
+Heroku to host the backend API.
 1. Node.js
 2. Express.js
 3. MongoDB
-4. 
-Heroku to host the backend API.
+
+
+### [Visit the site here](https://timsmyflix.netlify.app)

@@ -21994,7 +21994,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __self: this
         }, "Home"), /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Nav.Link, {
-            href: `/users/${this.props.user.Username}`,
+            href: `/users/${user.Username}`,
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
                 lineNumber: 83

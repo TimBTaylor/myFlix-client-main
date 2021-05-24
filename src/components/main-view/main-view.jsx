@@ -77,11 +77,10 @@ class MainView extends React.Component {
 					{user ? (
 						<Navbar className="navbar navbar-light bg-light">
 							<Navbar.Brand>My Flix</Navbar.Brand>
-							<Navbar.Toggle />
 							<Navbar.Collapse className="justify-content-end">
 								<Nav className="justify-content-end">
 									<Nav.Link href="/">Home</Nav.Link>
-									<Nav.Link href={'/'}>My Account</Nav.Link>
+									<Nav.Link href={"/profile"}>My Account</Nav.Link>
 									<Nav.Link onClick={() => this.logOut()}>Log Out</Nav.Link>
 								</Nav>
 							</Navbar.Collapse>
@@ -148,7 +147,7 @@ class MainView extends React.Component {
 							</Col>
 						}} />
 
-						<Route path="/users/:userId" render={({ history }) => {
+						<Route path="/profile" render={({ history }) => {
 							if (!user) return <Col md={6}>
 								<LoginView onLoggedIn={user => this.onLoggedIn(user)} />
 							</Col>

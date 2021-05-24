@@ -8,7 +8,7 @@ import MoviesList from '../movies-list/movies-list';
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-
+import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Navbar, Nav, Button } from 'react-bootstrap';
@@ -80,7 +80,9 @@ class MainView extends React.Component {
 							<Navbar.Collapse className="justify-content-end">
 								<Nav className="justify-content-end">
 									<Nav.Link href="/">Home</Nav.Link>
-									<Nav.Link href="/profile">My Account</Nav.Link>
+									<Link to="/profile">
+										<Button variant="link">My account</Button>
+									</Link>
 									<Nav.Link onClick={() => this.logOut()}>Log Out</Nav.Link>
 								</Nav>
 							</Navbar.Collapse>

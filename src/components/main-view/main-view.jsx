@@ -81,7 +81,7 @@ class MainView extends React.Component {
 							<Navbar.Collapse className="justify-content-end">
 								<Nav className="justify-content-end">
 									<Nav.Link href="/">Home</Nav.Link>
-									<Nav.Link href={`/users/${user}`}>My Account</Nav.Link>
+									<Nav.Link href={`/update/${user}`}>My Account</Nav.Link>
 									<Nav.Link onClick={() => this.logOut()}>Log Out</Nav.Link>
 								</Nav>
 							</Navbar.Collapse>
@@ -148,7 +148,7 @@ class MainView extends React.Component {
 							</Col>
 						}} />
 
-						<Route path="/users/:user" render={({ history }) => {
+						<Route path="/users/:userId" render={({ history }) => {
 							if (!user) return <Col md={6}>
 								<LoginView onLoggedIn={user => this.onLoggedIn(user)} />
 							</Col>
@@ -161,7 +161,7 @@ class MainView extends React.Component {
 
 						}} />
 
-						<Route path="/update/:user" render={({ history }) => {
+						<Route path="/update/:userId" render={({ history }) => {
 							if (!user) return <Col md={6}>
 								<LoginView onLoggedIn={user => this.onLoggedIn(user)} />
 							</Col>

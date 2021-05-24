@@ -74,17 +74,24 @@ class MainView extends React.Component {
 		return (
 			<div className="main-div">
 				<Router>
-					<Navbar className="navbar navbar-light bg-light">
-						<Navbar.Brand>My Flix</Navbar.Brand>
-						<Navbar.Toggle />
-						<Navbar.Collapse className="justify-content-end">
-							<Nav className="justify-content-end">
-								<Nav.Link href="/">Home</Nav.Link>
-								<Nav.Link href={`/users/${user.Username}`}>My Account</Nav.Link>
-								<Nav.Link onClick={() => this.logOut()}>Log Out</Nav.Link>
-							</Nav>
-						</Navbar.Collapse>
-					</Navbar>
+					{user ? (
+						<Navbar className="navbar navbar-light bg-light">
+							<Navbar.Brand>My Flix</Navbar.Brand>
+							<Navbar.Toggle />
+							<Navbar.Collapse className="justify-content-end">
+								<Nav className="justify-content-end">
+									<Nav.Link href="/">Home</Nav.Link>
+									<Nav.Link href={`/users/${user}`}>My Account</Nav.Link>
+									<Nav.Link onClick={() => this.logOut()}>Log Out</Nav.Link>
+								</Nav>
+							</Navbar.Collapse>
+						</Navbar>
+					) : (
+						<Navbar className="navbar navbar-light bg-light">
+							<Navbar.Brand>My Flix</Navbar.Brand>
+							<Navbar.Toggle />
+						</Navbar>
+					)}
 					<Row className="main-view justify-content-md-center">
 
 						<Route exact path='/' render={() => {

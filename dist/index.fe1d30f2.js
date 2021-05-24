@@ -21953,51 +21953,51 @@ class MainView extends _reactDefault.default.Component {
                 lineNumber: 76
             },
             __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar, {
+        }, user ? /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar, {
             className: "navbar navbar-light bg-light",
-            __source: {
-                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
-                lineNumber: 77
-            },
-            __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar.Brand, {
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
                 lineNumber: 78
             },
             __self: this
-        }, "My Flix"), /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar.Toggle, {
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar.Brand, {
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
                 lineNumber: 79
+            },
+            __self: this
+        }, "My Flix"), /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar.Toggle, {
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
+                lineNumber: 80
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar.Collapse, {
             className: "justify-content-end",
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
-                lineNumber: 80
+                lineNumber: 81
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Nav, {
             className: "justify-content-end",
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
-                lineNumber: 81
+                lineNumber: 82
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Nav.Link, {
             href: "/",
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
-                lineNumber: 82
+                lineNumber: 83
             },
             __self: this
         }, "Home"), /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Nav.Link, {
-            href: `/users/${user.Username}`,
+            href: `/users/${user}`,
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
-                lineNumber: 83
+                lineNumber: 84
             },
             __self: this
         }, "My Account"), /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Nav.Link, {
@@ -22005,14 +22005,33 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
-                lineNumber: 84
+                lineNumber: 85
             },
             __self: this
-        }, "Log Out")))), /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
+        }, "Log Out")))) : /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar, {
+            className: "navbar navbar-light bg-light",
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
+                lineNumber: 90
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar.Brand, {
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
+                lineNumber: 91
+            },
+            __self: this
+        }, "My Flix"), /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar.Toggle, {
+            __source: {
+                fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
+                lineNumber: 92
+            },
+            __self: this
+        })), /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
             className: "main-view justify-content-md-center",
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
-                lineNumber: 88
+                lineNumber: 95
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22033,7 +22052,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
-                lineNumber: 90
+                lineNumber: 97
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22048,7 +22067,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
-                lineNumber: 100
+                lineNumber: 107
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22072,7 +22091,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
-                lineNumber: 107
+                lineNumber: 114
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22097,7 +22116,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
-                lineNumber: 119
+                lineNumber: 126
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22123,7 +22142,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
-                lineNumber: 132
+                lineNumber: 139
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22146,7 +22165,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
-                lineNumber: 144
+                lineNumber: 151
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22169,7 +22188,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
-                lineNumber: 157
+                lineNumber: 164
             },
             __self: this
         })))));
@@ -30601,7 +30620,7 @@ DirectorView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-router-dom":"1PMSK","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./director-view.scss":"4azn3","prop-types":"4dfy5"}],"4azn3":[function() {},{}],"4IsP5":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-router-dom":"1PMSK","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","prop-types":"4dfy5","./director-view.scss":"4azn3"}],"4azn3":[function() {},{}],"4IsP5":[function(require,module,exports) {
 var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -30781,7 +30800,7 @@ GenreView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-router-dom":"1PMSK","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./genre-view.scss":"61sFv","prop-types":"4dfy5"}],"61sFv":[function() {},{}],"j040M":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-router-dom":"1PMSK","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","prop-types":"4dfy5","./genre-view.scss":"61sFv"}],"61sFv":[function() {},{}],"j040M":[function(require,module,exports) {
 var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -31093,7 +31112,7 @@ ProfileView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","axios":"7rA65","react-bootstrap/Form":"6A5ko","react-router-dom":"1PMSK","react-bootstrap/Card":"1CZWQ","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./profile-view.scss":"6Loy2","prop-types":"4dfy5"}],"6Loy2":[function() {},{}],"5tjPc":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap/Button":"1ru0l","axios":"7rA65","react-bootstrap/Form":"6A5ko","react-router-dom":"1PMSK","react-bootstrap/Card":"1CZWQ","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","prop-types":"4dfy5","./profile-view.scss":"6Loy2"}],"6Loy2":[function() {},{}],"5tjPc":[function(require,module,exports) {
 var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

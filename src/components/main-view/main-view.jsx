@@ -148,7 +148,7 @@ class MainView extends React.Component {
 							</Col>
 						}} />
 
-						<Route path="/users/:userId" render={({ history }) => {
+						<Route path="/users/:user" render={({ history }) => {
 							if (!user) return <Col md={6}>
 								<LoginView onLoggedIn={user => this.onLoggedIn(user)} />
 							</Col>
@@ -161,7 +161,7 @@ class MainView extends React.Component {
 
 						}} />
 
-						<Route path="/update/:userId" render={({ history }) => {
+						<Route path="/update/:user" render={({ history }) => {
 							if (!user) return <Col md={6}>
 								<LoginView onLoggedIn={user => this.onLoggedIn(user)} />
 							</Col>

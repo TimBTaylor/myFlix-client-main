@@ -80,7 +80,7 @@ class MainView extends React.Component {
 							<Navbar.Collapse className="justify-content-end">
 								<Nav className="justify-content-end">
 									<Nav.Link href="/">Home</Nav.Link>
-									<Nav.Link href={"/profile"}>My Account</Nav.Link>
+									<Nav.Link href="/profile">My Account</Nav.Link>
 									<Nav.Link onClick={() => this.logOut()}>Log Out</Nav.Link>
 								</Nav>
 							</Navbar.Collapse>

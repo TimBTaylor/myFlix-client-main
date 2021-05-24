@@ -21990,8 +21990,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            id: "nav-button",
-            variant: "link",
+            className: "btn-light",
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
                 lineNumber: 84
@@ -22005,8 +22004,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            id: "nav-button",
-            variant: "link",
+            className: "btn-light",
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
                 lineNumber: 87
@@ -22019,10 +22017,9 @@ class MainView extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            id: "nav-button",
             onClick: ()=>this.logOut()
             ,
-            variant: "link",
+            className: "btn-light",
             __source: {
                 fileName: "/Users/timtaylor/Documents/myFlix-client-main/src/components/main-view/main-view.jsx",
                 lineNumber: 90
@@ -41702,4 +41699,4 @@ exports.devToolsEnhancer = typeof window !== 'undefined' && window.__REDUX_DEVTO
 
 },{"redux":"7panR"}],"4Th70":[function() {},{}]},["1j6wU","4MMS0","21OAY"], "21OAY", "parcelRequire279c")
 
-//# sourceMappingURL=index.fe1d30f2.js.map
+//# sourceMappingURL=index.HASH_REF_779cdf4dcc137feed9887ddbfe1d30f2.js.map

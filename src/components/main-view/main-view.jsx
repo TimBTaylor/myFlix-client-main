@@ -11,7 +11,8 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Navbar, Nav, Button } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view'
@@ -79,11 +80,15 @@ class MainView extends React.Component {
 							<Navbar.Brand>My Flix</Navbar.Brand>
 							<Navbar.Collapse className="justify-content-end">
 								<Nav className="justify-content-end">
-									<Nav.Link href="/">Home</Nav.Link>
-									<Link to="/profile">
-										<Button variant="link">My account</Button>
+									<Link to="/">
+										<Button id="nav-button" variant="link">Home</Button>
 									</Link>
-									<Nav.Link onClick={() => this.logOut()}>Log Out</Nav.Link>
+									<Link to="/profile" >
+										<Button id="nav-button" variant="link">My account</Button>
+									</Link>
+									<Link>
+										<Button id="nav-button" onClick={() => this.logOut()} variant="link">Log Out</Button>
+									</Link>
 								</Nav>
 							</Navbar.Collapse>
 						</Navbar>

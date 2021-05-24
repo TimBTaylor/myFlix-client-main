@@ -1,0 +1,7 @@
+.navbar {
+  margin-bottom: 10px;
+}
+
+.nav-button {
+  color: #7d7c7d;
+}

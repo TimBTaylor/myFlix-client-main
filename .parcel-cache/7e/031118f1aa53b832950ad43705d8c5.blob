@@ -1,0 +1,23 @@
+.navbar {
+  margin-bottom: 10px;
+}
+
+.nav-button {
+  color: #7d7c7d;
+}
+
+.nav-button:hover {
+  color: black;
+}
+
+Button {
+  color: #7d7c7d;
+}
+
+Button:hover {
+  color: black;
+}
+
+Link {
+  color: black;
+}

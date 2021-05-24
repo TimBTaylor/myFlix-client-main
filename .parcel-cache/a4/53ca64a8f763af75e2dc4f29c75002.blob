@@ -216,15 +216,14 @@ h5 {
 .update-intro {
   text-align: center;
 }
-#nav-button {
-  color: #7d7c7d;
+.navbar {
+  margin-bottom: 10px;
 }
 
-#nav-button:hover {
-  text-decoration: none;
-  color: black;
+.nav-button {
+  color: #7d7c7d;
 }
 .body {
   background-color: #CECECE;
 }
-/*# sourceMappingURL=index.53681a74.css.map */
+/*# sourceMappingURL=index.HASH_REF_533487eabd72991ff818d0dc53681a74.css.map */
